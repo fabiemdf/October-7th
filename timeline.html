@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A detailed timeline of the October 7th, 2023 attacks in southern Israel, documenting the events as they unfolded.">
+  
+  <!-- Open Graph tags for better social sharing -->
+  <meta property="og:title" content="October 7th Timeline - Hour by Hour">
+  <meta property="og:description" content="A chronological account of the October 7th, 2023 attacks in southern Israel.">
+  <meta property="og:url" content="https://october7memorial.org/timeline.html">
+  <meta property="og:image" content="https://october7memorial.org/images/timeline-cover.jpg">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>October 7th Tragedy – Timeline</title>
+  
+  <style>
+    /* Additional styles specific to the timeline page */
+    .timeline-intro {
+      max-width: 800px;
+      margin: 0 auto var(--space-xl);
+      text-align: center;
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .timeline-intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .interactive-timeline {
+      position: relative;
+      margin: 3rem 0;
+      padding-left: 50px;
+    }
+    
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 20px;
+      width: 4px;
+      background-color: var(--primary-color);
+      border-radius: 2px;
+    }
+    
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .timeline-entry.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .timeline-marker {
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 36px;
+      height: 36px;
+      background-color: var(--light-text);
+      border: 4px solid var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-marker:hover {
+      transform: scale(1.1);
+      background-color: var(--primary-color);
+      color: var(--light-text);
+    }
+    
+    .timeline-marker.active {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+    }
+    
+    .timeline-time {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .timeline-time-tag {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-right: 1rem;
+      font-size: 1rem;
+    }
+    
+    .timeline-content {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-left: 4px solid var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .timeline-media {
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .timeline-media img {
+      width: 100%;
+      display: block;
+    }
+    
+    .timeline-media figcaption {
+      padding: 1rem;
+      background-color: var(--subtle-bg);
+      font-size: 0.9rem;
+    }
+    
+    .witness-account {
+      background-color: var(--subtle-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      font-style: italic;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+    
+    .witness-account::before {
+      content: '"';
+      font-size: 4rem;
+      color: var(--primary-color);
+      opacity: 0.3;
+      position: absolute;
+      top: -15px;
+      left: 10px;
+    }
+    
+    .witness-account-source {
+      font-style: normal;
+      text-align: right;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    
+    .location-tag {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: var(--dark-bg);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+    }
+    
+    .timeline-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .timeline-gallery img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .timeline-gallery img:hover {
+      transform: scale(1.05);
+    }
+    
+    .timeline-nav {
+      position: sticky;
+      top: 1rem;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      z-index: 10;
+    }
+    
+    .timeline-nav-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-nav-items {
+      display: flex;
+      overflow-x: auto;
+      gap: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    
+    .timeline-nav-item {
+      white-space: nowrap;
+      padding: 6px 12px;
+      background-color: var(--subtle-bg);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-nav-item:hover, .timeline-nav-item.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .content-warning {
+      background-color: rgba(211, 47, 47, 0.1);
+      border-left: 4px solid #d32f2f;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+    }
+    
+    .content-warning h3 {
+      color: #d32f2f;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .content-warning p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .interactive-timeline {
+        padding-left: 30px;
+      }
+      
+      .timeline-line {
+        left: 15px;
+      }
+      
+      .timeline-marker {
+        left: -30px;
+        width: 30px;
+        height: 30px;
+      }
+      
+      .timeline-content {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible skip link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <header>
+    <h1>Timeline of October 7th</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="timeline.html" aria-current="page">Timeline</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li><a href="memorial.html">Memorial</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <main id="main-content">
+      <div class="timeline-intro">
+        <h2>Chronology of October 7th, 2023</h2>
+        <p>This timeline documents the events of October 7th, 2023, as they unfolded hour by hour. In one devastating day, nearly 1,200 lives were lost, over 250 people were taken hostage, and thousands were left injured, traumatized, and displaced.</p>
+        <div class="content-warning">
+          <h3>Content Warning</h3>
+          <p>The following timeline contains descriptions of violence and traumatic events that may be distressing. Reader discretion is advised.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-nav">
+        <div class="timeline-nav-title">Jump to Time:</div>
+        <div class="timeline-nav-items">
+          <span class="timeline-nav-item" data-time="0600">06:00 AM</span>
+          <span class="timeline-nav-item" data-time="0630">06:30 AM</span>
+          <span class="timeline-nav-item" data-time="0715">07:15 AM</span>
+          <span class="timeline-nav-item" data-time="0730">07:30 AM</span>
+          <span class="timeline-nav-item" data-time="0830">08:30 AM</span>
+          <span class="timeline-nav-item" data-time="0900">09:00 AM</span>
+          <span class="timeline-nav-item" data-time="1045">10:45 AM</span>
+          <span class="timeline-nav-item" data-time="1200">12:00 PM</span>
+          <span class="timeline-nav-item" data-time="1430">02:30 PM</span>
+          <span class="timeline-nav-item" data-time="1700">05:00 PM</span>
+          <span class="timeline-nav-item" data-time="2000">08:00 PM</span>
+          <span class="timeline-nav-item" data-time="2359">11:59 PM</span>
+        </div>
+      </div>
+      
+      <section class="interactive-timeline" aria-label="Timeline of events on October 7th, 2023">
+        <div class="timeline-line"></div>
+        
+        <!-- 06:00 AM - Border Breach -->
+        <article id="0600" class="timeline-entry">
+          <div class="timeline-marker" title="06:00 AM">
+            <span>1</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">06:00 AM</span>
+            <span>Border Breach</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">Gaza Border</span>
+            <span class="location-tag">Southern Communities</span>
+            
+            <p>Before dawn's first light, terrorists tore through the Gaza fence, pouring across fields with gunfire and rockets, plunging border communities into chaos. Families awakened to shattering windows and the roar of engines as the calm of the night was ripped away.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="Smoke rising as terrorists breach Israel's southern fence">
+              <figcaption>Smoke rises as terrorists breach the southern border fence. Photo: Reuters/Ashraf Amra</figcaption>
+            </figure>
+            
+            <p>In Kibbutz Be'eri, Nahal Oz, and Kerem Shalom, families were torn from their slumber by deafening blasts and the staccato rattle of gunfire. Parents raced to sealed safe rooms clutching children; neighbors banged on doors, warning of the onslaught.</p>
+            
+            <div class="witness-account">
+              <p>We woke to the sound of explosions. At first, I thought it was another rocket attack, but then we heard gunfire—much closer than we'd ever heard before. My husband looked outside and just said, "They're here." We grabbed our children and ran to the safe room.</p>
+              <div class="witness-account-source">— Sarah K., Resident of Netiv HaAsara</div>
+            </div>
+            
+            <p>By the time the first sirens finally cut through the chaos, the tranquil dawn had been transformed into a scene of terror and disbelief—an indelible scar on the morning's calm.</p>
+          </div>
+        </article>
+        
+        <!-- 06:30 AM - Initial Alerts -->
+        <article id="0630" class="timeline-entry">
+          <div class="timeline-marker" title="06:30 AM">
+            <span>2</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">06:30 AM</span>
+            <span>Initial Alerts</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">Multiple Communities</span>
+            
+            <p>The Red Alert warning system activated across dozens of southern communities as rockets streamed from Gaza. Emergency services began receiving distressed calls reporting gunfire and explosions in communities near the border.</p>
+            
+            <p>Security forces, initially responding to what they believed was a routine rocket attack, quickly realized the unprecedented nature of the assault as reports of armed infiltrators flooded emergency channels. The scope of the attack became apparent as multiple breach points were identified along the border fence.</p>
+            
+            <div class="timeline-gallery">
+              <img src="/api/placeholder/200/150" alt="Red Alert warning screen showing multiple alerts" title="Red Alert warning system screen">
+              <img src="/api/placeholder/200/150" alt="Emergency responders mobilizing" title="First responders preparing to deploy">
+              <img src="/api/placeholder/200/150" alt="Security camera footage of fence breach" title="Security footage of breach">
+            </div>
+            
+            <p>Military units began mobilizing, but the scale and coordination of the attack created confusion and delayed response times. Civilians in affected areas were instructed to remain in sheltered spaces and lock their doors.</p>
+          </div>
+        </article>
+        
+        <!-- 07:15 AM - First Responders -->
+        <article id="0715" class="timeline-entry">
+          <div class="timeline-marker" title="07:15 AM">
+            <span>3</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">07:15 AM</span>
+            <span>First Responders Mobilize</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">Southern Region</span>
+            
+            <p>Uniformed medics and volunteers, hearts pounding, darted through debris-strewn streets; their sirens mingled with cries for help as they fought against time to reach the wounded.</p>
+            
+            <p>Emergency medical teams mobilized from across the country, with ambulances racing toward the south despite the immense danger. Many first responders would later discover they were driving directly into active combat zones.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="Emergency medical teams tending to wounded">
+              <figcaption>Medical teams providing emergency care under difficult conditions. Photo: Magen David Adom</figcaption>
+            </figure>
+            
+            <div class="witness-account">
+              <p>We received the call and immediately headed south. No one told us how bad it was. When we arrived, it wasn't just injured people—we were in the middle of an active terrorist situation. We had to provide care while gunfire was all around us. I've never experienced anything like it in 15 years as a paramedic.</p>
+              <div class="witness-account-source">— Daniel L., Magen David Adom Paramedic</div>
+            </div>
+            
+            <p>Communication networks became overwhelmed as thousands attempted to contact loved ones and emergency services simultaneously. Many responders lost contact with dispatch centers, forcing them to make life-or-death decisions without guidance or backup.</p>
+          </div>
+        </article>
+        
+        <!-- 07:30 AM - Kibbutz Be'eri Overrun -->
+        <article id="0730" class="timeline-entry">
+          <div class="timeline-marker" title="07:30 AM">
+            <span>4</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">07:30 AM</span>
+            <span>Kibbutz Be'eri Overrun</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">Be'eri</span>
+            
+            <p>By sunrise, the tranquil lanes of Kibbutz Be'eri had become a killing ground. Terrorists moved methodically through the community, targeting homes where families had sought shelter.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="Ruined home in Kibbutz Be'eri after the attack">
+              <figcaption>Ruins of a house destroyed during the Be'eri assault. Source: Washington Post/Alamy</figcaption>
+            </figure>
+            
+            <p>Residents barricaded themselves in safe rooms as attackers moved door to door. Some families remained hidden for hours, communicating only by whispered messages on phones with rapidly draining batteries. Parents struggled to keep young children quiet as terrorists searched for hidden residents.</p>
+            
+            <p>The kibbutz security team, vastly outnumbered, fought to protect their community until reinforcements could arrive. Many died defending their neighbors and loved ones.</p>
+            
+            <div class="witness-account">
+              <p>We were in the safe room for 14 hours. My husband held the door closed as they tried to break in. The children were under the bed. They kept shouting in Arabic and firing at the door. I was certain we wouldn't survive. When the soldiers finally reached us, our door had more than 40 bullet holes.</p>
+              <div class="witness-account-source">— Maya R., Be'eri resident</div>
+            </div>
+            
+            <p>Over 100 residents of Be'eri would lose their lives by the end of the day, making it one of the hardest-hit communities in the attack.</p>
+          </div>
+        </article>
+        
+        <!-- 08:30 AM - Widespread Attacks -->
+        <article id="0830" class="timeline-entry">
+          <div class="timeline-marker" title="08:30 AM">
+            <span>5</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">08:30 AM</span>
+            <span>Widespread Attacks</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">Multiple Locations</span>
+            
+            <p>Echoes of gunfire reverberated across kibbutzim and farmhouses. Parents pressed children to their chests in darkness, praying for dawn to bring safety rather than more heartbreak.</p>
+            
+            <p>By this time, the attacks had spread to multiple communities, the Nova music festival, and military outposts. The full scale of the coordinated assault became apparent as reports flooded in from numerous locations simultaneously.</p>
+            
+            <div class="timeline-gallery">
+              <img src="/api/placeholder/200/150" alt="Map showing locations of attacks" title="Map of attack locations">
+              <img src="/api/placeholder/200/150" alt="Damaged buildings in Kfar Aza" title="Destruction in Kfar Aza">
+              <img src="/api/placeholder/200/150" alt="Abandoned vehicles at Nova Festival site" title="Nova Festival aftermath">
+            </div>
+            
+            <p>Military reinforcements began arriving at some communities, but the widespread nature of the attacks meant many areas remained vulnerable. Helicopters that attempted to evacuate wounded residents came under fire, complicating rescue efforts.</p>
+            
+            <div class="witness-account">
+              <p>We could hear shooting from all directions. Our community WhatsApp group was filled with desperate messages. "They're in my house." "Help, we're trapped." "Has anyone seen my daughter?" People we'd known our whole lives were dying, and we could do nothing but hide and pray.</p>
+              <div class="witness-account-source">— Avi S., Resident of Nahal Oz</div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- 09:00 AM - Hospital Crisis -->
+        <article id="0900" class="timeline-entry">
+          <div class="timeline-marker" title="09:00 AM">
+            <span>6</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">09:00 AM</span>
+            <span>Hospital Crisis</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">Soroka Medical Center</span>
+            <span class="location-tag">Barzilai Hospital</span>
+            
+            <p>Hospital corridors overflowed with bloodied stretchers and tear-streaked faces. Doctors worked without pause, their white coats stained crimson, each breath a prayer for another life saved.</p>
+            
+            <p>Southern hospitals began implementing mass casualty protocols as the wounded arrived by ambulance, helicopter, and private vehicles. Operating rooms ran continuously as medical staff worked through overwhelming numbers of severely injured patients.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="Medical staff treating wounded at Soroka Medical Center">
+              <figcaption>Medical teams at Soroka Medical Center treating multiple casualties. Photo: Times of Israel</figcaption>
+            </figure>
+            
+            <p>Additional medical personnel were called in from across the country, with many doctors and nurses arriving voluntarily after seeing news reports. Blood banks issued emergency appeals for donations as supplies ran critically low.</p>
+            
+            <p>Amidst the medical crisis, hospitals also had to contend with security concerns as family members desperately searched for loved ones and security teams remained vigilant against potential infiltrators targeting medical facilities.</p>
+            
+            <div class="witness-account">
+              <p>I've been a trauma surgeon for 20 years, including during wars and terror attacks, but I've never seen anything like this. The injuries were horrific—not just gunshot wounds but evidence of extreme brutality. We worked for 36 hours straight. Every time we saved someone, ten more arrived needing help.</p>
+              <div class="witness-account-source">— Dr. Eitan K., Soroka Medical Center</div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- 10:45 AM - Government Response -->
+        <article id="1045" class="timeline-entry">
+          <div class="timeline-marker" title="10:45 AM">
+            <span>7</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">10:45 AM</span>
+            <span>Government Response</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">Jerusalem</span>
+            <span class="location-tag">Tel Aviv</span>
+            
+            <p>In Jerusalem's corridors of power, leaders convened under the weight of grief. Faces around the table bore the sorrow of a nation, resolving to stand firm amidst despair.</p>
+            
+            <p>The Israeli government declared a state of emergency and officially announced the country was at war. Reserve units were mobilized on a massive scale, with thousands of soldiers receiving emergency call-up notices.</p>
+            
+            <p>Crisis management centers activated across government ministries to coordinate the civilian response, including evacuation plans for communities near the Gaza border and emergency housing solutions for displaced residents.</p>
+            
+            <p>International allies were briefed on the situation as diplomatic channels opened to secure support. Search and rescue teams from several countries began preparations to assist with recovery efforts.</p>
+            
+            <div class="timeline-gallery">
+              <img src="/api/placeholder/200/150" alt="Emergency cabinet meeting" title="Emergency government meeting">
+              <img src="/api/placeholder/200/150" alt="Military mobilization center" title="Reserve soldiers reporting for duty">
+              <img src="/api/placeholder/200/150" alt="International support arriving" title="International support teams arriving">
+            </div>
+          </div>
+        </article>
+        
+        <!-- 12:00 PM - National Emergency -->
+        <article id="1200" class="timeline-entry">
+          <div class="timeline-marker" title="12:00 PM">
+            <span>8</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">12:00 PM</span>
+            <span>National Emergency</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">Nationwide</span>
+            
+            <p>A national emergency swept the land. Streets fell silent as shops shuttered, communities united in a collective hush—a shared heartbeat echoing loss and solidarity.</p>
+            
+            <p>The Home Front Command issued nationwide safety instructions, with schools closed and public gatherings canceled. The country's airspace was restricted, with many international flights either canceled or diverted.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="Empty streets in Tel Aviv during the national emergency">
+              <figcaption>Normally busy streets in Tel Aviv remained empty as the nation responded to the crisis. Photo: Getty Images</figcaption>
+            </figure>
+            
+            <p>Citizens across Israel mobilized to support affected communities. Blood donation centers reported lines stretching for blocks, and collection points for emergency supplies appeared in cities nationwide.</p>
+            
+            <p>By noon, the true scale of the tragedy was becoming apparent, though the full count of casualties and hostages would not be known for days. Many families still had no word from loved ones in the affected areas.</p>
+            
+            <div class="witness-account">
+              <p>I stood in line for three hours to donate blood. No one complained. People brought food and water for those waiting. Strangers became family that day. An elderly woman next to me kept making calls trying to reach her grandson at the Nova festival. We all took turns letting her use our phone chargers. That day showed the worst of humanity but also the best.</p>
+              <div class="witness-account-source">— Talia M., Tel Aviv resident</div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- 02:30 PM - Aid Mobilization -->
+        <article id="1430" class="timeline-entry">
+          <div class="timeline-marker" title="02:30 PM">
+            <span>9</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">02:30 PM</span>
+            <span>Aid Mobilization</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">Southern Region</span>
+            
+            <p>Aid trucks rumbled south, carrying blankets, water, and hope. Each delivery brought tears of relief as strangers became family in the crucible of compassion.</p>
+            
+            <p>Convoys of emergency supplies from government agencies, NGOs, and private citizens began reaching staging areas near affected communities. Military escorts protected aid vehicles as they navigated through areas still not fully secured.</p>
+            
+            <div class="timeline-gallery">
+              <img src="/api/placeholder/200/150" alt="Aid trucks being loaded with supplies" title="Loading emergency supplies">
+              <img src="/api/placeholder/200/150" alt="Volunteers sorting donations" title="Volunteers organizing donations">
+              <img src="/api/placeholder/200/150" alt="Aid distribution center" title="Distribution center operations">
+            </div>
+            
+            <p>Temporary shelters expanded capacity as the number of displaced persons grew. Hotels across central and northern Israel opened doors to evacuees, many offering free accommodation.</p>
+            
+            <p>Trauma specialists and mental health professionals mobilized to provide immediate psychological support to survivors, first responders, and families of victims.</p>
+            
+            <div class="witness-account">
+              <p>We brought whatever we could gather—water, food, clothes, toys for the children. When we arrived at the evacuation center, what struck me was the silence. Hundreds of people, but so quiet. They were in shock. A small boy asked me if I had seen his parents. I stayed with him until social services could help. I still wonder about him every day.</p>
+              <div class="witness-account-source">— Moshe B., Volunteer aid worker</div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- 05:00 PM - Evacuations -->
+        <article id="1700" class="timeline-entry">
+          <div class="timeline-marker" title="05:00 PM">
+            <span>10</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">05:00 PM</span>
+            <span>Mass Evacuations</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">Border Communities</span>
+            
+            <p>Evacuation caravans wound through dusty plains; grandparents clasped grandchildren's hands, leaving behind ruins for the promise of shelter and safety.</p>
+            
+            <p>As military forces secured additional communities, organized evacuations began for all residents within range of Gaza. Convoy after convoy of buses, military vehicles, and private cars moved people northward to safety.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="Evacuation convoy leaving southern communities">
+              <figcaption>Families evacuate from border communities under military escort. Photo: IDF Spokesperson's Unit</figcaption>
+            </figure>
+            
+            <p>Many evacuees left with only the clothes they were wearing, having spent hours in safe rooms without the opportunity to pack belongings. Children carried favorite toys while adults carried the weight of uncertainty about whether they would ever return to their homes.</p>
+            
+            <p>Special evacuation operations were arranged for elderly and disabled residents, though some refused to leave despite the dangers. Emergency workers faced difficult decisions about those too injured to move or communities still under threat.</p>
+            
+            <div class="witness-account">
+              <p>We had five minutes to get on the bus. No time to pack, just grab the children and go. My daughter asked when we were coming back home, and I couldn't answer her. Our neighbor of 20 years was killed that morning. Our house was burned. There is nothing to go back to, but how do you explain that to a six-year-old?</p>
+              <div class="witness-account-source">— Noa L., Evacuee from Kfar Aza</div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- 08:00 PM - Nightfall -->
+        <article id="2000" class="timeline-entry">
+          <div class="timeline-marker" title="08:00 PM">
+            <span>11</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">08:00 PM</span>
+            <span>Nightfall</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">Southern Region</span>
+            
+            <p>Lanterns flickered in the gathering dusk, guiding weary souls along silent roads. Soldiers and civilians shared quiet moments of kindness beneath a bruised sky.</p>
+            
+            <p>As darkness fell, military operations intensified to secure remaining areas and rescue those still trapped. Night vision equipment and flares illuminated the continuing efforts to reach every home and shelter.</p>
+            
+            <div class="timeline-gallery">
+              <img src="/api/placeholder/200/150" alt="Soldiers with night vision equipment" title="Night operations">
+              <img src="/api/placeholder/200/150" alt="Emergency lights at command post" title="Command post at night">
+              <img src="/api/placeholder/200/150" alt="Evacuees arriving at reception center" title="Arrival at reception center">
+            </div>
+            
+            <p>Search and rescue teams continued their grim task of recovering victims, while ZAKA volunteers worked to ensure proper treatment of the dead according to Jewish tradition.</p>
+            
+            <p>The nation held its breath as the first lists of confirmed casualties began to circulate, along with growing concerns about those taken hostage into Gaza. Families gathered at designated centers seeking information about missing loved ones.</p>
+            
+            <div class="witness-account">
+              <p>We worked by flashlight, moving from house to house. Each doorway was a moment of dread—what would we find inside? Sometimes survivors, sometimes... worse. But we couldn't stop. There were still people waiting to be found, waiting for someone to reach them.</p>
+              <div class="witness-account-source">— Staff Sergeant Yonatan K., IDF Search and Rescue</div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- 11:59 PM - Day's End -->
+        <article id="2359" class="timeline-entry">
+          <div class="timeline-marker" title="11:59 PM">
+            <span>12</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">11:59 PM</span>
+            <span>Day's End</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">Nationwide</span>
+            
+            <p>Across Israel, candles glowed in windows and courtyards. In that gentle luminescence, a fragile vow was born: to remember, to mourn, and to rebuild.</p>
+            
+            <p>As the first day of the crisis drew to a close, the full extent of the tragedy remained unknown. Families across the nation waited for news, hoping against hope that missing loved ones would be found alive.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="Memorial candles lit in Tel Aviv">
+              <figcaption>Spontaneous memorial with candles appeared in cities across Israel. Photo: Reuters</figcaption>
+            </figure>
+            
+            <p>Emergency services continued working through the night, even as the country began to comprehend the scale of what had occurred. Hospitals remained on high alert, treating the wounded and preparing for more arrivals.</p>
+            
+            <p>Across social media and news broadcasts, stories of heroism emerged alongside the horror—accounts of civilians who protected neighbors, first responders who ran toward danger, and communities that came together in the darkest of times.</p>
+            
+            <div class="witness-account">
+              <p>That night, I couldn't sleep. No one could. We sat in silence, listening to the news, waiting for phone calls. My brother was still missing. Every time the phone rang, my heart stopped. We lit candles in the window—one for everyone we knew who was gone, one for those still missing, and one for hope. Sometimes hope is all you have left.</p>
+              <div class="witness-account-source">— Michal A., Jerusalem resident</div>
+            </div>
+            
+            <p>As midnight approached, a nation forever changed began to face the reality of a new day—one that would bring both mourning and the difficult path of healing and resilience.</p>
+          </div>
+        </article>
+      </section>
+      
+      <div class="reflection-section">
+        <h2>A Day That Changed a Nation</h2>
+        <p>October 7th, 2023 marked a profound turning point in Israeli history. The events of this single day left scars both visible and invisible—in communities destroyed, families torn apart, and a collective national trauma that continues to reverberate.</p>
+        <p>Yet amid the darkest moments emerged extraordinary courage, compassion, and resilience. Neighbors risked their lives for one another. Strangers opened their homes to those displaced. First responders worked beyond exhaustion to save lives. These acts of humanity remind us that even in our most vulnerable moments, the human spirit endures.</p>
+        <p>This timeline serves as both documentation and memorial—a commitment to remember those lost, honor those who survived, and ensure that their stories are told for generations to come.</p>
+      </div>
+    </main>
+  </div>
+  
+  <footer>
+    <div class="footer-links">
+      <a href="about.html">About the Initiative</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="accessibility.html">Accessibility</a>
+    </div>
+    <p>© 2025 Remembrance Initiative</p>
+    <p>This memorial website is maintained with support from families, survivors, and community organizations.</p>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animate timeline entries on scroll
+      const timelineEntries = document.querySelectorAll('.timeline-entry');
+      const timelineNav = document.querySelectorAll('.timeline-nav-item');
+      
+      // Initial check for visible elements
+      checkVisibility();
+      
+      // Check visibility on scroll
+      window.addEventListener('scroll', function() {
+        checkVisibility();
+      });
+      
+      function checkVisibility() {
+        timelineEntries.forEach(entry => {
+          const entryTop = entry.getBoundingClientRect().top;
+          const entryBottom = entry.getBoundingClientRect().bottom;
+          const windowHeight = window.innerHeight;
+          
+          // If entry is in viewport
+          if (entryTop < windowHeight * 0.85 && entryBottom > 0) {
+            entry.classList.add('visible');
+            
+            // Highlight corresponding nav item
+            const entryId = entry.id;
+            timelineNav.forEach(navItem => {
+              if (navItem.dataset.time === entryId) {
+                navItem.classList.add('active');
+              } else {
+                navItem.classList.remove('active');
+              }
+            });
+          }
+        });
+      }
+      
+      // Timeline navigation functionality
+      timelineNav.forEach(navItem => {
+        navItem.addEventListener('click', function() {
+          const targetTime = this.dataset.time;
+          const targetElement = document.getElementById(targetTime);
+          
+          if (targetElement) {
+            const yOffset = -100; // Offset to account for sticky header
+            const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            
+            window.scrollTo({
+              top: y,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

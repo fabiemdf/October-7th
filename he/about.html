@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="מידע על יוזמת הזיכרון לאירועי 7 באוקטובר, המשימה שלנו, הצוות והמחויבות שלנו לכבד את הקורבנות ולתמוך בניצולים.">
+  
+  <!-- Open Graph tags for better social sharing -->
+  <meta property="og:title" content="אודות יוזמת הזיכרון ל-7 באוקטובר">
+  <meta property="og:description" content="למידו על המשימה שלנו לשמר את זכר אירועי 7 באוקטובר 2023 ולתמוך בניצולים ובמשפחות.">
+  <meta property="og:url" content="https://october7memorial.org/about-he.html">
+  <meta property="og:image" content="https://october7memorial.org/images/about-cover.jpg">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>אסון 7 באוקטובר – אודות היוזמה</title>
+  
+  <style>
+    /* RTL and Hebrew specific styles */
+    body {
+      font-family: 'Segoe UI', 'Arial Hebrew', 'David', 'Times New Roman', sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+    
+    .timeline-item {
+      padding-right: 50px;
+      padding-left: 0;
+    }
+    
+    .timeline-marker {
+      right: -50px;
+      left: auto;
+    }
+    
+    .history-timeline {
+      padding-right: 50px;
+      padding-left: 0;
+    }
+    
+    .timeline-line {
+      right: 20px;
+      left: auto;
+    }
+    
+    .value-icon, .contact-icon, .volunteer-icon {
+      margin: 0 auto var(--space-md);
+    }
+    
+    .quote-text::before {
+      top: -20px;
+      right: -20px;
+      left: auto;
+    }
+    
+    .quote-text::after {
+      bottom: -40px;
+      left: -20px;
+      right: auto;
+    }
+    
+    /* Language switcher */
+    .language-switcher {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 100;
+    }
+    
+    .language-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    
+    .language-btn:hover {
+      background-color: white;
+      color: var(--primary-color);
+    }
+    
+    /* Additional styles specific to the about page */
+    .about-intro {
+      max-width: 800px;
+      margin: 0 auto var(--space-xl);
+      text-align: center;
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .about-intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .mission-section {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: var(--space-xl) var(--space-lg);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--space-xl);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .mission-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .mission-section h2 {
+      color: var(--light-text);
+      border-bottom: none;
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+    
+    .mission-section p {
+      margin-bottom: var(--space-md);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .mission-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      background-image: url('/api/placeholder/1200/600');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-xl) 0;
+    }
+    
+    .value-card {
+      background-color: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition-medium);
+    }
+    
+    .value-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .value-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto var(--space-md);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-color);
+    }
+    
+    .value-icon svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
+    
+    .value-title {
+      margin-bottom: var(--space-sm);
+      color: var(--primary-color);
+    }
+    
+    .team-section {
+      margin: var(--space-xl) 0;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+    
+    .team-member {
+      text-align: center;
+    }
+    
+    .team-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto var(--space-md);
+      border: 3px solid var(--primary-color);
+    }
+    
+    .team-name {
+      margin-bottom: var(--space-xs);
+      color: var(--primary-color);
+    }
+    
+    .team-role {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: var(--space-sm);
+    }
+    
+    .team-bio {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .advisory-board {
+      margin-top: var(--space-xl);
+    }
+    
+    .board-members {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    
+    .board-member {
+      background-color: var(--light-bg);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--border-radius);
+      font-weight: 500;
+    }
+    
+    .timeline-section {
+      margin: var(--space-xl) 0;
+    }
+    
+    .history-timeline {
+      position: relative;
+      padding-right: 50px;
+      margin-top: var(--space-lg);
+    }
+    
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 20px;
+      width: 2px;
+      background-color: var(--primary-color);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+      padding-right: 50px;
+    }
+    
+    .timeline-marker {
+      position: absolute;
+      right: -50px;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      background-color: var(--light-text);
+      border: 2px solid var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    
+    .timeline-date {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: var(--space-xs);
+    }
+    
+    .timeline-content {
+      background-color: var(--light-bg);
+      padding: var(--space-md);
+      border-radius: var(--border-radius);
+      border-right: 3px solid var(--primary-color);
+      border-left: none;
+    }
+    
+    .partners-section {
+      margin: var(--space-xl) 0;
+    }
+    
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+      align-items: center;
+    }
+    
+    .partner-logo {
+      background-color: white;
+      padding: var(--space-md);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      transition: transform var(--transition-fast);
+    }
+    
+    .partner-logo img {
+      max-width: 100%;
+      max-height: 70px;
+      object-fit: contain;
+    }
+    
+    .partner-logo:hover {
+      transform: scale(1.05);
+    }
+    
+    .contact-section {
+      background-color: var(--light-bg);
+      padding: var(--space-xl);
+      border-radius: var(--border-radius);
+      margin: var(--space-xl) 0;
+      text-align: center;
+    }
+    
+    .contact-options {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+      flex-wrap: wrap;
+    }
+    
+    .contact-method {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      box-shadow: var(--box-shadow);
+      width: 280px;
+      text-align: center;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto var(--space-md);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-color);
+    }
+    
+    .contact-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+    
+    .contact-title {
+      margin-bottom: var(--space-sm);
+      color: var(--primary-color);
+    }
+    
+    .contact-detail {
+      margin-bottom: var(--space-md);
+    }
+    
+    .quote-section {
+      position: relative;
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: var(--space-xl);
+      border-radius: var(--border-radius);
+      margin: var(--space-xl) 0;
+      text-align: center;
+    }
+    
+    .quote-content {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+    
+    .quote-text {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: var(--space-md);
+      position: relative;
+    }
+    
+    .quote-text::before, .quote-text::after {
+      content: '"';
+      font-size: 3rem;
+      opacity: 0.5;
+      position: absolute;
+    }
+    
+    .quote-text::before {
+      top: -20px;
+      right: -20px;
+    }
+    
+    .quote-text::after {
+      bottom: -40px;
+      left: -20px;
+    }
+    
+    .quote-author {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .quote-role {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .quote-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      background-image: url('/api/placeholder/1200/600');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    @media (max-width: 768px) {
+      .contact-options {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .timeline-marker {
+        width: 30px;
+        height: 30px;
+        right: -40px;
+      }
+      
+      .history-timeline {
+        padding-right: 40px;
+      }
+      
+      .quote-text {
+        font-size: 1.2rem;
+      }
+      
+      .quote-text::before, .quote-text::after {
+        font-size: 2rem;
+      }
+      
+      .language-switcher {
+        top: 10px;
+        left: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible skip link -->
+  <a href="#main-content" class="skip-link">דלג לתוכן העיקרי</a>
+  
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <a href="about.html" class="language-btn">English</a>
+  </div>
+  
+  <header>
+    <h1>אודות היוזמה</h1>
+    <nav aria-label="ניווט ראשי">
+      <ul>
+        <li><a href="index-he.html">דף הבית</a></li>
+        <li><a href="timeline-he.html">ציר זמן</a></li>
+        <li><a href="stories-he.html">סיפורים</a></li>
+        <li><a href="memorial-he.html">הנצחה</a></li>
+        <li><a href="resources-he.html">משאבים</a></li>
+        <li><a href="about-he.html" aria-current="page">אודות</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <main id="main-content">
+      <div class="about-intro">
+        <h2>יוזמת הזיכרון ל-7 באוקטובר</h2>
+        <p>יוזמת הזיכרון הוקמה לאחר אירועי ה-7 באוקטובר 2023, ומוקדשת לכבד את זכר הקורבנות, לתמוך בניצולים ובמשפחותיהם, ולהבטיח שאירועי היום ההוא יזכרו במדויק ובכבוד.</p>
+      </div>
+      
+      <!-- Mission Section -->
+      <section class="mission-section" aria-labelledby="mission-title">
+        <div class="mission-bg"></div>
+        <div class="mission-content">
+          <h2 id="mission-title">המשימה שלנו</h2>
+          <p>יוזמת הזיכרון ל-7 באוקטובר קיימת כדי לשמר את זכרם של אלה שאיבדו את חייהם, לתמוך באלה ששרדו, ולתעד את האירועים בדיוק היסטורי עבור הדורות הבאים.</p>
+          <p>אנו מאמינים בכוחו של הזיכרון כמעשה של כבוד, חוסן וריפוי. באמצעות יצירת מרחבים - פיזיים ודיגיטליים - להנצחה, עדות וחינוך, אנו פועלים להבטיח שהסיפורים של ה-7 באוקטובר ימשיכו להיות מסופרים בכבוד ובאמת.</p>
+          <p>באמצעות פעילויות הנצחה, תוכניות תמיכה בניצולים, משאבים חינוכיים ומעורבות קהילתית, אנו שואפים להפוך טרגדיה לבסיס להבנה, סולידריות ותקווה.</p>
+        </div>
+      </section>
+      
+      <!-- Values Section -->
+      <section class="values-section" aria-labelledby="values-title">
+        <h2 id="values-title">הערכים שלנו</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">כבוד</h3>
+            <p>אנו מכבדים את כבודו של כל חיים שאבד וכל סיפור שמשותף. כל אדם שהושפע מאירועי ה-7 באוקטובר ראוי להיזכר בכבוד ואנושיות.</p>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                <line x1="9" y1="20" x2="15" y2="20"></line>
+                <line x1="12" y1="4" x2="12" y2="20"></line>
+              </svg>
+            </div>
+            <h3 class="value-title">אמת</h3>
+            <p>אנו מחויבים לדיוק היסטורי ותיעוד עובדתי. בעולם של מידע מוטעה, אנו מספקים עדויות מאומתות ומחקר מעמיק כדי להבטיח ששימור האמת.</p>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">חמלה</h3>
+            <p>אנו ניגשים לעבודה שלנו עם אמפתיה עמוקה לכל מי שנפגע מהטרגדיה. כל תוכנית ומשאב שאנו מפתחים מונחים על ידי הבנה חומלת של טראומה ואבל.</p>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2L4 7l8 5 8-5-8-5z"></path>
+                <path d="M4 14l8 5 8-5"></path>
+                <path d="M4 21l8 5 8-5"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">חוסן</h3>
+            <p>אנו מכירים ומכבדים את החוסן יוצא הדופן שמפגינים ניצולים, משפחות וקהילות. עבודתנו חוגגת את היכולת האנושית לשרוד, לבנות מחדש ולצמוח גם מול אובדן עצום.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Team Section -->
+      <section class="team-section" aria-labelledby="team-title">
+        <h2 id="team-title">הצוות שלנו</h2>
+        <p>יוזמת הזיכרון מובלת על ידי צוות מגוון של אנשי מקצוע המחויבים לכבד את זכר ה-7 באוקטובר בכבוד ומטרה. רבים מחברי הצוות שלנו הם בעלי קשרים אישיים לקהילות שנפגעו.</p>
+        
+        <div class="team-grid">
+          <!-- Team Member 1 -->
+          <div class="team-member">
+            <img src="/api/placeholder/200/200" alt="תמונה של ד״ר שרה כהן" class="team-photo">
+            <h3 class="team-name">ד״ר שרה כהן</h3>
+            <div class="team-role">מנהלת ראשית</div>
+            <p class="team-bio">ד״ר כהן היא היסטוריונית ופעילה קהילתית עם ניסיון של למעלה מ-20 שנה ביוזמות הנצחה וחינוך. עבודתה מתמקדת בשימור זיכרון היסטורי באמצעות מעורבות קהילתית.</p>
+          </div>
+          
+          <!-- Team Member 2 -->
+          <div class="team-member">
+            <img src="/api/placeholder/200/200" alt="תמונה של דניאל לוי" class="team-photo">
+            <h3 class="team-name">דניאל לוי</h3>
+            <div class="team-role">מנהל תמיכה בניצולים</div>
+            <p class="team-bio">פסיכולוג טראומה שעבד רבות עם ניצולי אלימות, דניאל מוביל את תוכניות התמיכה והמשאבים שלנו לאלה שנפגעו ישירות מהתקפות ה-7 באוקטובר.</p>
+          </div>
+          
+          <!-- Team Member 3 -->
+          <div class="team-member">
+            <img src="/api/placeholder/200/200" alt="תמונה של מאיה ברגמן" class="team-photo">
+            <h3 class="team-name">מאיה ברגמן</h3>
+            <div class="team-role">מנהלת חינוך</div>
+            <p class="team-bio">מחנכת עם התמחות בפיתוח תוכניות לימודים, מאיה מפקחת על משאבי החינוך והתוכניות שלנו המיועדות לעזור לקהילות ובתי ספר להתמודד עם אירועי ה-7 באוקטובר.</p>
+          </div>
+          
+          <!-- Team Member 4 -->
+          <div class="team-member">
+            <img src="/api/placeholder/200/200" alt="תמונה של אבי רוזנברג" class="team-photo">
+            <h3 class="team-name">אבי רוזנברג</h3>
+            <div class="team-role">מנהל פיתוח הנצחה</div>
+            <p class="team-bio">עם רקע באדריכלות ועיצוב אתרי הנצחה, אבי מוביל את פיתוח מרחבי ההנצחה הפיזיים והדיגיטליים לכבד את אלה שנפגעו מטרגדיית ה-7 באוקטובר.</p>
+          </div>
+        </div>
+        
+        <!-- Advisory Board -->
+        <div class="advisory-board">
+          <h3>ועדה מייעצת</h3>
+          <p>היוזמה שלנו מודרכת על ידי ועדה מייעצת של מנהיגי קהילה, מומחים בתחום ונציגים מהקהילות שנפגעו.</p>
+          <div class="board-members">
+            <div class="board-member">פרופ׳ רחל סילברשטיין, היסטוריונית</div>
+            <div class="board-member">דוד כץ, מנהיג קהילתי</div>
+            <div class="board-member">ד״ר נועה בן-דוד, מומחית טראומה</div>
+            <div class="board-member">יוסי בלום, נציג ניצולים</div>
+            <div class="board-member">לאה גולדשטיין, מומחית חינוך</div>
+            <div class="board-member">מיכאל אברהם, אנליסט ביטחוני</div>
+            <div class="board-member">טליה מזרחי, נציגת משפחות</div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Timeline Section -->
+      <section class="timeline-section" aria-labelledby="timeline-title">
+        <h2 id="timeline-title">המסע שלנו</h2>
+        <div class="history-timeline">
+          <div class="timeline-line"></div>
+          
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">1</div>
+            <div class="timeline-date">אוקטובר 2023</div>
+            <div class="timeline-content">
+              <p>מיד לאחר התקפות ה-7 באוקטובר, קבוצה של מנהיגי קהילה, אקדמאים ואנשי מקצוע התכנסו כדי לדון כיצד לשמר את זכר אירועי היום ולתמוך באלה שנפגעו.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">2</div>
+            <div class="timeline-date">נובמבר 2023</div>
+            <div class="timeline-content">
+              <p>יוזמת הזיכרון ל-7 באוקטובר הוקמה רשמית כארגון ללא מטרת רווח המוקדש לתוכניות הנצחה, תיעוד, חינוך ותמיכה.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">3</div>
+            <div class="timeline-date">דצמבר 2023</div>
+            <div class="timeline-content">
+              <p>היוזמה החלה באיסוף עדויות, מסמכים וחפצים הקשורים להתקפות כדי ליצור ארכיון מקיף לשימור היסטורי ולמטרות חינוכיות.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">4</div>
+            <div class="timeline-date">ינואר 2024</div>
+            <div class="timeline-content">
+              <p>החל פיתוח אתר ההנצחה הדיגיטלי כדי לספק מידע נגיש על האירועים, לכבד את הקורבנות ולהציע משאבים לניצולים ולמשפחותיהם.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 5 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">5</div>
+            <div class="timeline-date">מרץ 2024</div>
+            <div class="timeline-content">
+              <p>היוזמה השיקה את תוכניות החינוך הראשונות שלה לבתי ספר וארגונים קהילתיים, המספקות משאבים מותאמי גיל לדיון באירועי ה-7 באוקטובר.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 6 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">6</div>
+            <div class="timeline-date">מאי 2024</div>
+            <div class="timeline-content">
+              <p>אתר ההנצחה שלנו הושק רשמית, המספק מרחב דיגיטלי לזיכרון, חינוך וקישורי משאבים לאלה שנפגעו מהטרגדיה.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 7 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">7</div>
+            <div class="timeline-date">מתמשך</div>
+            <div class="timeline-content">
+              <p>היוזמה ממשיכה להרחיב את תוכניותיה, לאסוף עדויות, לפתח משאבים ולעבוד לקראת אתר הנצחה פיזי קבוע לכבד את קורבנות ה-7 באוקטובר.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Quote Section -->
+      <section class="quote-section" aria-labelledby="perspective">
+        <div class="quote-bg"></div>
+        <div class="quote-content">
+          <div class="quote-text" id="perspective">
+            העבודה שלנו מונחית על ידי האמונה שהנצחה אינה רק על הסתכלות לאחור, אלא גם על התקדמות קדימה. על ידי שימור סיפורים אלה בכבוד ואמת, אנו יוצרים בסיס לריפוי, הבנה וחוסן מול הטרגדיה.
+          </div>
+          <div class="quote-author">ד״ר שרה כהן</div>
+          <div class="quote-role">מנהלת ראשית, יוזמת הזיכרון ל-7 באוקטובר</div>
+        </div>
+      </section>
+      
+      <!-- Partners Section -->
+      <section class="partners-section" aria-labelledby="partners-title">
+        <h2 id="partners-title">השותפים שלנו</h2>
+        <p>יוזמת הזיכרון משתפת פעולה עם מגוון רחב של ארגונים כדי להגשים את המשימה שלנו. אנו אסירי תודה על התמיכה והשותפות של:</p>
+        
+        <div class="partners-grid">
+          <div class="partner-logo">
+            <img src="/api/placeholder/150/80" alt="לוגו של הקואליציה הישראלית לטראומה">
+          </div>
+          <div class="partner-logo">
+            <img src="/api/placeholder/150/80" alt="לוגו של המכון הלאומי להנצחה">
+          </div>
+          <div class="partner-logo">
+            <img src="/api/placeholder/150/80" alt="לוגו של המרכז לתיעוד היסטורי">
+          </div>
+          <div class="partner-logo">
+            <img src="/api/placeholder/150/80" alt="לוגו של רשת החוסן הקהילתי">
+          </div>
+          <div class="partner-logo">
+            <img src="/api/placeholder/150/80" alt="לוגו של קרן המשאבים החינוכיים">
+          </div>
+          <div class="partner-logo">
+            <img src="/api/placeholder/150/80" alt="לוגו של מכון הארכיונים הדיגיטליים">
+          </div>
+        </div>
+      </section>
+      
+      <!-- Funding Section -->
+      <section class="funding-section" aria-labelledby="funding-title">
+        <h2 id="funding-title">המימון שלנו</h2>
+        <p>יוזמת הזיכרון ל-7 באוקטובר ממומנת באמצעות שילוב של:</p>
+        <ul>
+          <li>מענקים מקרנות מבוססות המוקדשות ליוזמות הנצחה וחינוך</li>
+          <li>תרומות אישיות מתומכים מרחבי העולם</li>
+          <li>שותפויות מוסדיות עם ארגונים חינוכיים והיסטוריים</li>
+          <li>מאמצי גיוס תרומות קהילתיים באזורים שנפגעו</li>
+        </ul>
+        <p>אנו שומרים על שקיפות מלאה בפעילות הפיננסית שלנו. דוחות שנתיים ודוחות כספיים זמינים לפי בקשה. כארגון ללא מטרת רווח רשום, כל התרומות מוכרות לצרכי מס במידה המותרת בחוק.</p>
+        <a href="#" class="btn mt-3">תמכו בעבודה שלנו</a>
+      </section>
+      
+      <!-- Contact Section -->
+      <section class="contact-section" aria-labelledby="contact-title">
+        <h2 id="contact-title">צרו קשר</h2>
+        <p>אנו מקבלים בברכה פניות, הזדמנויות לשיתוף פעולה ומשוב על עבודתנו. אנא צרו קשר באמצעות כל אחד מהערוצים הבאים:</p>
+        
+        <div class="contact-options">
+          <div class="contact-method">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="M22 7l-10 5-10-5"></path>
+              </svg>
+            </div>
+            <h3 class="contact-title">דוא״ל</h3>
+            <p class="contact-detail">לפניות כלליות, מידע, או כדי לשתף את הסיפור שלכם:</p>
+            <a href="mailto:info@october7memorial.org" class="btn-secondary">info@october7memorial.org</a>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <h3 class="contact-title">טלפון</h3>
+            <p class="contact-detail">הצוות שלנו זמין בימים א׳-ה׳, 9:00-17:00 (שעון ישראל):</p>
+            <a href="tel:+97235551234" class="btn-secondary">03-555-1234</a>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <h3 class="contact-title">משרד</h3>
+            <p class="contact-detail">המשרד הראשי שלנו ממוקם ב:</p>
+            <address class="not-italic">
+              יוזמת הזיכרון ל-7 באוקטובר<br>
+              כיכר ההנצחה 123<br>
+              תל אביב, ישראל 61234
+            </address>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Get Involved Section -->
+      <section class="get-involved" aria-labelledby="get-involved-title">
+        <h2 id="get-involved-title">הצטרפו אלינו</h2>
+        <p>ישנן דרכים רבות לתמוך במשימה שלנו ולתרום לעבודת ההנצחה:</p>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">תרמו</h3>
+            <p>תרומות כספיות תומכות בתוכניות ההנצחה, החינוך והתמיכה שלנו. כל התרומות מממנות ישירות את המשימה שלנו.</p>
+            <a href="#" class="btn-secondary mt-2">תרמו עכשיו</a>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">התנדבו</h3>
+            <p>הצטרפו לצוות המתנדבים המסור שלנו שמסייע באירועים, תוכניות ותמיכה אדמיניסטרטיבית.</p>
+            <a href="#" class="btn-secondary mt-2">התנדבו איתנו</a>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">שתפו</h3>
+            <p>עזרו להפיץ מודעות לגבי אירועי ה-7 באוקטובר ומאמצי ההנצחה שלנו באמצעות הרשתות והמדיה החברתית שלכם.</p>
+            <a href="#" class="btn-secondary mt-2">שתפו את המשימה שלנו</a>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">תרמו תוכן</h3>
+            <p>אם יש לכם סיפור, עדות או חפץ הקשור ל-7 באוקטובר שהייתם רוצים לשתף, אנא צרו קשר עם צוות התיעוד שלנו.</p>
+            <a href="#" class="btn-secondary mt-2">שתפו את הסיפור שלכם</a>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  </div>
+  
+  <footer>
+    <div class="footer-links">
+      <a href="about-he.html">אודות היוזמה</a>
+      <a href="contact-he.html">צרו קשר</a>
+      <a href="privacy-he.html">מדיניות פרטיות</a>
+      <a href="terms-he.html">תנאי שימוש</a>
+      <a href="accessibility-he.html">נגישות</a>
+    </div>
+    <p>© 2025 יוזמת הזיכרון</p>
+    <p>אתר הנצחה זה מתוחזק בתמיכת משפחות, ניצולים וארגונים קהילתיים.</p>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add a simple animation to timeline items on scroll
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      
+      function checkVisibility() {
+        timelineItems.forEach(item => {
+          const position = item.getBoundingClientRect();
+          
+          // If item is in viewport
+          if(position.top < window.innerHeight * 0.8 && position.bottom >= 0) {
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+          }
+        });
+      }
+      
+      // Set initial styles
+      timelineItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)'; // Note: direction reversed for RTL
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+      
+      // Check visibility on load
+      checkVisibility();
+      
+      // Check visibility on scroll
+      window.addEventListener('scroll', checkVisibility);
+    });
+  </script>
+</body>
+</html>

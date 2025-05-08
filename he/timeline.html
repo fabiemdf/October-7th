@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ציר זמן מפורט של אירועי ה-7 באוקטובר 2023 בדרום ישראל, המתעד את השתלשלות האירועים כפי שהתרחשו.">
+  
+  <!-- Open Graph tags for better social sharing -->
+  <meta property="og:title" content="ציר זמן 7 באוקטובר - שעה אחר שעה">
+  <meta property="og:description" content="תיעוד כרונולוגי של אירועי ה-7 באוקטובר 2023 בדרום ישראל.">
+  <meta property="og:url" content="https://october7memorial.org/he/timeline.html">
+  <meta property="og:image" content="https://october7memorial.org/images/timeline-cover.jpg">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <title>אסון 7 באוקטובר – ציר זמן</title>
+  
+  <style>
+    /* RTL and Hebrew specific styles */
+    body {
+      font-family: 'Segoe UI', 'Arial Hebrew', 'David', 'Times New Roman', sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+    
+    /* Language switcher */
+    .language-switcher {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 100;
+    }
+    
+    .language-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    
+    .language-btn:hover {
+      background-color: white;
+      color: var(--primary-color);
+    }
+    
+    /* Additional styles specific to the timeline page */
+    .timeline-intro {
+      max-width: 800px;
+      margin: 0 auto var(--space-xl);
+      text-align: center;
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .timeline-intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .interactive-timeline {
+      position: relative;
+      margin: 3rem 0;
+      padding-right: 50px;
+      padding-left: 0;
+    }
+    
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 20px;
+      left: auto;
+      width: 4px;
+      background-color: var(--primary-color);
+      border-radius: 2px;
+    }
+    
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .timeline-entry.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .timeline-marker {
+      position: absolute;
+      right: -50px;
+      left: auto;
+      top: 0;
+      width: 36px;
+      height: 36px;
+      background-color: var(--light-text);
+      border: 4px solid var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-marker:hover {
+      transform: scale(1.1);
+      background-color: var(--primary-color);
+      color: var(--light-text);
+    }
+    
+    .timeline-marker.active {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+    }
+    
+    .timeline-time {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .timeline-time-tag {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-left: 1rem;
+      margin-right: 0;
+      font-size: 1rem;
+    }
+    
+    .timeline-content {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-right: 4px solid var(--primary-color);
+      border-left: none;
+      margin-bottom: 1rem;
+    }
+    
+    .timeline-media {
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .timeline-media img {
+      width: 100%;
+      display: block;
+    }
+    
+    .timeline-media figcaption {
+      padding: 1rem;
+      background-color: var(--subtle-bg);
+      font-size: 0.9rem;
+    }
+    
+    .witness-account {
+      background-color: var(--subtle-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      font-style: italic;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+    
+    .witness-account::before {
+      content: '"';
+      font-size: 4rem;
+      color: var(--primary-color);
+      opacity: 0.3;
+      position: absolute;
+      top: -15px;
+      right: 10px;
+      left: auto;
+    }
+    
+    .witness-account-source {
+      font-style: normal;
+      text-align: left;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    
+    .location-tag {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: var(--dark-bg);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+      margin-right: 0;
+    }
+    
+    .timeline-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .timeline-gallery img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .timeline-gallery img:hover {
+      transform: scale(1.05);
+    }
+    
+    .timeline-nav {
+      position: sticky;
+      top: 1rem;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      z-index: 10;
+    }
+    
+    .timeline-nav-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-nav-items {
+      display: flex;
+      overflow-x: auto;
+      gap: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    
+    .timeline-nav-item {
+      white-space: nowrap;
+      padding: 6px 12px;
+      background-color: var(--subtle-bg);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-nav-item:hover, .timeline-nav-item.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .content-warning {
+      background-color: rgba(211, 47, 47, 0.1);
+      border-right: 4px solid #d32f2f;
+      border-left: none;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+    }
+    
+    .content-warning h3 {
+      color: #d32f2f;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .content-warning p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .interactive-timeline {
+        padding-right: 30px;
+        padding-left: 0;
+      }
+      
+      .timeline-line {
+        right: 15px;
+        left: auto;
+      }
+      
+      .timeline-marker {
+        right: -30px;
+        left: auto;
+        width: 30px;
+        height: 30px;
+      }
+      
+      .timeline-content {
+        padding: 1rem;
+      }
+      
+      .language-switcher {
+        top: 10px;
+        left: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible skip link -->
+  <a href="#main-content" class="skip-link">דלג לתוכן העיקרי</a>
+  
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <a href="../timeline.html" class="language-btn">English</a>
+  </div>
+  
+  <header>
+    <h1>ציר זמן של 7 באוקטובר</h1>
+    <nav aria-label="ניווט ראשי">
+      <ul>
+        <li><a href="/he/index.html">דף הבית</a></li>
+        <li><a href="/he/timeline.html" aria-current="page">ציר זמן</a></li>
+        <li><a href="/he/stories.html">סיפורים</a></li>
+        <li><a href="/he/memorial.html">הנצחה</a></li>
+        <li><a href="/he/resources.html">משאבים</a></li>
+        <li><a href="/he/about.html">אודות</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <main id="main-content">
+      <div class="timeline-intro">
+        <h2>כרונולוגיה של 7 באוקטובר 2023</h2>
+        <p>ציר זמן זה מתעד את אירועי ה-7 באוקטובר 2023, כפי שהתרחשו שעה אחר שעה. ביום אחד קטלני, כמעט 1,200 אנשים איבדו את חייהם, למעלה מ-250 אנשים נלקחו כבני ערובה, ואלפים נותרו פצועים, המומים ועקורים.</p>
+        <div class="content-warning">
+          <h3>אזהרת תוכן</h3>
+          <p>ציר הזמן שלהלן מכיל תיאורים של אלימות ואירועים טראומטיים שעלולים להיות מטרידים. נדרשת זהירות של הקורא.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-nav">
+        <div class="timeline-nav-title">דלג לשעה:</div>
+        <div class="timeline-nav-items">
+          <span class="timeline-nav-item" data-time="0600">06:00</span>
+          <span class="timeline-nav-item" data-time="0630">06:30</span>
+          <span class="timeline-nav-item" data-time="0715">07:15</span>
+          <span class="timeline-nav-item" data-time="0730">07:30</span>
+          <span class="timeline-nav-item" data-time="0830">08:30</span>
+          <span class="timeline-nav-item" data-time="0900">09:00</span>
+          <span class="timeline-nav-item" data-time="1045">10:45</span>
+          <span class="timeline-nav-item" data-time="1200">12:00</span>
+          <span class="timeline-nav-item" data-time="1430">14:30</span>
+          <span class="timeline-nav-item" data-time="1700">17:00</span>
+          <span class="timeline-nav-item" data-time="2000">20:00</span>
+          <span class="timeline-nav-item" data-time="2359">23:59</span>
+        </div>
+      </div>
+      
+      <section class="interactive-timeline" aria-label="ציר זמן של אירועי ה-7 באוקטובר 2023">
+        <div class="timeline-line"></div>
+        
+        <!-- 06:00 - Border Breach -->
+        <article id="0600" class="timeline-entry">
+          <div class="timeline-marker" title="06:00">
+            <span>1</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">06:00</span>
+            <span>פריצת הגבול</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">גבול עזה</span>
+            <span class="location-tag">יישובי הדרום</span>
+            
+            <p>עוד לפני אור ראשון, מחבלים קרעו את גדר עזה, זורמים דרך שדות עם ירי וטילים, והכניסו יישובי גבול לכאוס. משפחות התעוררו לחלונות מתנפצים ורעש מנועים בזמן שהשקט של הלילה נקרע.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="עשן מיתמר בזמן שמחבלים פורצים את גדר הגבול הדרומית של ישראל">
+              <figcaption>עשן מיתמר לאחר שמחבלי חמאס פרצו את גדר הגבול הדרומית. צילום: רויטרס/אשרף עמרה</figcaption>
+            </figure>
+            
+            <p>בקיבוץ בארי, נחל עוז וכרם שלום, משפחות נקרעו משנתן בהדי פיצוצים ובתקתוק הירי. הורים רצו לחדרים מוגנים אוחזים בילדים; שכנים דפקו על דלתות, מזהירים מפני המתקפה.</p>
+            
+            <div class="witness-account">
+              <p>התעוררנו לקול הפיצוצים. בהתחלה, חשבתי שזו עוד מתקפת רקטות, אבל אז שמענו יריות—קרוב הרבה יותר ממה שאי פעם שמענו. בעלי הסתכל החוצה ופשוט אמר, "הם כאן." תפסנו את הילדים ורצנו לחדר הממ״ד.</p>
+              <div class="witness-account-source">— שרה ק., תושבת נתיב העשרה</div>
+            </div>
+            
+            <p>עד שהאזעקות הראשונות חתכו את הכאוס, השחר השקט הוטבע בזירה של טרור ואי-אמון—צלקת בלתי נמחית על רוגע הבוקר.</p>
+          </div>
+        </article>
+        
+        <!-- 06:30 - Initial Alerts -->
+        <article id="0630" class="timeline-entry">
+          <div class="timeline-marker" title="06:30">
+            <span>2</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">06:30</span>
+            <span>התרעות ראשוניות</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">יישובים רבים</span>
+            
+            <p>מערכת ההתרעה "צבע אדום" הופעלה בעשרות יישובים בדרום כאשר רקטות זרמו מעזה. שירותי החירום החלו לקבל שיחות מצוקה המדווחות על יריות ופיצוצים ביישובים ליד הגבול.</p>
+            
+            <p>כוחות הביטחון, שבתחילה הגיבו למה שהאמינו שהיא מתקפת רקטות שגרתית, במהרה הבינו את האופי חסר התקדים של ההתקפה כאשר דיווחים על מסתננים חמושים הציפו את ערוצי החירום. היקף המתקפה הפך לברור כאשר זוהו נקודות פריצה מרובות לאורך גדר הגבול.</p>
+            
+            <div class="timeline-gallery">
+              <img src="/api/placeholder/200/150" alt="מסך אזהרת צבע אדום המציג התרעות מרובות" title="מסך מערכת ההתרעה צבע אדום">
+              <img src="/api/placeholder/200/150" alt="כוחות חירום מתגייסים" title="כוחות ראשונים מתכוננים להתפרס">
+              <img src="/api/placeholder/200/150" alt="צילום ממצלמת אבטחה של פריצת הגדר" title="צילום ממצלמת אבטחה של הפריצה">
+            </div>
+            
+            <p>יחידות צבאיות החלו להתגייס, אך ההיקף והתיאום של ההתקפה יצרו בלבול ועיכבו את זמני התגובה. אזרחים באזורים המושפעים הונחו להישאר במרחבים מוגנים ולנעול את דלתותיהם.</p>
+          </div>
+        </article>
+        
+        <!-- 07:15 - First Responders -->
+        <article id="0715" class="timeline-entry">
+          <div class="timeline-marker" title="07:15">
+            <span>3</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">07:15</span>
+            <span>גיוס כוחות חירום</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">אזור הדרום</span>
+            
+            <p>פרמדיקים ומתנדבים במדים, עם לב פועם, התפזרו ברחובות זרועי הריסות; הסירנות שלהם התערבבו עם קריאות לעזרה בזמן שנאבקו נגד הזמן כדי להגיע לפצועים.</p>
+            
+            <p>צוותי חירום רפואיים גויסו מכל רחבי הארץ, עם אמבולנסים שדהרו לכיוון הדרום למרות הסכנה העצומה. רבים מהמגיבים הראשונים יגלו מאוחר יותר כי הם נוסעים ישירות לתוך אזורי קרב פעילים.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="צוותים רפואיים מטפלים בפצועים">
+              <figcaption>צוותים רפואיים מספקים טיפול חירום בתנאים קשים. צילום: מגן דוד אדום</figcaption>
+            </figure>
+            
+            <div class="witness-account">
+              <p>קיבלנו את השיחה ומיד יצאנו דרומה. אף אחד לא אמר לנו כמה רע זה. כשהגענו, זה לא היה רק אנשים פצועים—היינו באמצע מצב טרור פעיל. היינו צריכים לספק טיפול בזמן שיריות סביבנו. מעולם לא חוויתי דבר כזה ב-15 שנים כפרמדיק.</p>
+              <div class="witness-account-source">— דניאל ל., פרמדיק מד״א</div>
+            </div>
+            
+            <p>רשתות תקשורת הוצפו כאשר אלפים ניסו ליצור קשר עם אהוביהם ושירותי חירום בו-זמנית. רבים מהמגיבים איבדו קשר עם מרכזי מוקד, מאלצים אותם לקבל החלטות של חיים ומוות ללא הכוונה או גיבוי.</p>
+          </div>
+        </article>
+        
+        <!-- 07:30 - Kibbutz Be'eri Overrun -->
+        <article id="0730" class="timeline-entry">
+          <div class="timeline-marker" title="07:30">
+            <span>4</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">07:30</span>
+            <span>קיבוץ בארי תחת התקפה</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">בארי</span>
+            
+            <p>עם זריחת השמש, הנתיבים השלווים של קיבוץ בארי הפכו לשדה קטל. מחבלים נעו באופן שיטתי דרך הקהילה, יורים לבתים שבהם משפחות חיפשו מקלט.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="בית הרוס בקיבוץ בארי לאחר המתקפה">
+              <figcaption>הריסות בית שנהרס במהלך המתקפה על בארי. מקור: וושינגטון פוסט/Alamy</figcaption>
+            </figure>
+            
+            <p>תושבים התבצרו בחדרים מוגנים בזמן שהתוקפים עברו מדלת לדלת. חלק מהמשפחות נשארו מוסתרות במשך שעות, מתקשרות רק בהודעות לוחשות בטלפונים עם סוללות המתרוקנות במהירות. הורים נאבקו לשמור על ילדים קטנים בשקט בזמן שמחבלים חיפשו אחר תושבים מוסתרים.</p>
+            
+            <p>צוות האבטחה של הקיבוץ, בנחיתות מספרית משמעותית, נלחם כדי להגן על הקהילה עד שתגיע תגבורת. רבים מתו בהגנה על שכניהם ואהוביהם.</p>
+            
+            <div class="witness-account">
+              <p>היינו בממ״ד במשך 14 שעות. בעלי החזיק את הדלת סגורה בזמן שהם ניסו לפרוץ פנימה. הילדים היו מתחת למיטה. הם המשיכו לצעוק בערבית ולירות בדלת. הייתי בטוחה שלא נשרוד. כשהחיילים סוף סוף הגיעו אלינו, בדלת שלנו היו יותר מ-40 חורי כדורים.</p>
+              <div class="witness-account-source">— מאיה ר., תושבת בארי</div>
+            </div>
+            
+            <p>יותר מ-100 תושבי בארי יאבדו את חייהם עד סוף היום, מה שהפך אותה לאחת הקהילות שנפגעו קשה ביותר בהתקפה.</p>
+          </div>
+        </article>
+        
+        <!-- 08:30 - Widespread Attacks -->
+        <article id="0830" class="timeline-entry">
+          <div class="timeline-marker" title="08:30">
+            <span>5</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">08:30</span>
+            <span>התקפות נרחבות</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">מיקומים מרובים</span>
+            
+            <p>הדי היריות הדהדו בקיבוצים ובבתי חווה. הורים לחצו ילדים לחזם בחשכה, מתפללים ששחר יביא בטחון ולא עוד שבר לב.</p>
+            
+            <p>בשלב זה, ההתקפות התפשטו ליישובים רבים, פסטיבל המוסיקה נובה, ומוצבים צבאיים. ההיקף המלא של ההתקפה המתואמת הפך לברור כאשר דיווחים הציפו ממיקומים רבים בו-זמנית.</p>
+            
+            <div class="timeline-gallery">
+              <img src="/api/placeholder/200/150" alt="מפה המציגה מיקומי התקפות" title="מפת מיקומי התקפות">
+              <img src="/api/placeholder/200/150" alt="מבנים פגועים בכפר עזה" title="הרס בכפר עזה">
+              <img src="/api/placeholder/200/150" alt="כלי רכב נטושים באתר פסטיבל נובה" title="השלכות פסטיבל נובה">
+            </div>
+            
+            <p>תגבורות צבאיות החלו להגיע לחלק מהיישובים, אך האופי הנרחב של ההתקפות משמעותו שאזורים רבים נותרו פגיעים. מסוקים שניסו לפנות תושבים פצועים הותקפו באש, מה שסיבך את מאמצי החילוץ.</p>
+            
+            <div class="witness-account">
+              <p>יכולנו לשמוע יריות מכל הכיוונים. קבוצת הוואטסאפ של הקהילה שלנו הייתה מלאה בהודעות נואשות. "הם בבית שלי." "עזרה, אנחנו לכודים." "האם מישהו ראה את הבת שלי?" אנשים שהכרנו כל חיינו מתו, ולא יכולנו לעשות דבר מלבד להסתתר ולהתפלל.</p>
+              <div class="witness-account-source">— אבי ס., תושב נחל עוז</div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- 09:00 - Hospital Crisis -->
+        <article id="0900" class="timeline-entry">
+          <div class="timeline-marker" title="09:00">
+            <span>6</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">09:00</span>
+            <span>משבר בבתי החולים</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">המרכז הרפואי סורוקה</span>
+            <span class="location-tag">בית החולים ברזילי</span>
+            
+            <p>מסדרונות בתי החולים הוצפו באלונקות דמויות ופנים זלוגות דמעות. רופאים עבדו ללא הפסקה, חלוקיהם הלבנים מוכתמים בארגמן, כל נשימה תפילה להצלת חיים נוספים.</p>
+            
+            <p>בתי חולים בדרום החלו ליישם פרוטוקולים לאירוע רב-נפגעים כאשר הפצועים הגיעו באמבולנסים, מסוקים, וכלי רכב פרטיים. חדרי ניתוח פעלו ברציפות בזמן שצוותים רפואיים עבדו עם מספרים מכריעים של פצועים קשים.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="צוות רפואי מטפל בפצועים במרכז הרפואי סורוקה">
+              <figcaption>צוותים רפואיים במרכז הרפואי סורוקה מטפלים בפצועים רבים. צילום: טיימס אוף ישראל</figcaption>
+            </figure>
+            
+            <p>צוות רפואי נוסף הוזעק מכל רחבי הארץ, כאשר רבים מהרופאים והאחיות הגיעו מרצונם החופשי לאחר שראו דיווחי חדשות. בנקי דם הוציאו קריאות חירום לתרומות כאשר מלאי הדם הגיע לרמות קריטיות.</p>
+            
+            <p>בצל המשבר הרפואי, בתי החולים נאלצו גם להתמודד עם בעיות אבטחה כאשר בני משפחה חיפשו בייאוש את יקיריהם וצוותי אבטחה נשארו ערניים מפני מסתננים פוטנציאליים שיכלו לכוון למתקנים רפואיים.</p>
+            
+            <div class="witness-account">
+              <p>אני מנתח טראומה כבר 20 שנה, כולל במלחמות ופיגועי טרור, אבל מעולם לא ראיתי משהו כזה. הפציעות היו מזעזעות—לא רק פצעי ירי אלא עדויות לאכזריות קיצונית. עבדנו 36 שעות ברציפות. בכל פעם שהצלנו מישהו, עשרה נוספים הגיעו הזקוקים לעזרה.</p>
+              <div class="witness-account-source">— ד״ר איתן ק., המרכז הרפואי סורוקה</div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- 10:45 - Government Response -->
+        <article id="1045" class="timeline-entry">
+          <div class="timeline-marker" title="10:45">
+            <span>7</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">10:45</span>
+            <span>תגובת הממשלה</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">ירושלים</span>
+            <span class="location-tag">תל אביב</span>
+            
+            <p>במסדרונות הכוח בירושלים, מנהיגים התכנסו תחת כובד האבל. פנים סביב השולחן נשאו את הצער של אומה, מתחייבים לעמוד איתן מול הייאוש.</p>
+            
+            <p>ממשלת ישראל הכריזה על מצב חירום והודיעה רשמית כי המדינה נמצאת במלחמה. יחידות מילואים גויסו בהיקף מסיבי, עם אלפי חיילים המקבלים צווי גיוס חירום.</p>
+            
+            <p>מרכזי ניהול משבר הופעלו בכל משרדי הממשלה לתאם את התגובה האזרחית, כולל תוכניות פינוי ליישובים ליד גבול עזה ופתרונות דיור חירום לתושבים עקורים.</p>
+            
+            <p>בעלות ברית בינלאומיות עודכנו על המצב כאשר ערוצים דיפלומטיים נפתחו להבטיח תמיכה. צוותי חיפוש והצלה ממספר מדינות החלו בהכנות לסייע במאמצי החילוץ.</p>
+            
+            <div class="timeline-gallery">
+              <img src="/api/placeholder/200/150" alt="ישיבת קבינט חירום" title="ישיבת ממשלת חירום">
+              <img src="/api/placeholder/200/150" alt="מרכז גיוס צבאי" title="חיילי מילואים מתייצבים לשירות">
+              <img src="/api/placeholder/200/150" alt="תמיכה בינלאומית מגיעה" title="צוותי תמיכה בינלאומיים מגיעים">
+            </div>
+          </div>
+        </article>
+        
+        <!-- 12:00 - National Emergency -->
+        <article id="1200" class="timeline-entry">
+          <div class="timeline-marker" title="12:00">
+            <span>8</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">12:00</span>
+            <span>חירום לאומי</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">כלל הארץ</span>
+            
+            <p>מצב חירום לאומי שטף את הארץ. רחובות שקטו כאשר חנויות נסגרו, קהילות התאחדו בשקט קולקטיבי—פעימת לב משותפת המהדהדת אובדן וסולידריות.</p>
+            
+            <p>פיקוד העורף הוציא הנחיות בטיחות לכלל הארץ, עם סגירת בתי ספר וביטול התקהלויות ציבוריות. מרחב האוויר של המדינה הוגבל, כאשר טיסות בינלאומיות רבות בוטלו או הוסטו.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="רחובות ריקים בתל אביב במהלך מצב החירום הלאומי">
+              <figcaption>רחובות הומים בדרך כלל בתל אביב נשארו ריקים כאשר האומה הגיבה למשבר. צילום: Getty Images</figcaption>
+            </figure>
+            
+            <p>אזרחים בכל רחבי ישראל התגייסו לתמוך בקהילות שנפגעו. מרכזי תרומות דם דיווחו על תורים המשתרעים על פני בלוקים שלמים, ונקודות איסוף לאספקת חירום הופיעו בערים בכל רחבי הארץ.</p>
+            
+            <p>בצהריים, ההיקף האמיתי של הטרגדיה הפך לברור, אם כי ספירה מלאה של הנפגעים והחטופים לא תהיה ידועה במשך ימים. משפחות רבות עדיין לא היה להן מידע מאהוביהן באזורים שנפגעו.</p>
+            
+            <div class="witness-account">
+              <p>עמדתי בתור שלוש שעות כדי לתרום דם. אף אחד לא התלונן. אנשים הביאו אוכל ומים לאלה שממתינים. זרים הפכו למשפחה באותו יום. אישה מבוגרת לידי המשיכה להתקשר בניסיון להגיע לנכד שלה בפסטיבל נובה. כולנו לקחנו תורים לתת לה להשתמש במטעני הטלפון שלנו. אותו יום הראה את הגרוע ביותר באנושות אבל גם את הטוב ביותר.</p>
+              <div class="witness-account-source">— טליה מ., תושבת תל אביב</div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- 02:30 PM - Aid Mobilization -->
+        <article id="1430" class="timeline-entry">
+          <div class="timeline-marker" title="14:30">
+            <span>9</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">14:30</span>
+            <span>גיוס סיוע</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">אזור הדרום</span>
+            
+            <p>משאיות סיוע נעו דרומה, נושאות שמיכות, מים ותקווה. כל משלוח הביא דמעות הקלה כאשר זרים הפכו למשפחה בכור ההיתוך של חמלה.</p>
+            
+            <p>שיירות של אספקת חירום מסוכנויות ממשלתיות, ארגונים לא ממשלתיים ואזרחים פרטיים החלו להגיע לאזורי הפריסה ליד הקהילות שנפגעו. ליווי צבאי הגן על רכבי הסיוע בניווטם דרך אזורים שעדיין לא אובטחו במלואם.</p>
+            
+            <div class="timeline-gallery">
+              <img src="/api/placeholder/200/150" alt="משאיות סיוע נטענות באספקה" title="העמסת אספקת חירום">
+              <img src="/api/placeholder/200/150" alt="מתנדבים ממיינים תרומות" title="מתנדבים מארגנים תרומות">
+              <img src="/api/placeholder/200/150" alt="מרכז חלוקת סיוע" title="פעילות מרכז חלוקה">
+            </div>
+            
+            <p>מקלטים זמניים הרחיבו את הקיבולת ככל שמספר העקורים גדל. מלונות ברחבי מרכז וצפון ישראל פתחו דלתות למפונים, רבים מציעים אירוח בחינם.</p>
+            
+            <p>מומחי טראומה ואנשי מקצוע בתחום בריאות הנפש התגייסו לספק תמיכה פסיכולוגית מיידית לניצולים, למגיבים ראשונים ולמשפחות הקורבנות.</p>
+            
+            <div class="witness-account">
+              <p>הבאנו כל מה שיכולנו לאסוף—מים, אוכל, בגדים, צעצועים לילדים. כשהגענו למרכז הפינוי, מה שהכה בי היה השקט. מאות אנשים, אבל כל כך שקט. הם היו בהלם. ילד קטן שאל אותי אם ראיתי את ההורים שלו. נשארתי איתו עד ששירותי הרווחה יכלו לעזור. אני עדיין תוהה עליו כל יום.</p>
+              <div class="witness-account-source">— משה ב., עובד סיוע מתנדב</div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- 05:00 PM - Evacuations -->
+        <article id="1700" class="timeline-entry">
+          <div class="timeline-marker" title="17:00">
+            <span>10</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">17:00</span>
+            <span>פינויים המוניים</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">יישובי הגבול</span>
+            
+            <p>שיירות פינוי התפתלו דרך מישורים מאובקים; סבים וסבתות אחזו בידי נכדים, עוזבים הריסות לטובת הבטחה של מחסה ובטחון.</p>
+            
+            <p>ככל שכוחות צבאיים אבטחו יישובים נוספים, פינויים מאורגנים החלו לכל התושבים בטווח מרצועת עזה. שיירה אחר שיירה של אוטובוסים, כלי רכב צבאיים ומכוניות פרטיות העבירו אנשים צפונה לבטחון.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="שיירת פינוי עוזבת יישובי דרום">
+              <figcaption>משפחות מפונות מיישובי הגבול תחת ליווי צבאי. צילום: דובר צה״ל</figcaption>
+            </figure>
+            
+            <p>רבים מהמפונים עזבו רק עם הבגדים שלבשו, לאחר ששהו שעות בחדרים מוגנים ללא הזדמנות לארוז חפצים אישיים. ילדים נשאו צעצועים אהובים בזמן שמבוגרים נשאו את משקל אי-הוודאות לגבי אם אי פעם יחזרו לבתיהם.</p>
+            
+            <p>מבצעי פינוי מיוחדים אורגנו לקשישים ותושבים עם מוגבלויות, אם כי חלק סירבו לעזוב למרות הסכנות. עובדי חירום ניצבו בפני החלטות קשות לגבי אלה שנפצעו קשה מדי לתזוזה או קהילות שעדיין תחת איום.</p>
+            
+            <div class="witness-account">
+              <p>היו לנו חמש דקות לעלות על האוטובוס. אין זמן לארוז, רק לתפוס את הילדים וללכת. הבת שלי שאלה מתי אנחנו חוזרים הביתה, ולא יכולתי לענות לה. השכן שלנו מ-20 שנה נהרג באותו בוקר. הבית שלנו נשרף. אין לאן לחזור, אבל איך מסבירים את זה לילדה בת שש?</p>
+              <div class="witness-account-source">— נועה ל., מפונה מכפר עזה</div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- 08:00 PM - Nightfall -->
+        <article id="2000" class="timeline-entry">
+          <div class="timeline-marker" title="20:00">
+            <span>11</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">20:00</span>
+            <span>רדת החשכה</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">אזור הדרום</span>
+            
+            <p>פנסים הבהבו בדמדומים המתקרבים, מנחים נשמות עייפות לאורך דרכים שקטות. חיילים ואזרחים חלקו רגעים שקטים של חסד תחת שמיים חבולים.</p>
+            
+            <p>עם רדת החשכה, מבצעים צבאיים התגברו כדי לאבטח אזורים שנותרו ולחלץ את אלה שעדיין לכודים. ציוד ראיית לילה ותאורה האירו את המאמצים המתמשכים להגיע לכל בית ומקלט.</p>
+            
+            <div class="timeline-gallery">
+              <img src="/api/placeholder/200/150" alt="חיילים עם ציוד ראיית לילה" title="פעילות לילית">
+              <img src="/api/placeholder/200/150" alt="אורות חירום במוצב פיקוד" title="מוצב פיקוד בלילה">
+              <img src="/api/placeholder/200/150" alt="מפונים מגיעים למרכז קליטה" title="הגעה למרכז קליטה">
+            </div>
+            
+            <p>צוותי חיפוש והצלה המשיכו במשימתם הקודרת של חילוץ קורבנות, בזמן שמתנדבי זק״א עבדו להבטיח טיפול הולם בנפטרים בהתאם למסורת היהודית.</p>
+            
+            <p>האומה עצרה את נשימתה כאשר הרשימות הראשונות של קורבנות מאומתים החלו להתפרסם, יחד עם דאגות גוברות לגבי אלה שנלקחו כבני ערובה לעזה. משפחות התכנסו במרכזים ייעודים המחפשים מידע על אהוביהם הנעדרים.</p>
+            
+            <div class="witness-account">
+              <p>עבדנו עם פנסים, עוברים מבית לבית. כל דלת הייתה רגע של פחד—מה נמצא בפנים? לפעמים ניצולים, לפעמים... גרוע יותר. אבל לא יכולנו להפסיק. עדיין היו אנשים שהמתינו להימצא, מחכים למישהו שיגיע אליהם.</p>
+              <div class="witness-account-source">— סמ״ר יונתן ק., חיפוש והצלה צה״ל</div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- 11:59 PM - Day's End -->
+        <article id="2359" class="timeline-entry">
+          <div class="timeline-marker" title="23:59">
+            <span>12</span>
+          </div>
+          <div class="timeline-time">
+            <span class="timeline-time-tag">23:59</span>
+            <span>סוף היום</span>
+          </div>
+          <div class="timeline-content">
+            <span class="location-tag">כלל הארץ</span>
+            
+            <p>ברחבי ישראל, נרות זהרו בחלונות וחצרות. באור עדין זה, נדר שברירי נולד: לזכור, להתאבל, ולבנות מחדש.</p>
+            
+            <p>כאשר היום הראשון של המשבר הגיע לסיומו, ההיקף המלא של הטרגדיה נשאר עדיין לא ידוע. משפחות ברחבי המדינה המתינו לחדשות, מקוות בניגוד לתקווה שאהוביהן הנעדרים יימצאו בחיים.</p>
+            
+            <figure class="timeline-media">
+              <img src="/api/placeholder/700/400" alt="נרות זיכרון דולקים בתל אביב">
+              <figcaption>מוקדי זיכרון ספונטניים עם נרות הופיעו בערים ברחבי ישראל. צילום: רויטרס</figcaption>
+            </figure>
+            
+            <p>שירותי החירום המשיכו לעבוד לאורך הלילה, גם כאשר המדינה החלה להבין את היקף מה שהתרחש. בתי חולים נשארו בכוננות גבוהה, מטפלים בפצועים ומתכוננים להגעות נוספות.</p>
+            
+            <p>ברחבי המדיה החברתית והשידורי החדשות, סיפורי גבורה החלו להופיע לצד הזוועה—עדויות על אזרחים שהגנו על שכנים, מגיבים ראשונים שרצו לעבר הסכנה, וקהילות שהתאחדו בזמנים האפלים ביותר.</p>
+            
+            <div class="witness-account">
+              <p>באותו לילה, לא יכולתי לישון. אף אחד לא יכול היה. ישבנו בשקט, מקשיבים לחדשות, מחכים לשיחות טלפון. אחי עדיין היה נעדר. בכל פעם שהטלפון צלצל, הלב שלי נעצר. הדלקנו נרות בחלון—אחד לכל אדם שהכרנו שאיננו, אחד לאלה שעדיין נעדרים, ואחד לתקווה. לפעמים תקווה היא כל מה שנשאר לך.</p>
+              <div class="witness-account-source">— מיכל א., תושבת ירושלים</div>
+            </div>
+            
+            <p>כאשר חצות התקרבה, אומה שלעולם לא תהיה שוב אותו דבר החלה להתמודד עם המציאות של יום חדש—כזה שיביא איתו גם אבל והדרך הקשה של ריפוי וחוסן.</p>
+          </div>
+        </article>
+      </section>
+      
+      <div class="reflection-section">
+        <h2>יום ששינה אומה</h2>
+        <p>ה-7 באוקטובר 2023 סימן נקודת מפנה עמוקה בהיסטוריה הישראלית. אירועי יום בודד זה השאירו צלקות גלויות ונסתרות—בקהילות שנהרסו, משפחות שנקרעו, וטראומה לאומית קולקטיבית שממשיכה להדהד.</p>
+        <p>ובכל זאת בתוך הרגעים האפלים ביותר הופיעו אומץ יוצא דופן, חמלה וחוסן. שכנים סיכנו את חייהם למען זולתם. זרים פתחו את בתיהם לעקורים. מגיבים ראשונים עבדו מעבר לתשישות כדי להציל חיים. מעשי אנושיות אלה מזכירים לנו כי גם ברגעים הפגיעים ביותר שלנו, הרוח האנושית מתמידה.</p>
+        <p>ציר זמן זה משמש גם כתיעוד וגם כאנדרטה—מחויבות לזכור את אלה שאבדו, לכבד את אלה ששרדו, ולהבטיח שסיפוריהם יסופרו לדורות הבאים.</p>
+      </div>
+    </main>
+  </div>
+  
+  <footer>
+    <div class="footer-links">
+      <a href="/he/about.html">אודות היוזמה</a>
+      <a href="/he/contact.html">צרו קשר</a>
+      <a href="/he/privacy.html">מדיניות פרטיות</a>
+      <a href="/he/terms.html">תנאי שימוש</a>
+      <a href="/he/accessibility.html">נגישות</a>
+    </div>
+    <p>© 2025 יוזמת הזיכרון</p>
+    <p>אתר הנצחה זה מתוחזק בתמיכת משפחות, ניצולים וארגונים קהילתיים.</p>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animate timeline entries on scroll
+      const timelineEntries = document.querySelectorAll('.timeline-entry');
+      const timelineNav = document.querySelectorAll('.timeline-nav-item');
+      
+      // Initial check for visible elements
+      checkVisibility();
+      
+      // Check visibility on scroll
+      window.addEventListener('scroll', function() {
+        checkVisibility();
+      });
+      
+      function checkVisibility() {
+        timelineEntries.forEach(entry => {
+          const entryTop = entry.getBoundingClientRect().top;
+          const entryBottom = entry.getBoundingClientRect().bottom;
+          const windowHeight = window.innerHeight;
+          
+          // If entry is in viewport
+          if (entryTop < windowHeight * 0.85 && entryBottom > 0) {
+            entry.classList.add('visible');
+            
+            // Highlight corresponding nav item
+            const entryId = entry.id;
+            timelineNav.forEach(navItem => {
+              if (navItem.dataset.time === entryId) {
+                navItem.classList.add('active');
+              } else {
+                navItem.classList.remove('active');
+              }
+            });
+          }
+        });
+      }
+      
+      // Timeline navigation functionality
+      timelineNav.forEach(navItem => {
+        navItem.addEventListener('click', function() {
+          const targetTime = this.dataset.time;
+          const targetElement = document.getElementById(targetTime);
+          
+          if (targetElement) {
+            const yOffset = -100; // Offset to account for sticky header
+            const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            
+            window.scrollTo({
+              top: y,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

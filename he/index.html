@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="אתר הנצחה לזכר אירועי ה-7 באוקטובר 2023 - מוקדש להנצחת הקורבנות, לתיעוד האירועים ולתמיכה בניצולים ובני משפחותיהם.">
+  
+  <!-- Open Graph tags for better social sharing -->
+  <meta property="og:title" content="לזכור את ה-7 באוקטובר - אתר הנצחה">
+  <meta property="og:description" content="אתר הנצחה דיגיטלי לזכר אירועי ה-7 באוקטובר 2023 בדרום ישראל.">
+  <meta property="og:url" content="https://october7memorial.org/index-he.html">
+  <meta property="og:image" content="https://october7memorial.org/images/memorial-candle.jpg">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>לזכור את ה-7 באוקטובר - דף הבית</title>
+  
+  <style>
+    /* RTL and Hebrew specific styles */
+    body {
+      font-family: 'Segoe UI', 'Arial Hebrew', 'David', 'Times New Roman', sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+    
+    /* Language switcher */
+    .language-switcher {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 100;
+    }
+    
+    .language-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    
+    .language-btn:hover {
+      background-color: white;
+      color: var(--primary-color);
+    }
+    
+    /* Additional styles specific to the home page */
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/500');
+      background-size: cover;
+      background-position: center;
+      color: var(--light-text);
+      padding: 5rem 2rem;
+      text-align: center;
+      margin-bottom: var(--space-xl);
+      border-radius: var(--border-radius);
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero-content h2 {
+      font-size: 2.8rem;
+      margin-bottom: var(--space-md);
+      color: var(--light-text);
+      border-bottom: none;
+    }
+    
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: var(--space-lg);
+      line-height: 1.8;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    
+    .section-heading {
+      margin-bottom: var(--space-lg);
+    }
+    
+    .content-section {
+      margin-bottom: var(--space-xl);
+      padding: var(--space-lg) 0;
+    }
+    
+    .quote-board {
+      background-color: var(--subtle-bg);
+      padding: var(--space-xl) var(--space-lg);
+      margin: var(--space-xl) 0;
+      border-radius: var(--border-radius);
+    }
+    
+    .quote-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+    
+    .communities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+    
+    .community-card {
+      background-color: var(--secondary-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    }
+    
+    .community-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    .community-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .community-content {
+      padding: var(--space-lg);
+    }
+    
+    .community-content h3 {
+      color: var(--primary-color);
+      margin-bottom: var(--space-sm);
+    }
+    
+    .community-content p {
+      margin-bottom: var(--space-md);
+    }
+    
+    .story-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    
+    .highlight-card {
+      background-color: var(--subtle-bg);
+      padding: var(--space-md);
+      border-radius: var(--border-radius);
+      border-right: 4px solid var(--primary-color);
+      border-left: none;
+    }
+    
+    .highlight-card h3 {
+      margin-bottom: var(--space-xs);
+      color: var(--primary-color);
+    }
+    
+    .stats-section {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: var(--space-xl) var(--space-lg);
+      border-radius: var(--border-radius);
+      margin: var(--space-xl) 0;
+    }
+    
+    .stats-section h2 {
+      color: var(--light-text);
+      border-bottom: none;
+    }
+    
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+    
+    .stat-card {
+      text-align: center;
+      padding: var(--space-md);
+      min-width: 150px;
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: var(--space-xs);
+      font-family: var(--heading-font);
+    }
+    
+    .stat-label {
+      font-size: 1.1rem;
+    }
+    
+    .stats-note {
+      margin-top: var(--space-lg);
+      font-style: italic;
+    }
+    
+    .cta-section {
+      background: linear-gradient(to left, var(--light-bg), white);
+      padding: var(--space-xl) var(--space-lg);
+      border-radius: var(--border-radius);
+      margin: var(--space-xl) 0;
+    }
+    
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .cta-content p {
+      font-size: 1.2rem;
+      margin-bottom: var(--space-lg);
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    
+    .events-section {
+      margin: var(--space-xl) 0;
+    }
+    
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-lg);
+    }
+    
+    .event-card {
+      display: flex;
+      background-color: var(--secondary-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    
+    .event-date {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      min-width: 80px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    
+    .event-details {
+      padding: var(--space-md);
+      flex-grow: 1;
+    }
+    
+    .event-details h3 {
+      margin-bottom: var(--space-xs);
+      color: var(--primary-color);
+    }
+    
+    .event-details p {
+      margin-bottom: var(--space-sm);
+    }
+    
+    /* Responsive adjustments for the home page */
+    @media (max-width: 768px) {
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+      
+      .hero-section {
+        padding: 3rem 1rem;
+      }
+      
+      .stats-container {
+        gap: var(--space-md);
+      }
+      
+      .stat-card {
+        min-width: 120px;
+      }
+      
+      .stat-number {
+        font-size: 2.5rem;
+      }
+      
+      .event-card {
+        flex-direction: column;
+      }
+      
+      .event-date {
+        padding: var(--space-sm);
+        flex-direction: row;
+        gap: var(--space-sm);
+        justify-content: center;
+      }
+      
+      .language-switcher {
+        top: 10px;
+        left: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible skip link -->
+  <a href="#main-content" class="skip-link">דלג לתוכן העיקרי</a>
+  
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <a href="index.html" class="language-btn">English</a>
+  </div>
+  
+  <header>
+    <h1>לזכור את ה-7 באוקטובר</h1>
+    <nav aria-label="ניווט ראשי">
+      <ul>
+        <li><a href="index-he.html" aria-current="page">דף הבית</a></li>
+        <li><a href="timeline-he.html">ציר זמן</a></li>
+        <li><a href="stories-he.html">סיפורים</a></li>
+        <li><a href="memorial-he.html">הנצחה</a></li>
+        <li><a href="resources-he.html">משאבים</a></li>
+        <li><a href="about-he.html">אודות</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <main id="main-content">
+      <!-- Hero Section with Background -->
+      <section class="hero-section" aria-labelledby="hero-heading">
+        <div class="hero-content">
+          <h2 id="hero-heading">יום שלעולם לא נשכח</h2>
+          <p>ב-7 באוקטובר 2023, יום של שלווה הפך לטרגדיה. אתר הנצחה זה מוקדש ל-1,200 קורבנות, לפצועים ולחטופים. זוהי מחויבותנו לזכור, ללמוד ולהבטיח שסיפוריהם יסופרו.</p>
+          <div class="hero-buttons">
+            <a href="memorial-he.html" class="btn">הנצחת הקורבנות</a>
+            <a href="timeline-he.html" class="btn btn-secondary">צפייה בציר הזמן</a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Overview Section -->
+      <section class="content-section fade-in" aria-labelledby="overview">
+        <h2 id="overview" class="section-heading">סקירת האירועים</h2>
+        <div class="two-column">
+          <div>
+            <p>
+              בשעות הקטנות של ה-7 באוקטובר 2023, גדודי עז א-דין אל-קסאם - הזרוע המזוינת של חמאס, יחד עם התפרעויות אזרחיות מזוינות, יזמו התקפת פתע רחבת היקף מרצועת עזה לדרום ישראל.
+            </p>
+            <p>
+              גל הטרור שטף את דרום ישראל.
+              מחבלים חדרו ליישובי הגבול, והפכו את חיי היומיום למאבק הישרדות.
+              בתוך שעות, כמעט <strong>1,200</strong> אנשים נהרגו - 859 אזרחים ו-274 חיילים - ועוד
+              למעלה מ-250 נלקחו כבני ערובה.
+            </p>
+            <p>
+              הורים בקיבוצים כמו בארי וניר עוז מיגנו ילדים בחדרים נעולים בזמן שיריות הדהדו בחוץ. אזעקות חירום פילחו את הלילה, ויותר מ-630 פצועים הובהלו לבתי חולים עמוסים.
+            </p>
+          </div>
+          <figure>
+            <img src="/api/placeholder/500/350" alt="מתנדבי זק״א מפנים קורבנות בין ההריסות">
+            <figcaption>
+              מתנדבי זק״א מפנים קורבנות לאחר האירועים. מקור: 
+              <a href="https://zakaworld.org/" target="_blank" rel="noopener">זק״א עולמי</a>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      
+      <!-- Quote Board -->
+      <section class="quote-board" aria-labelledby="firsthand">
+        <h2 id="firsthand" class="section-heading text-center">עדויות מכלי ראשון</h2>
+        <div class="quote-container">
+          <blockquote cite="https://www.jpost.com/israel-hamas-war/article-795811">
+            <p>
+              "עברתי את הזוועות. אני מתאבל על אחייני ומשפחתי, ובכל זאת בכל בוקר אני שואל:
+              מה עליי לעשות היום כדי להחזיר את בן זוגי מעזה?"
+            </p>
+            <footer>
+              — זיו אבוד, ניצול פסטיבל נובה; ג׳רוזלם פוסט 
+              <a href="https://www.jpost.com/israel-hamas-war/article-795811" target="_blank" rel="noopener">jpost.com</a>
+            </footer>
+          </blockquote>
+          
+          <blockquote cite="https://www.pbs.org/newshour/world/one-year-later-israeli-survivors-reflect-on-lingering-toll-of-oct-7">
+            <p>
+              "כל פינה הפכה לאנדרטה... אתה מסתכל החוצה וכל זה מציף אותך מחדש."
+            </p>
+            <footer>
+              — לילך אלמוג, תושבת בארי; PBS NewsHour
+              <a href="https://www.pbs.org/newshour/world/one-year-later-israeli-survivors-reflect-on-lingering-toll-of-oct-7" target="_blank" rel="noopener">pbs.org</a>
+            </footer>
+          </blockquote>
+        </div>
+        
+        <p class="text-center">
+          ברחבי המדינה, הדי ה-7 באוקטובר מאחדים קהילות באבל ובנחישות. מתל אביב 
+          לטבריה, מתנדבים העבירו אספקה, אירחו משפחות שפונו, וקיימו עצרות זיכרון 
+          שהביעו אחדות.
+        </p>
+      </section>
+      
+      <!-- Communities Section -->
+      <section class="communities-section fade-in" aria-labelledby="communities">
+        <h2 id="communities" class="section-heading">קהילות שנפגעו</h2>
+        <div class="communities-grid">
+          <!-- Be'eri -->
+          <div class="community-card">
+            <div class="community-image">
+              <img src="/api/placeholder/400/250" alt="הריסות בתים בקיבוץ בארי">
+            </div>
+            <div class="community-content">
+              <h3>בארי</h3>
+              <p>אחת הקהילות שנפגעו קשה ביותר, קיבוץ בארי איבד יותר מ-100 חברים. משפחות נלקחו בשבי ובתים נהרסו כאשר מחבלים עברו מדלת לדלת. הקיבוץ, שהיה ידוע בבית הדפוס שלו ובחקלאות, הפך לזירת טרגדיה.</p>
+              <a href="#" class="btn-secondary">למידע נוסף</a>
+            </div>
+          </div>
+          
+          <!-- Nova Festival -->
+          <div class="community-card">
+            <div class="community-image">
+              <img src="/api/placeholder/400/250" alt="אנדרטה באתר פסטיבל נובה">
+            </div>
+            <div class="community-content">
+              <h3>פסטיבל נובה</h3>
+              <p>פסטיבל סופרנובה, מסיבת מוסיקה תחת כיפת השמיים ליד קיבוץ רעים, הפך למטרה כאשר 378 אנשים נהרגו ו-44 נלקחו כבני ערובה. מה שהחל כחגיגת מוסיקה ואחווה הסתיים באימה בלתי נתפסת.</p>
+              <a href="#" class="btn-secondary">למידע נוסף</a>
+            </div>
+          </div>
+          
+          <!-- Kfar Aza -->
+          <div class="community-card">
+            <div class="community-image">
+              <img src="/api/placeholder/400/250" alt="הרס בכפר עזה">
+            </div>
+            <div class="community-content">
+              <h3>כפר עזה</h3>
+              <p>קיבוץ קטן זה ליד גבול עזה איבד עשרות תושבים. הורים הסתתרו עם ילדים בממ״דים במשך שעות בזמן שמחבלים עברו בקהילה. צוותי חילוץ הגיעו ומצאו סצנות שמחלצים מנוסים תיארו כ״מעבר לכל דמיון״.</p>
+              <a href="#" class="btn-secondary">למידע נוסף</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Human Stories Section -->
+      <section class="content-section fade-in" aria-labelledby="human-stories">
+        <h2 id="human-stories" class="section-heading">סיפורים אנושיים: חמלה במשבר</h2>
+        <div class="two-column">
+          <div>
+            <p>
+              בימים שלאחר מכן, מרכזי סיוע מאולתרים סיפקו מזון, מחסה וסיוע רפואי. בתי ספר 
+              הפכו למרפאות, ואולמות ספורט אירחו משפחות המחפשות בטחון.
+            </p>
+            <p>
+              מעשי חסד פרחו: אמנים ציירו ציורי קיר כדי לעודד את הרוח, אופים חילקו לחם 
+              במחסומים, ומסעדות מקומיות האכילו את כל הנזקקים ללא תשלום.
+            </p>
+            <p>
+              בשעות הלילה המאוחרות, יישובים היו שקטים למעט תפילות לוחשות ושבילים מוארים בפנסים שהובילו 
+              את הנזקקים.
+            </p>
+            <p>
+              בעוד האימה שלטה, גיבורים הופיעו: שכנים נשאו את הפצועים לבטחה, ומתנדבי זק״א, 
+              עם פנסים בידיהם, חילצו את הנופלים בכבוד.
+            </p>
+          </div>
+          <div class="story-highlights">
+            <div class="highlight-card">
+              <h3>כוחות חירום</h3>
+              <p>צוותי חירום רפואיים עבדו סביב השעון, לעתים קרובות תחת אש, כדי להגיע ולטפל בפצועים. רבים מהמגיבים גילו חברים ובני משפחה בין הקורבנות.</p>
+            </div>
+            <div class="highlight-card">
+              <h3>תמיכה קהילתית</h3>
+              <p>תוך שעות, ישראלים רגילים התגייסו לאיסוף אספקה, פתיחת בתיהם למפונים, והתנדבות בבתי חולים ומרכזי סיוע.</p>
+            </div>
+            <div class="highlight-card">
+              <h3>סולידריות עולמית</h3>
+              <p>ארגוני סיוע בינלאומיים הגיעו עם אספקה רפואית, מומחי טראומה וסיוע חירום, עומדים כתף אל כתף עם מאמצים מקומיים.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Numbers and Impact Section -->
+      <section class="stats-section fade-in" aria-labelledby="impact">
+        <h2 id="impact" class="section-heading text-center">היקף האובדן</h2>
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-number">1,200</div>
+            <div class="stat-label">הרוגים</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">+250</div>
+            <div class="stat-label">חטופים</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">+5,000</div>
+            <div class="stat-label">פצועים</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">+8,000</div>
+            <div class="stat-label">מפונים</div>
+          </div>
+        </div>
+        <p class="stats-note text-center">מאחורי כל מספר יש שם, משפחה וסיפור שראוי לספר.</p>
+      </section>
+      
+      <!-- Call to Action -->
+      <section class="cta-section fade-in" aria-labelledby="calltoaction">
+        <h2 id="calltoaction" class="section-heading">עמדו לצד ישראל</h2>
+        <div class="cta-content">
+          <p>
+            אתר זה מכבד כל חיים שאבדו וחוגג את האנושיות המתמשכת. נווטו בציר הזמן,
+            קראו סיפורים, כבדו את הזיכרון, וגלו דרכים לעמוד בסולידריות עם אלה שבונים מחדש
+            את חייהם.
+          </p>
+          <div class="cta-buttons">
+            <a href="memorial-he.html" class="btn">לאתר ההנצחה</a>
+            <a href="resources-he.html" class="btn btn-secondary">משאבי תמיכה</a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Interactive Elements - Events Calendar -->
+      <section class="events-section fade-in" aria-labelledby="remembrance-events">
+        <h2 id="remembrance-events" class="section-heading">אירועי זיכרון קרובים</h2>
+        <div class="events-grid">
+          <div class="event-card">
+            <div class="event-date">אוק<br>7</div>
+            <div class="event-details">
+              <h3>טקס זיכרון ממלכתי</h3>
+              <p>ירושלים, ישראל</p>
+              <p>טקס ממלכתי לציון יום השנה השני לאירועי ה-7 באוקטובר.</p>
+              <a href="#" class="btn-secondary">פרטים</a>
+            </div>
+          </div>
+          <div class="event-card">
+            <div class="event-date">אוק<br>10</div>
+            <div class="event-details">
+              <h3>מעגל ריפוי קהילתי</h3>
+              <p>תל אביב, ישראל</p>
+              <p>קבוצת תמיכה ומפגש זיכרון לניצולים ומשפחות.</p>
+              <a href="#" class="btn-secondary">פרטים</a>
+            </div>
+          </div>
+          <div class="event-card">
+            <div class="event-date">אוק<br>15</div>
+            <div class="event-details">
+              <h3>תערוכת אמנות: זיכרון</h3>
+              <p>חיפה, ישראל</p>
+              <p>תערוכה המציגה עבודות של ניצולים וחברי קהילה שנפגעו מההתקפות.</p>
+              <a href="#" class="btn-secondary">פרטים</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <footer>
+    <div class="footer-links">
+      <a href="about-he.html">אודות היוזמה</a>
+      <a href="contact-he.html">צרו קשר</a>
+      <a href="privacy-he.html">מדיניות פרטיות</a>
+      <a href="terms-he.html">תנאי שימוש</a>
+      <a href="accessibility-he.html">נגישות</a>
+    </div>
+    <p>© 2025 יוזמת הזיכרון</p>
+    <p>אתר הנצחה זה מתוחזק בתמיכת משפחות, ניצולים וארגונים קהילתיים.</p>
+  </footer>
+</body>
+</html>

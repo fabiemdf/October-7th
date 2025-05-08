@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal accounts from survivors and witnesses of the October 7th, 2023 attacks in southern Israel.">
+  
+  <!-- Open Graph tags for better social sharing -->
+  <meta property="og:title" content="October 7th Stories - Personal Accounts">
+  <meta property="og:description" content="Firsthand testimonies from survivors and witnesses of the October 7th attacks in southern Israel.">
+  <meta property="og:url" content="https://october7memorial.org/stories.html">
+  <meta property="og:image" content="https://october7memorial.org/images/stories-cover.jpg">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>October 7th Tragedy – Stories</title>
+  
+  <style>
+    /* Additional styles specific to the stories page */
+    .stories-intro {
+      max-width: 800px;
+      margin: 0 auto var(--space-xl);
+      text-align: center;
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .stories-intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .story-filters {
+      background-color: var(--subtle-bg);
+      padding: var(--space-md);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    
+    .filter-label {
+      font-weight: bold;
+      margin-right: var(--space-sm);
+    }
+    
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    
+    .filter-btn {
+      background-color: white;
+      border: 1px solid var(--border-color);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    
+    .filter-btn:hover {
+      background-color: var(--subtle-bg);
+    }
+    
+    .filter-btn.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+    
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+    
+    .story-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    .story-header {
+      padding: var(--space-md);
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .story-title {
+      margin: 0;
+      font-size: 1.4rem;
+      color: white;
+    }
+    
+    .story-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--space-xs);
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .story-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-top: var(--space-xs);
+    }
+    
+    .story-tag {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+    }
+    
+    .story-content {
+      padding: var(--space-lg);
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .story-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: var(--space-md);
+    }
+    
+    .story-excerpt {
+      margin-bottom: var(--space-md);
+      font-style: italic;
+      position: relative;
+      line-height: 1.6;
+    }
+    
+    .story-excerpt::before {
+      content: '"';
+      font-size: 3rem;
+      color: var(--primary-color);
+      opacity: 0.2;
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+    }
+    
+    .story-excerpt::after {
+      content: '"';
+      font-size: 3rem;
+      color: var(--primary-color);
+      opacity: 0.2;
+      position: absolute;
+      bottom: -2rem;
+      right: -1rem;
+    }
+    
+    .story-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: var(--space-md);
+    }
+    
+    .storyteller {
+      font-weight: bold;
+    }
+    
+    .featured-story {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background-color: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      margin-bottom: var(--space-xl);
+    }
+    
+    .featured-image {
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      min-height: 400px;
+    }
+    
+    .featured-content {
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .featured-title {
+      color: var(--primary-color);
+      margin-bottom: var(--space-md);
+      font-size: 1.8rem;
+    }
+    
+    .featured-excerpt {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: var(--space-lg);
+    }
+    
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-top: auto;
+    }
+    
+    .featured-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .featured-storyteller {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .featured-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .featured-role {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .audio-player {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+    
+    .play-btn {
+      background-color: var(--primary-color);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .audio-progress {
+      flex-grow: 1;
+      height: 6px;
+      background-color: var(--subtle-bg);
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .audio-played {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 30%;
+      background-color: var(--primary-color);
+    }
+    
+    .audio-time {
+      font-size: 0.8rem;
+      color: #666;
+    }
+    
+    .story-section {
+      margin-bottom: var(--space-xl);
+    }
+    
+    .section-title {
+      margin-bottom: var(--space-lg);
+      color: var(--primary-color);
+    }
+    
+    .collection-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-md);
+    }
+    
+    .view-all {
+      color: var(--primary-color);
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    .view-all:hover {
+      text-decoration: underline;
+    }
+    
+    .stories-video {
+      margin: var(--space-xl) 0;
+      background-color: var(--subtle-bg);
+      padding: var(--space-xl);
+      border-radius: var(--border-radius);
+      text-align: center;
+    }
+    
+    .video-container {
+      max-width: 800px;
+      margin: var(--space-lg) auto;
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+    
+    .video-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    
+    .video-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .play-icon {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .play-icon svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
+    
+    .share-story {
+      background-color: var(--light-bg);
+      padding: var(--space-xl);
+      border-radius: var(--border-radius);
+      margin: var(--space-xl) 0;
+      text-align: center;
+    }
+    
+    .share-story-title {
+      margin-bottom: var(--space-md);
+    }
+    
+    .share-buttons {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      margin: var(--space-lg) 0;
+    }
+    
+    .share-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+      text-decoration: none;
+      color: var(--text-color);
+    }
+    
+    .share-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--transition-fast);
+    }
+    
+    .share-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+    
+    .share-btn:hover .share-icon {
+      transform: scale(1.1);
+    }
+    
+    @media (max-width: 992px) {
+      .featured-story {
+        grid-template-columns: 1fr;
+      }
+      
+      .featured-image {
+        height: 300px;
+      }
+      
+      .featured-content {
+        padding: var(--space-lg);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .stories-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .story-filters {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .filter-options {
+        width: 100%;
+      }
+      
+      .filter-btn {
+        flex: 1;
+        text-align: center;
+      }
+      
+      .featured-excerpt {
+        font-size: 1rem;
+      }
+      
+      .play-icon {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible skip link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <header>
+    <h1>Personal Stories</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="stories.html" aria-current="page">Stories</a></li>
+        <li><a href="memorial.html">Memorial</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <main id="main-content">
+      <div class="stories-intro">
+        <h2>Accounts from Survivors and Witnesses</h2>
+        <p>These are the voices of those who lived through October 7th, 2023. Their firsthand accounts offer a window into the events of that day—tales of loss, courage, survival, and resilience. Each story is a testament to the human experience amidst tragedy.</p>
+        <div class="content-warning">
+          <h3>Content Warning</h3>
+          <p>These stories contain descriptions of traumatic events including violence, loss, and grief. Reader discretion is advised.</p>
+        </div>
+      </div>
+      
+      <div class="story-filters">
+        <div>
+          <span class="filter-label">Location:</span>
+          <div class="filter-options">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Be'eri</button>
+            <button class="filter-btn">Nova Festival</button>
+            <button class="filter-btn">Kfar Aza</button>
+            <button class="filter-btn">Nahal Oz</button>
+          </div>
+        </div>
+        <div>
+          <span class="filter-label">Type:</span>
+          <div class="filter-options">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Survivors</button>
+            <button class="filter-btn">First Responders</button>
+            <button class="filter-btn">Family Members</button>
+            <button class="filter-btn">Community</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Featured Story -->
+      <article class="featured-story">
+        <div class="featured-image" style="background-image: url('/api/placeholder/800/600')"></div>
+        <div class="featured-content">
+          <h2 class="featured-title">The Voice That Guided Us to Safety</h2>
+          <div class="featured-excerpt">
+            <p>"I was driving toward the Nova Festival when we began receiving alerts. At first, I thought it was rockets and we should pull over. Then I saw vehicles racing in the opposite direction, people screaming. I turned around and joined a convoy of cars. A military officer standing in the road waved us through a back route I didn't know existed. For four hours, I drove with strangers from my rearview mirror, following his directions. That voice on the phone saved dozens of lives. I later learned he was killed minutes after our call ended."</p>
+          </div>
+          <div class="featured-meta">
+            <img src="/api/placeholder/100/100" alt="Portrait of Tal Miran" class="featured-avatar">
+            <div class="featured-storyteller">
+              <div class="featured-name">Tal Miran</div>
+              <div class="featured-role">Nova Festival Survivor</div>
+            </div>
+          </div>
+          <div class="audio-player">
+            <button class="play-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+            <div class="audio-progress">
+              <div class="audio-played"></div>
+            </div>
+            <span class="audio-time">3:24</span>
+          </div>
+          <a href="#" class="btn mt-3">Read Full Story</a>
+        </div>
+      </article>
+      
+      <!-- Survivor Stories Section -->
+      <section class="story-section" aria-labelledby="survivor-stories">
+        <div class="collection-header">
+          <h2 id="survivor-stories" class="section-title">Survivor Stories</h2>
+          <a href="#" class="view-all">View All</a>
+        </div>
+        <div class="stories-grid">
+          <!-- Story 1 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">14 Hours in a Safe Room</h3>
+              <div class="story-meta">
+                <span>Be'eri Kibbutz</span>
+                <span>October 12, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">Survival</span>
+                <span class="story-tag">Family</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="Safe room door with bullet holes" class="story-image">
+              <div class="story-excerpt">
+                <p>We heard the terrorists outside our door, trying to break in. My husband held it closed while I kept the children silent under the bed. Every few minutes, they would return and try again. This continued for hours.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">Maya Rothschild</span>
+                <a href="#" class="btn-secondary">Read More</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Story 2 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">Escape from Nova</h3>
+              <div class="story-meta">
+                <span>Nova Festival</span>
+                <span>October 15, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">Festival</span>
+                <span class="story-tag">Rescue</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="Abandoned vehicles at Nova Festival site" class="story-image">
+              <div class="story-excerpt">
+                <p>We ran between cars for cover. A stranger pulled me into his vehicle as bullets hit the side. Seven of us crammed inside, people I'd never met but who became like family in those terrifying moments.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">Daniel Cohen</span>
+                <a href="#" class="btn-secondary">Read More</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Story 3 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">Protecting My Students</h3>
+              <div class="story-meta">
+                <span>Kfar Aza</span>
+                <span>October 20, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">Teacher</span>
+                <span class="story-tag">Children</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="Classroom in Kfar Aza kindergarten" class="story-image">
+              <div class="story-excerpt">
+                <p>As a kindergarten teacher, my first thought was for my students. I called each family, ensuring they were in safe rooms. When I couldn't reach the Avraham family, I stayed on the line with their five-year-old until help arrived.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">Shira Levy</span>
+                <a href="#" class="btn-secondary">Read More</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      
+      <!-- Video Documentary Section -->
+      <section class="stories-video" aria-labelledby="video-documentary">
+        <h2 id="video-documentary">Documentary: Voices of October 7th</h2>
+        <p>This 25-minute documentary brings together testimonies from survivors, first responders, and community members who experienced the events of October 7th firsthand.</p>
+        <div class="video-container">
+          <div class="video-placeholder">
+            <img src="/api/placeholder/800/450" alt="Video thumbnail showing interview subjects">
+            <div class="play-icon">
+              <svg viewBox="0 0 24 24">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <p>Produced in partnership with the Testimonies Project and with the consent of all participants. This documentary aims to preserve firsthand accounts for historical record and educational purposes.</p>
+        <a href="#" class="btn">View More Videos</a>
+      </section>
+      
+      <!-- First Responder Stories Section -->
+      <section class="story-section" aria-labelledby="responder-stories">
+        <div class="collection-header">
+          <h2 id="responder-stories" class="section-title">First Responder Accounts</h2>
+          <a href="#" class="view-all">View All</a>
+        </div>
+        <div class="stories-grid">
+          <!-- Story 4 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">The Longest Shift</h3>
+              <div class="story-meta">
+                <span>Multiple Locations</span>
+                <span>October 9, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">Paramedic</span>
+                <span class="story-tag">MDA</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="Paramedic team with ambulance" class="story-image">
+              <div class="story-excerpt">
+                <p>We worked for 36 hours straight. Every time we thought we'd seen the worst, another call would come in. The hardest moment was finding a childhood friend among the wounded—suddenly the professional distance disappeared.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">Avi Benayoun, Paramedic</span>
+                <a href="#" class="btn-secondary">Read More</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Story 5 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">Searching Through the Night</h3>
+              <div class="story-meta">
+                <span>Be'eri</span>
+                <span>October 11, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">Search & Rescue</span>
+                <span class="story-tag">Military</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="Search and rescue team with equipment" class="story-image">
+              <div class="story-excerpt">
+                <p>We moved house to house with night vision, never knowing what we'd find. The silence was deafening. When we found survivors in a hidden safe room after 20 hours, their first question was about their neighbors, not themselves.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">Lt. Yonatan Mizrachi</span>
+                <a href="#" class="btn-secondary">Read More</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Story 6 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">The Hospital That Wouldn't Break</h3>
+              <div class="story-meta">
+                <span>Soroka Medical Center</span>
+                <span>October 14, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">Doctor</span>
+                <span class="story-tag">Hospital</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="Medical team in hospital corridor" class="story-image">
+              <div class="story-excerpt">
+                <p>Our trauma ward was designed for 20 patients. That day, we treated over 200. Staff who weren't on call came running in without being summoned. Surgeons operated in hallways. We had retired doctors in their 70s working alongside interns.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">Dr. Sarah Klein, Trauma Surgeon</span>
+                <a href="#" class="btn-secondary">Read More</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      
+      <!-- Community Response Stories Section -->
+      <section class="story-section" aria-labelledby="community-stories">
+        <div class="collection-header">
+          <h2 id="community-stories" class="section-title">Community Response</h2>
+          <a href="#" class="view-all">View All</a>
+        </div>
+        <div class="stories-grid">
+          <!-- Story 7 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">The Kitchen That Fed a Crisis</h3>
+              <div class="story-meta">
+                <span>Tel Aviv</span>
+                <span>October 13, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">Volunteers</span>
+                <span class="story-tag">Aid</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="Volunteers preparing meals in community kitchen" class="story-image">
+              <div class="story-excerpt">
+                <p>We turned my restaurant into a relief kitchen overnight. By morning, 50 strangers were cooking alongside my staff. We prepared 3,000 meals daily for evacuees and soldiers. Suppliers donated food without being asked.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">Miri Avraham, Restaurant Owner</span>
+                <a href="#" class="btn-secondary">Read More</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Story 8 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">A Home for the Displaced</h3>
+              <div class="story-meta">
+                <span>Jerusalem</span>
+                <span>October 18, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">Housing</span>
+                <span class="story-tag">Support</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="Family being welcomed into temporary home" class="story-image">
+              <div class="story-excerpt">
+                <p>We hosted three families from Be'eri in our three-bedroom apartment. Fifteen people sharing one bathroom, yet no one complained. When they arrived with nothing but the clothes they wore, our neighborhood collected everything they needed within hours.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">Dafna and Eli Stein</span>
+                <a href="#" class="btn-secondary">Read More</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Story 9 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">The Children's Art Therapy Project</h3>
+              <div class="story-meta">
+                <span>Multiple Locations</span>
+                <span>October 25, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">Healing</span>
+                <span class="story-tag">Children</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="Children painting in art therapy session" class="story-image">
+              <div class="story-excerpt">
+                <p>We created mobile art therapy stations that traveled to evacuation centers. The children's drawings told stories they couldn't express in words. One eight-year-old boy hadn't spoken since October 7th, but through his paintings, he began to communicate again.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">Rachel Goldstein, Art Therapist</span>
+                <a href="#" class="btn-secondary">Read More</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      
+      <!-- Share Your Story Section -->
+      <section class="share-story" aria-labelledby="share-story-title">
+        <h2 id="share-story-title" class="share-story-title">Share Your Story</h2>
+        <p>If you experienced the events of October 7th firsthand or were directly affected, we invite you to contribute your testimony to this growing archive of personal accounts. Your story matters and helps create a complete historical record of this day.</p>
+        <div class="share-buttons">
+          <a href="#" class="share-btn">
+            <div class="share-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+            </div>
+            <span>Written Account</span>
+          </a>
+          <a href="#" class="share-btn">
+            <div class="share-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M23 7l-7 5 7 5V7z"></path>
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+              </svg>
+            </div>
+            <span>Video Testimony</span>
+          </a>
+          <a href="#" class="share-btn">
+            <div class="share-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+            </div>
+            <span>Audio Recording</span>
+          </a>
+        </div>
+        <p>All submissions are reviewed by our editorial team. Support resources are available for those who may find the process emotionally challenging.</p>
+        <a href="#" class="btn">Submit Your Story</a>
+      </section>
+      
+      <!-- Reflection Section -->
+      <section class="reflection-section">
+        <h2>The Power of Personal Testimony</h2>
+        <p>These stories are more than memories—they are vital historical documents that ensure the events of October 7th are preserved accurately for future generations. Each account adds dimension to our understanding of what happened that day and in its aftermath.</p>
+        <p>These testimonies also reveal the extraordinary capacity for human courage, compassion, and resilience. Amid unthinkable circumstances, we see countless examples of people protecting one another, helping strangers, and finding strength to rebuild.</p>
+        <p>As this archive continues to grow, it serves as both memorial and testament—honoring those lost while ensuring their stories, and the stories of those who survived, are never forgotten.</p>
+      </section>
+    </main>
+  </div>
+  
+  <footer>
+    <div class="footer-links">
+      <a href="about.html">About the Initiative</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="accessibility.html">Accessibility</a>
+    </div>
+    <p>© 2025 Remembrance Initiative</p>
+    <p>This memorial website is maintained with support from families, survivors, and community organizations.</p>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Filter functionality
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from sibling buttons
+          const siblings = Array.from(this.parentNode.children);
+          siblings.forEach(sibling => sibling.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // In a real implementation, this would filter the stories
+          console.log('Filter selected:', this.textContent);
+        });
+      });
+      
+      // Audio player simulation
+      const playBtn = document.querySelector('.play-btn');
+      if (playBtn) {
+        playBtn.addEventListener('click', function() {
+          const audioPlayed = document.querySelector('.audio-played');
+          const audioTime = document.querySelector('.audio-time');
+          
+          // Toggle play/pause
+          if (this.dataset.playing === 'true') {
+            this.dataset.playing = 'false';
+            this.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
+            audioTime.textContent = '3:24';
+          } else {
+            this.dataset.playing = 'true';
+            this.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
+            audioTime.textContent = '1:42';
+          }
+          
+          // In a real implementation, this would play/pause the audio
+          audioPlayed.style.width = this.dataset.playing === 'true' ? '50%' : '30%';
+        });
+      }
+      
+      // Video player simulation
+      const videoPlaceholder = document.querySelector('.video-placeholder');
+      if (videoPlaceholder) {
+        videoPlaceholder.addEventListener('click', function() {
+          // In a real implementation, this would embed and play the video
+          this.innerHTML = '<div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#000;color:#fff;font-size:1.2rem;">Video would play here</div>';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about the October 7th Remembrance Initiative, our mission, team, and commitment to honoring victims and supporting survivors.">
+  
+  <!-- Open Graph tags for better social sharing -->
+  <meta property="og:title" content="About the October 7th Remembrance Initiative">
+  <meta property="og:description" content="Learn about our mission to preserve the memory of the October 7th, 2023 attacks and support survivors and families.">
+  <meta property="og:url" content="https://october7memorial.org/about.html">
+  <meta property="og:image" content="https://october7memorial.org/images/about-cover.jpg">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>October 7th Tragedy – About the Initiative</title>
+  
+  <style>
+    /* Additional styles specific to the about page */
+    .about-intro {
+      max-width: 800px;
+      margin: 0 auto var(--space-xl);
+      text-align: center;
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .about-intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .mission-section {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: var(--space-xl) var(--space-lg);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--space-xl);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .mission-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .mission-section h2 {
+      color: var(--light-text);
+      border-bottom: none;
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+    
+    .mission-section p {
+      margin-bottom: var(--space-md);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .mission-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      background-image: url('/api/placeholder/1200/600');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-xl) 0;
+    }
+    
+    .value-card {
+      background-color: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition-medium);
+    }
+    
+    .value-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .value-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto var(--space-md);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-color);
+    }
+    
+    .value-icon svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
+    
+    .value-title {
+      margin-bottom: var(--space-sm);
+      color: var(--primary-color);
+    }
+    
+    .team-section {
+      margin: var(--space-xl) 0;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+    
+    .team-member {
+      text-align: center;
+    }
+    
+    .team-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto var(--space-md);
+      border: 3px solid var(--primary-color);
+    }
+    
+    .team-name {
+      margin-bottom: var(--space-xs);
+      color: var(--primary-color);
+    }
+    
+    .team-role {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: var(--space-sm);
+    }
+    
+    .team-bio {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .advisory-board {
+      margin-top: var(--space-xl);
+    }
+    
+    .board-members {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    
+    .board-member {
+      background-color: var(--light-bg);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--border-radius);
+      font-weight: 500;
+    }
+    
+    .timeline-section {
+      margin: var(--space-xl) 0;
+    }
+    
+    .history-timeline {
+      position: relative;
+      padding-left: 50px;
+      margin-top: var(--space-lg);
+    }
+    
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 20px;
+      width: 2px;
+      background-color: var(--primary-color);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+    }
+    
+    .timeline-marker {
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      background-color: var(--light-text);
+      border: 2px solid var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    
+    .timeline-date {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: var(--space-xs);
+    }
+    
+    .timeline-content {
+      background-color: var(--light-bg);
+      padding: var(--space-md);
+      border-radius: var(--border-radius);
+      border-left: 3px solid var(--primary-color);
+    }
+    
+    .partners-section {
+      margin: var(--space-xl) 0;
+    }
+    
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+      align-items: center;
+    }
+    
+    .partner-logo {
+      background-color: white;
+      padding: var(--space-md);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      transition: transform var(--transition-fast);
+    }
+    
+    .partner-logo img {
+      max-width: 100%;
+      max-height: 70px;
+      object-fit: contain;
+    }
+    
+    .partner-logo:hover {
+      transform: scale(1.05);
+    }
+    
+    .contact-section {
+      background-color: var(--light-bg);
+      padding: var(--space-xl);
+      border-radius: var(--border-radius);
+      margin: var(--space-xl) 0;
+      text-align: center;
+    }
+    
+    .contact-options {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+      flex-wrap: wrap;
+    }
+    
+    .contact-method {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      box-shadow: var(--box-shadow);
+      width: 280px;
+      text-align: center;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto var(--space-md);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-color);
+    }
+    
+    .contact-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+    
+    .contact-title {
+      margin-bottom: var(--space-sm);
+      color: var(--primary-color);
+    }
+    
+    .contact-detail {
+      margin-bottom: var(--space-md);
+    }
+    
+    .quote-section {
+      position: relative;
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: var(--space-xl);
+      border-radius: var(--border-radius);
+      margin: var(--space-xl) 0;
+      text-align: center;
+    }
+    
+    .quote-content {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+    
+    .quote-text {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: var(--space-md);
+      position: relative;
+    }
+    
+    .quote-text::before, .quote-text::after {
+      content: '"';
+      font-size: 3rem;
+      opacity: 0.5;
+      position: absolute;
+    }
+    
+    .quote-text::before {
+      top: -20px;
+      left: -20px;
+    }
+    
+    .quote-text::after {
+      bottom: -40px;
+      right: -20px;
+    }
+    
+    .quote-author {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .quote-role {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .quote-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      background-image: url('/api/placeholder/1200/600');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    @media (max-width: 768px) {
+      .contact-options {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .timeline-marker {
+        width: 30px;
+        height: 30px;
+        left: -40px;
+      }
+      
+      .history-timeline {
+        padding-left: 40px;
+      }
+      
+      .quote-text {
+        font-size: 1.2rem;
+      }
+      
+      .quote-text::before, .quote-text::after {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible skip link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <header>
+    <h1>About the Initiative</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li><a href="memorial.html">Memorial</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <main id="main-content">
+      <div class="about-intro">
+        <h2>The October 7th Remembrance Initiative</h2>
+        <p>Established in the aftermath of the October 7th, 2023 attacks, the Remembrance Initiative is dedicated to honoring the victims, supporting survivors and their families, and ensuring that the events of that day are remembered with accuracy and dignity.</p>
+      </div>
+      
+      <!-- Mission Section -->
+      <section class="mission-section" aria-labelledby="mission-title">
+        <div class="mission-bg"></div>
+        <div class="mission-content">
+          <h2 id="mission-title">Our Mission</h2>
+          <p>The October 7th Remembrance Initiative exists to preserve the memory of those who lost their lives, to support those who survived, and to document the events with historical accuracy for future generations.</p>
+          <p>We believe in the power of remembrance as an act of honor, resilience, and healing. By creating spaces—both physical and digital—for commemoration, testimony, and education, we work to ensure that the stories of October 7th continue to be told with dignity and truth.</p>
+          <p>Through our memorial activities, survivor support programs, educational resources, and community engagement, we strive to transform tragedy into a foundation for understanding, solidarity, and hope.</p>
+        </div>
+      </section>
+      
+      <!-- Values Section -->
+      <section class="values-section" aria-labelledby="values-title">
+        <h2 id="values-title">Our Core Values</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">Dignity</h3>
+            <p>We honor the dignity of every life lost and every story shared. Each individual affected by the events of October 7th deserves to be remembered with respect and humanity.</p>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                <line x1="9" y1="20" x2="15" y2="20"></line>
+                <line x1="12" y1="4" x2="12" y2="20"></line>
+              </svg>
+            </div>
+            <h3 class="value-title">Truth</h3>
+            <p>We are committed to historical accuracy and factual documentation. In a world of misinformation, we provide verified accounts and thorough research to ensure the truth is preserved.</p>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">Compassion</h3>
+            <p>We approach our work with deep empathy for all those affected by the tragedy. Every program and resource we develop is guided by a compassionate understanding of trauma and grief.</p>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2L4 7l8 5 8-5-8-5z"></path>
+                <path d="M4 14l8 5 8-5"></path>
+                <path d="M4 21l8 5 8-5"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">Resilience</h3>
+            <p>We recognize and honor the extraordinary resilience shown by survivors, families, and communities. Our work celebrates the human capacity to endure, rebuild, and grow even in the face of tremendous loss.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Team Section -->
+      <section class="team-section" aria-labelledby="team-title">
+        <h2 id="team-title">Our Team</h2>
+        <p>The Remembrance Initiative is led by a diverse team of professionals dedicated to honoring the memory of October 7th with dignity and purpose. Many of our team members have personal connections to the affected communities.</p>
+        
+        <div class="team-grid">
+          <!-- Team Member 1 -->
+          <div class="team-member">
+            <img src="/api/placeholder/200/200" alt="Portrait of Dr. Sarah Cohen" class="team-photo">
+            <h3 class="team-name">Dr. Sarah Cohen</h3>
+            <div class="team-role">Executive Director</div>
+            <p class="team-bio">Dr. Cohen is a historian and community advocate with over 20 years of experience in memorial and educational initiatives. Her work focuses on preserving historical memory through community engagement.</p>
+          </div>
+          
+          <!-- Team Member 2 -->
+          <div class="team-member">
+            <img src="/api/placeholder/200/200" alt="Portrait of Daniel Levy" class="team-photo">
+            <h3 class="team-name">Daniel Levy</h3>
+            <div class="team-role">Director of Survivor Support</div>
+            <p class="team-bio">A trauma psychologist who has worked extensively with survivors of violence, Daniel leads our support programs and resources for those directly affected by the October 7th attacks.</p>
+          </div>
+          
+          <!-- Team Member 3 -->
+          <div class="team-member">
+            <img src="/api/placeholder/200/200" alt="Portrait of Maya Bergman" class="team-photo">
+            <h3 class="team-name">Maya Bergman</h3>
+            <div class="team-role">Director of Education</div>
+            <p class="team-bio">An educator with expertise in curriculum development, Maya oversees our educational resources and programs designed to help communities and schools address the events of October 7th.</p>
+          </div>
+          
+          <!-- Team Member 4 -->
+          <div class="team-member">
+            <img src="/api/placeholder/200/200" alt="Portrait of Avi Rosenberg" class="team-photo">
+            <h3 class="team-name">Avi Rosenberg</h3>
+            <div class="team-role">Director of Memorial Development</div>
+            <p class="team-bio">With a background in architecture and memorial design, Avi leads the development of both physical and digital memorial spaces to honor those affected by the October 7th tragedy.</p>
+          </div>
+        </div>
+        
+        <!-- Advisory Board -->
+        <div class="advisory-board">
+          <h3>Advisory Board</h3>
+          <p>Our initiative is guided by an advisory board of community leaders, subject matter experts, and representatives from affected communities.</p>
+          <div class="board-members">
+            <div class="board-member">Prof. Rachel Silverstein, Historian</div>
+            <div class="board-member">David Katz, Community Leader</div>
+            <div class="board-member">Dr. Noa Ben-David, Trauma Specialist</div>
+            <div class="board-member">Yossi Blum, Survivor Representative</div>
+            <div class="board-member">Leah Goldstein, Education Expert</div>
+            <div class="board-member">Michael Avraham, Security Analyst</div>
+            <div class="board-member">Talia Mizrahi, Family Representative</div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Timeline Section -->
+      <section class="timeline-section" aria-labelledby="timeline-title">
+        <h2 id="timeline-title">Our Journey</h2>
+        <div class="history-timeline">
+          <div class="timeline-line"></div>
+          
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">1</div>
+            <div class="timeline-date">October 2023</div>
+            <div class="timeline-content">
+              <p>In the immediate aftermath of the October 7th attacks, a group of community leaders, academics, and professionals came together to discuss how to preserve the memory of the day's events and support those affected.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">2</div>
+            <div class="timeline-date">November 2023</div>
+            <div class="timeline-content">
+              <p>The October 7th Remembrance Initiative was formally established as a non-profit organization dedicated to memorial, documentation, education, and support programs.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">3</div>
+            <div class="timeline-date">December 2023</div>
+            <div class="timeline-content">
+              <p>The Initiative began collecting testimonies, documents, and artifacts related to the attacks to create a comprehensive archive for historical preservation and educational purposes.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">4</div>
+            <div class="timeline-date">January 2024</div>
+            <div class="timeline-content">
+              <p>Development began on the digital memorial website to provide accessible information about the events, honor victims, and offer resources to survivors and their families.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 5 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">5</div>
+            <div class="timeline-date">March 2024</div>
+            <div class="timeline-content">
+              <p>The Initiative launched its first educational programs for schools and community organizations, providing age-appropriate resources for discussing the October 7th events.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 6 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">6</div>
+            <div class="timeline-date">May 2024</div>
+            <div class="timeline-content">
+              <p>Our memorial website was officially launched, providing a digital space for remembrance, education, and resource connections for those affected by the tragedy.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 7 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">7</div>
+            <div class="timeline-date">Ongoing</div>
+            <div class="timeline-content">
+              <p>The Initiative continues to expand its programs, collect testimonies, develop resources, and work towards a permanent physical memorial to honor the victims of October 7th.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Quote Section -->
+      <section class="quote-section" aria-labelledby="perspective">
+        <div class="quote-bg"></div>
+        <div class="quote-content">
+          <div class="quote-text" id="perspective">
+            Our work is guided by the belief that remembrance is not just about looking back, but also about moving forward. By preserving these stories with dignity and truth, we create a foundation for healing, understanding, and resilience in the face of tragedy.
+          </div>
+          <div class="quote-author">Dr. Sarah Cohen</div>
+          <div class="quote-role">Executive Director, October 7th Remembrance Initiative</div>
+        </div>
+      </section>
+      
+      <!-- Partners Section -->
+      <section class="partners-section" aria-labelledby="partners-title">
+        <h2 id="partners-title">Our Partners</h2>
+        <p>The Remembrance Initiative collaborates with a wide range of organizations to fulfill our mission. We are grateful for the support and partnership of:</p>
+        
+        <div class="partners-grid">
+          <div class="partner-logo">
+            <img src="/api/placeholder/150/80" alt="Israel Trauma Coalition logo">
+          </div>
+          <div class="partner-logo">
+            <img src="/api/placeholder/150/80" alt="National Memorial Institute logo">
+          </div>
+          <div class="partner-logo">
+            <img src="/api/placeholder/150/80" alt="Center for Historical Documentation logo">
+          </div>
+          <div class="partner-logo">
+            <img src="/api/placeholder/150/80" alt="Community Resilience Network logo">
+          </div>
+          <div class="partner-logo">
+            <img src="/api/placeholder/150/80" alt="Educational Resources Foundation logo">
+          </div>
+          <div class="partner-logo">
+            <img src="/api/placeholder/150/80" alt="Digital Archives Institute logo">
+          </div>
+        </div>
+      </section>
+      
+      <!-- Funding Section -->
+      <section class="funding-section" aria-labelledby="funding-title">
+        <h2 id="funding-title">Our Funding</h2>
+        <p>The October 7th Remembrance Initiative is funded through a combination of:</p>
+        <ul>
+          <li>Grants from established foundations dedicated to memorial and educational initiatives</li>
+          <li>Individual donations from supporters around the world</li>
+          <li>Institutional partnerships with educational and historical organizations</li>
+          <li>Community fundraising efforts in affected regions</li>
+        </ul>
+        <p>We maintain complete transparency in our financial operations. Annual reports and financial statements are available upon request. As a registered non-profit organization, all donations are tax-deductible to the extent allowed by law.</p>
+        <a href="#" class="btn mt-3">Support Our Work</a>
+      </section>
+      
+      <!-- Contact Section -->
+      <section class="contact-section" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact Us</h2>
+        <p>We welcome inquiries, collaboration opportunities, and feedback about our work. Please reach out through any of the following channels:</p>
+        
+        <div class="contact-options">
+          <div class="contact-method">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="M22 7l-10 5-10-5"></path>
+              </svg>
+            </div>
+            <h3 class="contact-title">Email</h3>
+            <p class="contact-detail">For general inquiries, information, or to share your story:</p>
+            <a href="mailto:info@october7memorial.org" class="btn-secondary">info@october7memorial.org</a>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <h3 class="contact-title">Phone</h3>
+            <p class="contact-detail">Our team is available Monday-Friday, 9am-5pm (Israel Standard Time):</p>
+            <a href="tel:+97235551234" class="btn-secondary">+972 3 555 1234</a>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <h3 class="contact-title">Office</h3>
+            <p class="contact-detail">Our main office is located at:</p>
+            <address class="not-italic">
+              October 7th Remembrance Initiative<br>
+              123 Memorial Plaza<br>
+              Tel Aviv, Israel 61234
+            </address>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Get Involved Section -->
+      <section class="get-involved" aria-labelledby="get-involved-title">
+        <h2 id="get-involved-title">Get Involved</h2>
+        <p>There are many ways to support our mission and contribute to the work of remembrance:</p>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">Donate</h3>
+            <p>Financial contributions support our memorial, educational, and support programs. All donations directly fund our mission.</p>
+            <a href="#" class="btn-secondary mt-2">Make a Donation</a>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">Volunteer</h3>
+            <p>Join our team of dedicated volunteers who assist with events, programs, and administrative support.</p>
+            <a href="#" class="btn-secondary mt-2">Volunteer With Us</a>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">Share</h3>
+            <p>Help spread awareness about the October 7th events and our memorial efforts through your networks and social media.</p>
+            <a href="#" class="btn-secondary mt-2">Share Our Mission</a>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="value-title">Contribute</h3>
+            <p>If you have a story, testimony, or artifact related to October 7th that you would like to share, please contact our documentation team.</p>
+            <a href="#" class="btn-secondary mt-2">Share Your Story</a>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  </div>
+  
+  <footer>
+    <div class="footer-links">
+      <a href="about.html">About the Initiative</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="accessibility.html">Accessibility</a>
+    </div>
+    <p>© 2025 Remembrance Initiative</p>
+    <p>This memorial website is maintained with support from families, survivors, and community organizations.</p>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add a simple animation to timeline items on scroll
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      
+      function checkVisibility() {
+        timelineItems.forEach(item => {
+          const position = item.getBoundingClientRect();
+          
+          // If item is in viewport
+          if(position.top < window.innerHeight * 0.8 && position.bottom >= 0) {
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+          }
+        });
+      }
+      
+      // Set initial styles
+      timelineItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(20px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+      
+      // Check visibility on load
+      checkVisibility();
+      
+      // Check visibility on scroll
+      window.addEventListener('scroll', checkVisibility);
+    });
+  </script>
+</body>
+</html>

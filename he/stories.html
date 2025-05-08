@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="עדויות אישיות מניצולים ועדים לאירועי ה-7 באוקטובר 2023 בדרום ישראל.">
+  
+  <!-- Open Graph tags for better social sharing -->
+  <meta property="og:title" content="סיפורי ה-7 באוקטובר - עדויות אישיות">
+  <meta property="og:description" content="עדויות מכלי ראשון מניצולים ועדים לאירועי ה-7 באוקטובר בדרום ישראל.">
+  <meta property="og:url" content="https://october7memorial.org/he/stories.html">
+  <meta property="og:image" content="https://october7memorial.org/images/stories-cover.jpg">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <title>אסון 7 באוקטובר – סיפורים אישיים</title>
+  
+  <style>
+    /* RTL and Hebrew specific styles */
+    body {
+      font-family: 'Segoe UI', 'Arial Hebrew', 'David', 'Times New Roman', sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+    
+    /* Language switcher */
+    .language-switcher {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 100;
+    }
+    
+    .language-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    
+    .language-btn:hover {
+      background-color: white;
+      color: var(--primary-color);
+    }
+    
+    /* Additional styles specific to the stories page */
+    .stories-intro {
+      max-width: 800px;
+      margin: 0 auto var(--space-xl);
+      text-align: center;
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .stories-intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .story-filters {
+      background-color: var(--subtle-bg);
+      padding: var(--space-md);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    
+    .filter-label {
+      font-weight: bold;
+      margin-left: var(--space-sm);
+      margin-right: 0;
+    }
+    
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    
+    .filter-btn {
+      background-color: white;
+      border: 1px solid var(--border-color);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    
+    .filter-btn:hover {
+      background-color: var(--subtle-bg);
+    }
+    
+    .filter-btn.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+    
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+    
+    .story-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    .story-header {
+      padding: var(--space-md);
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .story-title {
+      margin: 0;
+      font-size: 1.4rem;
+      color: white;
+    }
+    
+    .story-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--space-xs);
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .story-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-top: var(--space-xs);
+    }
+    
+    .story-tag {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+    }
+    
+    .story-content {
+      padding: var(--space-lg);
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .story-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: var(--space-md);
+    }
+    
+    .story-excerpt {
+      margin-bottom: var(--space-md);
+      font-style: italic;
+      position: relative;
+      line-height: 1.6;
+    }
+    
+    .story-excerpt::before {
+      content: '"';
+      font-size: 3rem;
+      color: var(--primary-color);
+      opacity: 0.2;
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      left: auto;
+    }
+    
+    .story-excerpt::after {
+      content: '"';
+      font-size: 3rem;
+      color: var(--primary-color);
+      opacity: 0.2;
+      position: absolute;
+      bottom: -2rem;
+      left: -1rem;
+      right: auto;
+    }
+    
+    .story-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: var(--space-md);
+    }
+    
+    .storyteller {
+      font-weight: bold;
+    }
+    
+    .featured-story {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background-color: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      margin-bottom: var(--space-xl);
+    }
+    
+    .featured-image {
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      min-height: 400px;
+    }
+    
+    .featured-content {
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .featured-title {
+      color: var(--primary-color);
+      margin-bottom: var(--space-md);
+      font-size: 1.8rem;
+    }
+    
+    .featured-excerpt {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: var(--space-lg);
+    }
+    
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-top: auto;
+    }
+    
+    .featured-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .featured-storyteller {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .featured-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .featured-role {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .audio-player {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+    
+    .play-btn {
+      background-color: var(--primary-color);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .audio-progress {
+      flex-grow: 1;
+      height: 6px;
+      background-color: var(--subtle-bg);
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .audio-played {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: auto;
+      height: 100%;
+      width: 30%;
+      background-color: var(--primary-color);
+    }
+    
+    .audio-time {
+      font-size: 0.8rem;
+      color: #666;
+    }
+    
+    .story-section {
+      margin-bottom: var(--space-xl);
+    }
+    
+    .section-title {
+      margin-bottom: var(--space-lg);
+      color: var(--primary-color);
+    }
+    
+    .collection-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-md);
+    }
+    
+    .view-all {
+      color: var(--primary-color);
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    .view-all:hover {
+      text-decoration: underline;
+    }
+    
+    .stories-video {
+      margin: var(--space-xl) 0;
+      background-color: var(--subtle-bg);
+      padding: var(--space-xl);
+      border-radius: var(--border-radius);
+      text-align: center;
+    }
+    
+    .video-container {
+      max-width: 800px;
+      margin: var(--space-lg) auto;
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+    
+    .video-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    
+    .video-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .play-icon {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .play-icon svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
+    
+    .share-story {
+      background-color: var(--light-bg);
+      padding: var(--space-xl);
+      border-radius: var(--border-radius);
+      margin: var(--space-xl) 0;
+      text-align: center;
+    }
+    
+    .share-story-title {
+      margin-bottom: var(--space-md);
+    }
+    
+    .share-buttons {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      margin: var(--space-lg) 0;
+    }
+    
+    .share-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+      text-decoration: none;
+      color: var(--text-color);
+    }
+    
+    .share-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--transition-fast);
+    }
+    
+    .share-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+    
+    .share-btn:hover .share-icon {
+      transform: scale(1.1);
+    }
+    
+    @media (max-width: 992px) {
+      .featured-story {
+        grid-template-columns: 1fr;
+      }
+      
+      .featured-image {
+        height: 300px;
+      }
+      
+      .featured-content {
+        padding: var(--space-lg);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .stories-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .story-filters {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .filter-options {
+        width: 100%;
+      }
+      
+      .filter-btn {
+        flex: 1;
+        text-align: center;
+      }
+      
+      .featured-excerpt {
+        font-size: 1rem;
+      }
+      
+      .play-icon {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .language-switcher {
+        top: 10px;
+        left: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible skip link -->
+  <a href="#main-content" class="skip-link">דלג לתוכן העיקרי</a>
+  
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <a href="../stories.html" class="language-btn">English</a>
+  </div>
+  
+  <header>
+    <h1>סיפורים אישיים</h1>
+    <nav aria-label="ניווט ראשי">
+      <ul>
+        <li><a href="/he/index.html">דף הבית</a></li>
+        <li><a href="/he/timeline.html">ציר זמן</a></li>
+        <li><a href="/he/stories.html" aria-current="page">סיפורים</a></li>
+        <li><a href="/he/memorial.html">הנצחה</a></li>
+        <li><a href="/he/resources.html">משאבים</a></li>
+        <li><a href="/he/about.html">אודות</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <main id="main-content">
+      <div class="stories-intro">
+        <h2>עדויות מניצולים ועדים</h2>
+        <p>אלה הם הקולות של אלו שחוו את ה-7 באוקטובר 2023. עדויותיהם מכלי ראשון מציעות צוהר אל האירועים של אותו יום—סיפורים של אובדן, אומץ, הישרדות וחוסן. כל סיפור הוא עדות לחוויה האנושית מול הטרגדיה.</p>
+        <div class="content-warning">
+          <h3>אזהרת תוכן</h3>
+          <p>סיפורים אלה מכילים תיאורים של אירועים טראומטיים כולל אלימות, אובדן ואבל. נדרשת זהירות של הקורא.</p>
+        </div>
+      </div>
+      
+      <div class="story-filters">
+        <div>
+          <span class="filter-label">מיקום:</span>
+          <div class="filter-options">
+            <button class="filter-btn active">הכל</button>
+            <button class="filter-btn">בארי</button>
+            <button class="filter-btn">פסטיבל נובה</button>
+            <button class="filter-btn">כפר עזה</button>
+            <button class="filter-btn">נחל עוז</button>
+          </div>
+        </div>
+        <div>
+          <span class="filter-label">סוג:</span>
+          <div class="filter-options">
+            <button class="filter-btn active">הכל</button>
+            <button class="filter-btn">ניצולים</button>
+            <button class="filter-btn">כוחות חירום</button>
+            <button class="filter-btn">בני משפחה</button>
+            <button class="filter-btn">קהילה</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Featured Story -->
+      <article class="featured-story">
+        <div class="featured-image" style="background-image: url('/api/placeholder/800/600')"></div>
+        <div class="featured-content">
+          <h2 class="featured-title">הקול שהוביל אותנו לבטחון</h2>
+          <div class="featured-excerpt">
+            <p>"נסעתי לכיוון פסטיבל נובה כשהתחלנו לקבל התרעות. בהתחלה, חשבתי שמדובר ברקטות ועלינו לעצור בצד. ואז ראיתי כלי רכב דוהרים בכיוון ההפוך, אנשים צועקים. הסתובבתי והצטרפתי לשיירה של מכוניות. קצין צבאי שעמד בכביש הניף אותנו דרך נתיב אחורי שלא ידעתי שקיים. במשך ארבע שעות, נהגתי עם זרים מהמראה שלי, עוקב אחר ההוראות שלו. אותו קול בטלפון הציל עשרות חיים. מאוחר יותר גיליתי שהוא נהרג דקות לאחר שהשיחה שלנו הסתיימה."</p>
+          </div>
+          <div class="featured-meta">
+            <img src="/api/placeholder/100/100" alt="תמונה של טל מירן" class="featured-avatar">
+            <div class="featured-storyteller">
+              <div class="featured-name">טל מירן</div>
+              <div class="featured-role">ניצול פסטיבל נובה</div>
+            </div>
+          </div>
+          <div class="audio-player">
+            <button class="play-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+            <div class="audio-progress">
+              <div class="audio-played"></div>
+            </div>
+            <span class="audio-time">3:24</span>
+          </div>
+          <a href="#" class="btn mt-3">קרא את הסיפור המלא</a>
+        </div>
+      </article>
+      
+      <!-- Survivor Stories Section -->
+      <section class="story-section" aria-labelledby="survivor-stories">
+        <div class="collection-header">
+          <h2 id="survivor-stories" class="section-title">סיפורי ניצולים</h2>
+          <a href="#" class="view-all">הצג הכל</a>
+        </div>
+        <div class="stories-grid">
+          <!-- Story 1 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">14 שעות בממ״ד</h3>
+              <div class="story-meta">
+                <span>קיבוץ בארי</span>
+                <span>12 באוקטובר, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">הישרדות</span>
+                <span class="story-tag">משפחה</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="דלת ממ״ד עם חורי כדורים" class="story-image">
+              <div class="story-excerpt">
+                <p>שמענו את המחבלים מחוץ לדלת שלנו, מנסים לפרוץ פנימה. בעלי החזיק אותה סגורה בזמן שאני שמרתי על הילדים בשקט מתחת למיטה. כל כמה דקות, הם היו חוזרים ומנסים שוב. זה נמשך במשך שעות.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">מאיה רוטשילד</span>
+                <a href="#" class="btn-secondary">קרא עוד</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Story 2 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">הבריחה מנובה</h3>
+              <div class="story-meta">
+                <span>פסטיבל נובה</span>
+                <span>15 באוקטובר, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">פסטיבל</span>
+                <span class="story-tag">חילוץ</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="כלי רכב נטושים באתר פסטיבל נובה" class="story-image">
+              <div class="story-excerpt">
+                <p>רצנו בין מכוניות למחסה. זר משך אותי לתוך הרכב שלו בזמן שכדורים פגעו בצד. שבעה מאיתנו נדחסו פנימה, אנשים שמעולם לא פגשתי אבל שהפכו כמו משפחה באותם רגעים מטילי אימה.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">דניאל כהן</span>
+                <a href="#" class="btn-secondary">קרא עוד</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Story 3 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">מגנה על התלמידים שלי</h3>
+              <div class="story-meta">
+                <span>כפר עזה</span>
+                <span>20 באוקטובר, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">מורה</span>
+                <span class="story-tag">ילדים</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="כיתת גן ילדים בכפר עזה" class="story-image">
+              <div class="story-excerpt">
+                <p>כגננת, המחשבה הראשונה שלי הייתה על התלמידים שלי. התקשרתי לכל משפחה, וודאתי שהם בחדרים מוגנים. כשלא הצלחתי להגיע למשפחת אברהם, נשארתי על הקו עם הילד בן החמש שלהם עד שהגיע סיוע.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">שירה לוי</span>
+                <a href="#" class="btn-secondary">קרא עוד</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      
+      <!-- Video Documentary Section -->
+      <section class="stories-video" aria-labelledby="video-documentary">
+        <h2 id="video-documentary">תיעוד: קולות ה-7 באוקטובר</h2>
+        <p>סרט תיעודי בן 25 דקות זה מביא יחד עדויות מניצולים, כוחות חירום ואנשי קהילה שחוו את אירועי ה-7 באוקטובר מכלי ראשון.</p>
+        <div class="video-container">
+          <div class="video-placeholder">
+            <img src="/api/placeholder/800/450" alt="תמונה מקדימה המציגה מרואיינים">
+            <div class="play-icon">
+              <svg viewBox="0 0 24 24">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <p>הופק בשיתוף פעולה עם פרויקט העדויות ובהסכמת כל המשתתפים. הסרט התיעודי מטרתו לשמר עדויות מכלי ראשון למטרות תיעוד היסטורי וחינוכי.</p>
+        <a href="#" class="btn">צפה בסרטים נוספים</a>
+      </section>
+      
+      <!-- First Responder Stories Section -->
+      <section class="story-section" aria-labelledby="responder-stories">
+        <div class="collection-header">
+          <h2 id="responder-stories" class="section-title">עדויות כוחות חירום</h2>
+          <a href="#" class="view-all">הצג הכל</a>
+        </div>
+        <div class="stories-grid">
+          <!-- Story 4 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">המשמרת הארוכה ביותר</h3>
+              <div class="story-meta">
+                <span>מיקומים שונים</span>
+                <span>9 באוקטובר, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">פרמדיק</span>
+                <span class="story-tag">מד״א</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="צוות פרמדיקים עם אמבולנס" class="story-image">
+              <div class="story-excerpt">
+                <p>עבדנו 36 שעות ברציפות. בכל פעם שחשבנו שראינו את הגרוע ביותר, עוד קריאה הגיעה. הרגע הקשה ביותר היה למצוא חבר ילדות בין הפצועים—פתאום המרחק המקצועי נעלם.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">אבי בנאיון, פרמדיק</span>
+                <a href="#" class="btn-secondary">קרא עוד</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Story 5 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">מחפשים במשך הלילה</h3>
+              <div class="story-meta">
+                <span>בארי</span>
+                <span>11 באוקטובר, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">חיפוש והצלה</span>
+                <span class="story-tag">צבא</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="צוות חיפוש והצלה עם ציוד" class="story-image">
+              <div class="story-excerpt">
+                <p>נענו מבית לבית עם ראיית לילה, לעולם לא ידענו מה נמצא. השקט היה מחריש אוזניים. כשמצאנו ניצולים בחדר מוגן נסתר אחרי 20 שעות, השאלה הראשונה שלהם הייתה על השכנים שלהם, לא על עצמם.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">סגן יונתן מזרחי</span>
+                <a href="#" class="btn-secondary">קרא עוד</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Story 6 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">בית החולים שלא נשבר</h3>
+              <div class="story-meta">
+                <span>המרכז הרפואי סורוקה</span>
+                <span>14 באוקטובר, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">רופאה</span>
+                <span class="story-tag">בית חולים</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="צוות רפואי במסדרון בית חולים" class="story-image">
+              <div class="story-excerpt">
+                <p>מחלקת הטראומה שלנו תוכננה ל-20 מטופלים. באותו יום, טיפלנו ביותר מ-200. צוות שלא היה במשמרת הגיע רץ ללא זימון. מנתחים ניתחו במסדרונות. היו לנו רופאים בגמלאות בשנות ה-70 לחייהם עובדים לצד מתמחים.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">ד״ר שרה קליין, מנתחת טראומה</span>
+                <a href="#" class="btn-secondary">קרא עוד</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      
+      <!-- Community Response Stories Section -->
+      <section class="story-section" aria-labelledby="community-stories">
+        <div class="collection-header">
+          <h2 id="community-stories" class="section-title">תגובת הקהילה</h2>
+          <a href="#" class="view-all">הצג הכל</a>
+        </div>
+        <div class="stories-grid">
+          <!-- Story 7 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">המטבח שהאכיל משבר</h3>
+              <div class="story-meta">
+                <span>תל אביב</span>
+                <span>13 באוקטובר, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">מתנדבים</span>
+                <span class="story-tag">סיוע</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="מתנדבים מכינים ארוחות במטבח קהילתי" class="story-image">
+              <div class="story-excerpt">
+                <p>הפכנו את המסעדה שלי למטבח סיוע בן לילה. עד הבוקר, 50 זרים בישלו לצד הצוות שלי. הכנו 3,000 ארוחות יומיות למפונים ולחיילים. ספקים תרמו מזון בלי שהתבקשו.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">מירי אברהם, בעלת מסעדה</span>
+                <a href="#" class="btn-secondary">קרא עוד</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Story 8 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">בית למפונים</h3>
+              <div class="story-meta">
+                <span>ירושלים</span>
+                <span>18 באוקטובר, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">דיור</span>
+                <span class="story-tag">תמיכה</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="משפחה מקבלת ברכה לבית זמני" class="story-image">
+              <div class="story-excerpt">
+                <p>אירחנו שלוש משפחות מבארי בדירת שלושה חדרים שלנו. חמישה-עשר אנשים חולקים שירותים אחד, אך איש לא התלונן. כשהם הגיעו ללא דבר מלבד הבגדים שלבשו, השכונה שלנו אספה כל מה שהיו צריכים תוך שעות.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">דפנה ואלי שטיין</span>
+                <a href="#" class="btn-secondary">קרא עוד</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Story 9 -->
+          <article class="story-card">
+            <div class="story-header">
+              <h3 class="story-title">פרויקט טיפול באמנות לילדים</h3>
+              <div class="story-meta">
+                <span>מיקומים שונים</span>
+                <span>25 באוקטובר, 2023</span>
+              </div>
+              <div class="story-tags">
+                <span class="story-tag">ריפוי</span>
+                <span class="story-tag">ילדים</span>
+              </div>
+            </div>
+            <div class="story-content">
+              <img src="/api/placeholder/400/250" alt="ילדים מציירים בסשן אמנות טיפולית" class="story-image">
+              <div class="story-excerpt">
+                <p>יצרנו תחנות טיפול באמנות ניידות שנסעו למרכזי פינוי. הציורים של הילדים סיפרו סיפורים שהם לא יכלו לבטא במילים. ילד בן שמונה לא דיבר מאז ה-7 באוקטובר, אבל דרך הציורים שלו, הוא החל לתקשר שוב.</p>
+              </div>
+              <div class="story-footer">
+                <span class="storyteller">רחל גולדשטיין, מטפלת באמנות</span>
+                <a href="#" class="btn-secondary">קרא עוד</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      
+      <!-- Share Your Story Section -->
+      <section class="share-story" aria-labelledby="share-story-title">
+        <h2 id="share-story-title" class="share-story-title">שתף את הסיפור שלך</h2>
+        <p>אם חוויתם את אירועי ה-7 באוקטובר מכלי ראשון או הושפעתם ישירות, אנו מזמינים אתכם לתרום את עדותכם לארכיון הגדל הזה של עדויות אישיות. הסיפור שלך חשוב ועוזר ליצור תיעוד היסטורי מלא של יום זה.</p>
+        <div class="share-buttons">
+          <a href="#" class="share-btn">
+            <div class="share-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+            </div>
+            <span>עדות כתובה</span>
+          </a>
+          <a href="#" class="share-btn">
+            <div class="share-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M23 7l-7 5 7 5V7z"></path>
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+              </svg>
+            </div>
+            <span>עדות מוקלטת</span>
+          </a>
+          <a href="#" class="share-btn">
+            <div class="share-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+            </div>
+            <span>הקלטה קולית</span>
+          </a>
+        </div>
+        <p>כל העדויות נבדקות על ידי צוות העריכה שלנו. משאבי תמיכה זמינים עבור אלה שעשויים למצוא את התהליך מאתגר רגשית.</p>
+        <a href="#" class="btn">שלח את הסיפור שלך</a>
+      </section>
+      
+      <!-- Reflection Section -->
+      <section class="reflection-section">
+        <h2>כוחה של עדות אישית</h2>
+        <p>סיפורים אלה הם יותר מזיכרונות—הם מסמכים היסטוריים חיוניים המבטיחים שאירועי ה-7 באוקטובר ישומרו במדויק לדורות הבאים. כל עדות מוסיפה ממד להבנתנו את מה שאירע באותו יום ובתוצאותיו.</p>
+        <p>עדויות אלה חושפות גם את היכולת יוצאת הדופן לאומץ אנושי, חמלה וחוסן. בתוך נסיבות בלתי נתפסות, אנו רואים אינספור דוגמאות של אנשים המגנים זה על זה, עוזרים לזרים, ומוצאים כוח לבנות מחדש.</p>
+        <p>כאשר ארכיון זה ממשיך לגדול, הוא משמש הן כהנצחה והן כעדות—מכבד את אלה שאבדו תוך הבטחה שסיפוריהם, וסיפורי אלה ששרדו, לעולם לא יישכחו.</p>
+      </section>
+    </main>
+  </div>
+  
+  <footer>
+    <div class="footer-links">
+      <a href="/he/about.html">אודות היוזמה</a>
+      <a href="/he/contact.html">צרו קשר</a>
+      <a href="/he/privacy.html">מדיניות פרטיות</a>
+      <a href="/he/terms.html">תנאי שימוש</a>
+      <a href="/he/accessibility.html">נגישות</a>
+    </div>
+    <p>© 2025 יוזמת הזיכרון</p>
+    <p>אתר הנצחה זה מתוחזק בתמיכת משפחות, ניצולים וארגונים קהילתיים.</p>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Filter functionality
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from sibling buttons
+          const siblings = Array.from(this.parentNode.children);
+          siblings.forEach(sibling => sibling.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // In a real implementation, this would filter the stories
+          console.log('Filter selected:', this.textContent);
+        });
+      });
+      
+      // Audio player simulation
+      const playBtn = document.querySelector('.play-btn');
+      if (playBtn) {
+        playBtn.addEventListener('click', function() {
+          const audioPlayed = document.querySelector('.audio-played');
+          const audioTime = document.querySelector('.audio-time');
+          
+          // Toggle play/pause
+          if (this.dataset.playing === 'true') {
+            this.dataset.playing = 'false';
+            this.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
+            audioTime.textContent = '3:24';
+          } else {
+            this.dataset.playing = 'true';
+            this.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
+            audioTime.textContent = '1:42';
+          }
+          
+          // In a real implementation, this would play/pause the audio
+          audioPlayed.style.width = this.dataset.playing === 'true' ? '50%' : '30%';
+        });
+      }
+      
+      // Video player simulation
+      const videoPlaceholder = document.querySelector('.video-placeholder');
+      if (videoPlaceholder) {
+        videoPlaceholder.addEventListener('click', function() {
+          // In a real implementation, this would embed and play the video
+          this.innerHTML = '<div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#000;color:#fff;font-size:1.2rem;">הסרטון יופעל כאן</div>';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

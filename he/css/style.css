@@ -1,0 +1,1065 @@
+/* 
+=========================================
+October 7th Memorial Website - style.css
+=========================================
+*/
+
+/* 
+  TABLE OF CONTENTS:
+  1. CSS Variables & Base Styles
+  2. Typography
+  3. Layout & Containers
+  4. Header & Navigation
+  5. Footer
+  6. Buttons & Interactive Elements
+  7. Cards & Content Blocks
+  8. Images & Media
+  9. Forms & Input Elements
+  10. Special Components
+  11. Accessibility Helpers
+  12. Utility Classes
+  13. Animations
+  14. Media Queries
+*/
+
+/* =========================================
+   1. CSS Variables & Base Styles
+   ========================================= */
+:root {
+  /* Color Palette */
+  --primary-color: #0038b8; /* Israeli blue */
+  --secondary-color: #ffffff; /* White */
+  --accent-color: #ffc845; /* Warm candle color */
+  --text-color: #333333;
+  --light-text: #ffffff;
+  --dark-bg: #1a1a1a;
+  --light-bg: #f8f8f8;
+  --border-color: #dddddd;
+  --error-color: #d32f2f;
+  --success-color: #388e3c;
+  --link-color: #0056b3;
+  --link-hover: #003b7a;
+  --subtle-bg: #f4f4f4;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  
+  /* Typography */
+  --heading-font: Georgia, 'Times New Roman', Times, serif;
+  --body-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --hebrew-font: 'Times New Roman', serif;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  
+  /* Borders & Shadows */
+  --border-radius: 4px;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  
+  /* Dimensions */
+  --container-max-width: 1200px;
+  --container-padding: 20px;
+  --header-height: 70px;
+  --footer-height: 180px;
+}
+
+/* Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   2. Typography
+   ========================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  margin-top: 0;
+  line-height: 1.2;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-lg);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: var(--space-sm);
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+h4 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-sm);
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover, a:focus {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+  background-color: var(--subtle-bg);
+  font-style: italic;
+}
+
+blockquote p {
+  margin-bottom: var(--space-sm);
+}
+
+blockquote cite, blockquote footer {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: normal;
+  margin-top: var(--space-sm);
+}
+
+code, pre {
+  font-family: monospace;
+  background-color: var(--subtle-bg);
+  padding: var(--space-xs);
+  border-radius: var(--border-radius);
+}
+
+pre {
+  padding: var(--space-md);
+  overflow-x: auto;
+  margin-bottom: var(--space-md);
+}
+
+.hebrew-text {
+  direction: rtl;
+  font-family: var(--hebrew-font);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* =========================================
+   3. Layout & Containers
+   ========================================= */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  width: 100%;
+  background: var(--secondary-color);
+  box-shadow: var(--box-shadow);
+  flex: 1;
+}
+
+main {
+  padding: var(--space-lg) 0;
+  min-height: 70vh;
+}
+
+section {
+  margin-bottom: var(--space-xl);
+  clear: both;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.three-column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.four-column {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* =========================================
+   4. Header & Navigation
+   ========================================= */
+header {
+  background: var(--primary-color);
+  color: var(--light-text);
+  padding: var(--space-md) 0;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  text-align: center;
+  color: var(--light-text);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: var(--light-text);
+  padding: var(--space-sm);
+  z-index: 100;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  margin: var(--space-md) 0;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 var(--space-md);
+}
+
+nav ul li a {
+  color: var(--light-text);
+  text-decoration: none;
+  font-weight: bold;
+  transition: all var(--transition-medium);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius);
+  display: inline-block;
+}
+
+nav ul li a:hover, nav ul li a:focus, nav ul li a[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+.language-selector {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-md);
+}
+
+.language-selector button {
+  background: none;
+  border: 1px solid var(--border-color);
+  margin-left: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+}
+
+.language-selector button.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.language-selector button:hover {
+  background-color: var(--subtle-bg);
+}
+
+/* =========================================
+   5. Footer
+   ========================================= */
+footer {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  text-align: center;
+  padding: var(--space-lg) 0;
+  margin-top: var(--space-lg);
+}
+
+footer p {
+  margin: var(--space-sm) 0;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin: var(--space-md) 0;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--light-text);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+/* =========================================
+   6. Buttons & Interactive Elements
+   ========================================= */
+.btn, button, input[type="button"], input[type="submit"] {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  padding: var(--space-sm) var(--space-lg);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color var(--transition-medium);
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.btn:hover, button:hover, input[type="button"]:hover, input[type="submit"]:hover,
+.btn:focus, button:focus, input[type="button"]:focus, input[type="submit"]:focus {
+  background-color: var(--link-hover);
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background-color: var(--light-text);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+  background-color: var(--subtle-bg);
+  color: var(--primary-color);
+}
+
+.btn-accent {
+  background-color: var(--accent-color);
+  color: var(--dark-bg);
+}
+
+.btn-accent:hover, .btn-accent:focus {
+  background-color: #ffd57e;
+}
+
+.light-candle {
+  background-color: var(--accent-color);
+  color: var(--dark-bg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.leave-tribute {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* =========================================
+   7. Cards & Content Blocks
+   ========================================= */
+.card {
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+  margin-bottom: var(--space-lg);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.card-content {
+  padding: var(--space-lg);
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+  color: var(--primary-color);
+}
+
+.memorial-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+  position: relative;
+}
+
+.memorial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.memorial-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.memorial-card-content {
+  padding: var(--space-lg);
+}
+
+.location-tag {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background-color: var(--overlay-bg);
+  color: white;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius);
+  font-size: 0.8rem;
+}
+
+.victim-info {
+  margin-bottom: var(--space-md);
+}
+
+.victim-name {
+  font-size: 1.4rem;
+  margin: 0 0 var(--space-sm) 0;
+  color: var(--primary-color);
+}
+
+.victim-details {
+  display: flex;
+  gap: var(--space-md);
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: var(--space-md);
+}
+
+.victim-bio {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.tribute-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* =========================================
+   8. Images & Media
+   ========================================= */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+figure {
+  margin: 0 0 var(--space-lg) 0;
+}
+
+figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: var(--space-sm);
+  line-height: 1.4;
+}
+
+figure.float-left {
+  float: left;
+  width: 300px;
+  margin: 0 var(--space-lg) var(--space-lg) 0;
+}
+
+figure.float-right {
+  float: right;
+  width: 300px;
+  margin: 0 0 var(--space-lg) var(--space-lg);
+}
+
+figure.float-left img, figure.float-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.image-gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  transition: transform var(--transition-medium);
+}
+
+.image-gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* =========================================
+   9. Forms & Input Elements
+   ========================================= */
+form {
+  margin-bottom: var(--space-lg);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-family: var(--body-font);
+  font-size: 1rem;
+  margin-bottom: var(--space-md);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 56, 184, 0.2);
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-error {
+  color: var(--error-color);
+  font-size: 0.9rem;
+  margin-top: var(--space-xs);
+}
+
+.search-container {
+  flex-grow: 1;
+  display: flex;
+}
+
+.search-container input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-right: none;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.search-container button {
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  padding: 0 var(--space-lg);
+}
+
+.filter-container {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.filter-container select {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: white;
+  min-width: 150px;
+  margin-bottom: 0;
+}
+
+.memorial-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md);
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   10. Special Components
+   ========================================= */
+/* Timeline Styles */
+ol.timeline {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  position: relative;
+}
+
+ol.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background-color: var(--primary-color);
+}
+
+ol.timeline li {
+  margin-bottom: var(--space-lg);
+  padding-left: 50px;
+  position: relative;
+}
+
+ol.timeline li::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
+ol.timeline li strong {
+  display: block;
+  margin-bottom: var(--space-sm);
+  color: var(--primary-color);
+}
+
+/* Memorial Grid */
+.memorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+/* Virtual Candle Memorial */
+.virtual-memorial {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  padding: var(--space-xl) var(--space-md);
+  margin: var(--space-lg) 0;
+  text-align: center;
+  border-radius: var(--border-radius);
+}
+
+.virtual-memorial h2 {
+  color: var(--light-text);
+  border-bottom: none;
+}
+
+.candle-field {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: var(--space-lg);
+  max-width: 800px;
+  margin: var(--space-lg) auto;
+  padding: var(--space-lg);
+  background-color: rgba(0,0,0,0.5);
+  border-radius: var(--border-radius);
+}
+
+.candle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.candle-light {
+  width: 30px;
+  height: 50px;
+  background: radial-gradient(ellipse at center, #ffd75e 0%, #ffa430 100%);
+  border-radius: 50% 50% 35% 35%;
+  position: relative;
+  box-shadow: 0 0 20px 5px rgba(255,167,48,0.6);
+  animation: flicker 1s ease-in-out infinite alternate;
+}
+
+.candle-name {
+  margin-top: var(--space-sm);
+  font-size: 0.8rem;
+  max-width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.light-your-candle {
+  background-color: var(--accent-color);
+  color: var(--dark-bg);
+  padding: var(--space-md) var(--space-lg);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: var(--space-lg);
+  cursor: pointer;
+  transition: all var(--transition-medium);
+}
+
+.light-your-candle:hover {
+  background-color: #ffd57e;
+  transform: translateY(-2px);
+}
+
+/* Memorial Prayer Section */
+.memorial-prayer {
+  background: linear-gradient(to bottom, #f0f0f0, #ffffff);
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  margin: var(--space-lg) 0;
+  border-radius: var(--border-radius);
+}
+
+.prayer-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  justify-content: center;
+}
+
+.prayer {
+  flex: 1 1 400px;
+  padding: var(--space-lg);
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.prayer h3 {
+  margin-bottom: var(--space-md);
+  color: var(--primary-color);
+}
+
+/* Memorial Intro */
+.memorial-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--space-xl);
+  padding: var(--space-lg);
+  background-color: rgba(255,255,255,0.8);
+  border-radius: var(--border-radius);
+}
+
+.memorial-intro p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* =========================================
+   11. Accessibility Helpers
+   ========================================= */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* =========================================
+   12. Utility Classes
+   ========================================= */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mt-1 {
+  margin-top: var(--space-sm);
+}
+
+.mb-1 {
+  margin-bottom: var(--space-sm);
+}
+
+.mt-2 {
+  margin-top: var(--space-md);
+}
+
+.mb-2 {
+  margin-bottom: var(--space-md);
+}
+
+.mt-3 {
+  margin-top: var(--space-lg);
+}
+
+.mb-3 {
+  margin-bottom: var(--space-lg);
+}
+
+.mt-4 {
+  margin-top: var(--space-xl);
+}
+
+.mb-4 {
+  margin-bottom: var(--space-xl);
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* =========================================
+   13. Animations
+   ========================================= */
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px 5px rgba(255,167,48,0.6);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 15px 4px rgba(255,167,48,0.4);
+  }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* =========================================
+   14. Media Queries
+   ========================================= */
+/* Tablet and smaller desktop */
+@media (max-width: 992px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+  
+  .two-column,
+  .three-column {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .four-column {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile landscape and larger phones */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 15px;
+  }
+  
+  .two-column,
+  .three-column,
+  .four-column {
+    grid-template-columns: 1fr;
+  }
+  
+  figure.float-left,
+  figure.float-right {
+    float: none;
+    width: 100%;
+    margin: var(--space-md) 0;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin: var(--space-xs) 0;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  .search-container, 
+  .filter-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .memorial-controls {
+    flex-direction: column;
+  }
+  
+  .filter-container select {
+    width: 100%;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .search-container input, 
+  .search-container button {
+    border-radius: var(--border-radius);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  
+  blockquote {
+    padding: var(--space-md);
+  }
+}
+
+/* Small mobile phones */
+@media (max-width: 480px) {
+  :root {
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+  }
+  
+  .container {
+    padding: 0 var(--space-sm);
+  }
+  
+  .memorial-card-content,
+  .card-content {
+    padding: var(--space-md);
+  }
+  
+  .candle-field {
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: var(--space-md);
+  }
+  
+  .memorial-intro {
+    padding: var(--space-md);
+  }
+}
