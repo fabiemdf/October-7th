@@ -1,0 +1,149 @@
+[24-Oct-2023 18:05:52 UTC] wp_auto_login: trying to login user_id==1 loginusername=admin@octoberseventh.org to admin_url=http://octoberseventh.org/wp-admin/
+[09-Dec-2023 08:40:22 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `fks_options` WHERE `option_name` = '_site_transient_available_translations' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, TRP_Translate_Press->init_machine_translation, TRP_Machine_Translation_Tab->get_active_engine, TRP_Machine_Translator->__construct, TRP_Languages->get_iso_codes, TRP_Languages->get_wp_languages, wp_get_available_translations, get_site_transient, delete_site_option, delete_network_option, delete_option
+[29-Dec-2023 02:31:00 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `fks_options` WHERE `option_name` = '_site_transient_timeout_available_translations' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, TRP_Translate_Press->init_machine_translation, TRP_Machine_Translation_Tab->get_active_engine, TRP_Machine_Translator->__construct, TRP_Languages->get_iso_codes, TRP_Languages->get_wp_languages, wp_get_available_translations, get_site_transient, delete_site_option, delete_network_option, delete_option
+[22-Feb-2024 04:55:38 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `fks_options` WHERE `option_name` = '_site_transient_available_translations' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, TRP_Translate_Press->init_machine_translation, TRP_Machine_Translation_Tab->get_active_engine, TRP_Machine_Translator->__construct, TRP_Languages->get_iso_codes, TRP_Languages->get_wp_languages, wp_get_available_translations, get_site_transient, delete_site_option, delete_network_option, delete_option
+[02-May-2024 18:45:59 UTC] wp_auto_login: trying to login user_id==1 loginusername=admin@octoberseventh.org to admin_url=http://octoberseventh.org/wp-admin/
+[14-Aug-2024 15:01:34 UTC] PHP Warning:  Undefined array key "host" in /home/customer/www/octoberseventh.org/public_html/wp-includes/canonical.php on line 716
+[14-Aug-2024 15:01:34 UTC] PHP Warning:  Undefined array key "host" in /home/customer/www/octoberseventh.org/public_html/wp-includes/canonical.php on line 727
+[23-Sep-2024 18:06:52 UTC] Failed to load textdomain google-analytics-for-wordpress
+[23-Sep-2024 18:06:52 UTC] Path searched: google-analytics-for-wordpress/languages
+[23-Sep-2024 20:46:59 UTC] Failed to load textdomain google-analytics-for-wordpress
+[23-Sep-2024 20:46:59 UTC] Path searched: google-analytics-for-wordpress/languages
+[23-Sep-2024 22:55:06 UTC] Failed to load textdomain google-analytics-for-wordpress
+[23-Sep-2024 22:55:06 UTC] Path searched: google-analytics-for-wordpress/languages
+[23-Sep-2024 22:55:07 UTC] Failed to load textdomain google-analytics-for-wordpress
+[23-Sep-2024 22:55:07 UTC] Path searched: google-analytics-for-wordpress/languages
+[23-Sep-2024 22:55:08 UTC] Failed to load textdomain google-analytics-for-wordpress
+[23-Sep-2024 22:55:08 UTC] Path searched: google-analytics-for-wordpress/languages
+[23-Sep-2024 23:17:04 UTC] Failed to load textdomain google-analytics-for-wordpress
+[23-Sep-2024 23:17:04 UTC] Failed to load textdomain google-analytics-for-wordpress
+[23-Sep-2024 23:17:04 UTC] Path searched: google-analytics-for-wordpress/languages
+[23-Sep-2024 23:17:04 UTC] Path searched: google-analytics-for-wordpress/languages
+[23-Sep-2024 23:17:04 UTC] Failed to load textdomain google-analytics-for-wordpress
+[23-Sep-2024 23:17:04 UTC] Path searched: google-analytics-for-wordpress/languages
+[23-Sep-2024 23:17:04 UTC] Failed to load textdomain google-analytics-for-wordpress
+[23-Sep-2024 23:17:04 UTC] Path searched: google-analytics-for-wordpress/languages
+[23-Sep-2024 23:17:05 UTC] Failed to load textdomain google-analytics-for-wordpress
+[23-Sep-2024 23:17:05 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 00:35:14 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 00:35:14 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 00:35:14 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 00:35:14 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 00:48:29 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 00:48:29 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 01:05:20 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 01:05:20 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 01:05:21 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 01:05:21 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 02:45:03 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 02:45:03 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 02:45:03 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 02:45:03 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 03:03:41 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 03:03:41 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 03:03:41 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 03:03:41 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 03:03:41 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 03:03:41 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 04:35:43 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 04:35:43 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 07:51:04 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 07:51:04 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 07:51:04 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 07:51:04 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 07:51:04 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 07:51:04 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 07:51:04 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 07:51:04 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 07:51:04 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 07:51:04 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 07:51:04 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 07:51:04 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 07:51:04 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 07:51:04 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 07:51:04 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 07:51:04 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 07:51:05 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 07:51:05 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 07:51:05 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 07:51:05 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 08:46:56 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 08:46:56 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 10:50:18 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 10:50:18 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 10:50:18 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 10:50:18 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 11:59:46 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 11:59:46 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 11:59:47 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 11:59:47 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 11:59:48 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 11:59:48 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 12:41:59 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 12:41:59 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 13:47:24 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 13:47:24 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 13:47:25 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 13:47:25 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 14:03:15 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 14:03:15 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 14:03:16 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 14:03:16 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 14:20:43 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 14:20:43 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 14:20:44 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 14:20:44 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 16:41:05 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 16:41:05 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 17:37:48 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 17:37:48 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 17:37:49 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 17:37:49 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 17:54:34 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 17:54:34 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 17:54:34 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 17:54:34 UTC] Path searched: google-analytics-for-wordpress/languages
+[24-Sep-2024 20:47:43 UTC] Failed to load textdomain google-analytics-for-wordpress
+[24-Sep-2024 20:47:43 UTC] Path searched: google-analytics-for-wordpress/languages
+[11-Mar-2025 18:39:27 UTC] PHP Warning:  require_once(/home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/auth.php): Failed to open stream: No such file or directory in /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/googleanalytics.php on line 325
+[11-Mar-2025 18:39:27 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/auth.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/googleanalytics.php:325
+Stack trace:
+#0 /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/options.php(73): MonsterInsights_Lite->__get('auth')
+#1 /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/helpers.php(85): monsterinsights_get_v4_id()
+#2 /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/frontend/frontend.php(69): monsterinsights_track_user()
+#3 /home/customer/www/octoberseventh.org/public_html/wp-includes/class-wp-hook.php(324): monsterinsights_events_tracking('')
+#4 /home/customer/www/octoberseventh.org/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#5 /home/customer/www/octoberseventh.org/public_html/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#6 /home/customer/www/octoberseventh.org/public_html/wp-includes/template-loader.php(13): do_action('template_redire...')
+#7 /home/customer/www/octoberseventh.org/public_html/wp-blog-header.php(19): require_once('/home/customer/...')
+#8 /home/customer/www/octoberseventh.org/public_html/index.php(17): require('/home/customer/...')
+#9 {main}
+  thrown in /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/googleanalytics.php on line 325
+[25-Mar-2025 18:59:59 UTC] PHP Warning:  require_once(/home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/auth.php): Failed to open stream: No such file or directory in /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/googleanalytics.php on line 325
+[25-Mar-2025 18:59:59 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/auth.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/googleanalytics.php:325
+Stack trace:
+#0 /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/options.php(73): MonsterInsights_Lite->__get('auth')
+#1 /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/helpers.php(85): monsterinsights_get_v4_id()
+#2 /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/frontend/frontend.php(69): monsterinsights_track_user()
+#3 /home/customer/www/octoberseventh.org/public_html/wp-includes/class-wp-hook.php(324): monsterinsights_events_tracking('')
+#4 /home/customer/www/octoberseventh.org/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#5 /home/customer/www/octoberseventh.org/public_html/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#6 /home/customer/www/octoberseventh.org/public_html/wp-includes/template-loader.php(13): do_action('template_redire...')
+#7 /home/customer/www/octoberseventh.org/public_html/wp-blog-header.php(19): require_once('/home/customer/...')
+#8 /home/customer/www/octoberseventh.org/public_html/index.php(17): require('/home/customer/...')
+#9 {main}
+  thrown in /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/googleanalytics.php on line 325
+[07-May-2025 07:17:44 UTC] PHP Warning:  require_once(/home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/auth.php): Failed to open stream: No such file or directory in /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/googleanalytics.php on line 315
+[07-May-2025 07:17:44 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/auth.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/googleanalytics.php:315
+Stack trace:
+#0 /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/options.php(73): MonsterInsights_Lite->__get('auth')
+#1 /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/helpers.php(85): monsterinsights_get_v4_id()
+#2 /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/includes/frontend/frontend.php(69): monsterinsights_track_user()
+#3 /home/customer/www/octoberseventh.org/public_html/wp-includes/class-wp-hook.php(324): monsterinsights_events_tracking('')
+#4 /home/customer/www/octoberseventh.org/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#5 /home/customer/www/octoberseventh.org/public_html/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#6 /home/customer/www/octoberseventh.org/public_html/wp-includes/template-loader.php(13): do_action('template_redire...')
+#7 /home/customer/www/octoberseventh.org/public_html/wp-blog-header.php(19): require_once('/home/customer/...')
+#8 /home/customer/www/octoberseventh.org/public_html/index.php(17): require('/home/customer/...')
+#9 {main}
+  thrown in /home/customer/www/octoberseventh.org/public_html/wp-content/plugins/google-analytics-for-wordpress/googleanalytics.php on line 315

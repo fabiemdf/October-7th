@@ -140,16 +140,17 @@
       font-size: 1rem;
     }
     
-    .timeline-content {
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-right: 4px solid var(--primary-color);
-      border-left: none;
-      margin-bottom: 1rem;
-    }
-    
+    	
+	/* מיקום תגיות מרובות כדי שיישארו מסודרות */
+	.timeline-content {
+	  overflow: hidden; /* מונע קריסת הגובה כשיש אלמנטים עם float */
+	}
+
+	/* ניקוי ה-float לאחר התגיות */
+	.timeline-content p {
+	  clear: both;
+	}
+		
     .timeline-media {
       margin: 1.5rem 0;
       border-radius: 8px;
@@ -196,15 +197,16 @@
     }
     
     .location-tag {
-      display: inline-block;
-      background-color: var(--accent-color);
-      color: var(--dark-bg);
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      margin-left: 0.5rem;
-      margin-right: 0;
-    }
+	  display: inline-block;
+	  background-color: var(--accent-color);
+	  color: var(--dark-bg);
+	  padding: 4px 10px;
+	  border-radius: 4px;
+	  font-size: 0.8rem;
+	  margin-left: 0.5rem;
+	  float: left; /* הוספת float: left כדי להזיז את התגית לצד שמאל */
+	}
+
     
     .timeline-gallery {
       display: grid;
@@ -323,20 +325,31 @@
   </div>
   
   <header>
-    <h1>ציר זמן של 7 באוקטובר</h1>
-    <nav aria-label="ניווט ראשי">
+    <div class="header-top">
+      <h1>אסון 7 באוקטובר – ציר זמן</h1>
+      <div class="language-selector">
+        <a href="../timeline.html" aria-label="View in English">EN</a>
+        <a href="timeline.html" class="active" aria-label="View in Hebrew">עב</a>
+      </div>
+    </div>
+    <nav aria-label="Main navigation">
       <ul>
-        <li><a href="/he/index.html">דף הבית</a></li>
-        <li><a href="/he/timeline.html" aria-current="page">ציר זמן</a></li>
-        <li><a href="/he/stories.html">סיפורים</a></li>
-        <li><a href="/he/memorial.html">הנצחה</a></li>
-        <li><a href="/he/resources.html">משאבים</a></li>
-        <li><a href="/he/about.html">אודות</a></li>
+        <li><a href="index.html">דף הבית</a></li>
+        <li><a href="timeline.html">ציר זמן</a></li>
+        <li><a href="stories.html">סיפורים</a></li>
+        <li><a href="memorial.html">הנצחה</a></li>
+        <li><a href="resources.html">משאבים</a></li>
       </ul>
     </nav>
   </header>
   
   <div class="container">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="index.html">דף הבית</a></li>
+        <li><a href="timeline.html">ציר זמן</a></li>
+      </ol>
+    </nav>
     <main id="main-content">
       <div class="timeline-intro">
         <h2>כרונולוגיה של 7 באוקטובר 2023</h2>
@@ -384,7 +397,7 @@
             <p>עוד לפני אור ראשון, מחבלים קרעו את גדר עזה, זורמים דרך שדות עם ירי וטילים, והכניסו יישובי גבול לכאוס. משפחות התעוררו לחלונות מתנפצים ורעש מנועים בזמן שהשקט של הלילה נקרע.</p>
             
             <figure class="timeline-media">
-              <img src="/api/placeholder/700/400" alt="עשן מיתמר בזמן שמחבלים פורצים את גדר הגבול הדרומית של ישראל">
+              <img src="..\images\Smoke-rising-as-terrorists-breach-Israel's-southern-fence.avif" alt="עשן מיתמר בזמן שמחבלים פורצים את גדר הגבול הדרומית של ישראל">
               <figcaption>עשן מיתמר לאחר שמחבלי חמאס פרצו את גדר הגבול הדרומית. צילום: רויטרס/אשרף עמרה</figcaption>
             </figure>
             
@@ -756,11 +769,11 @@
   
   <footer>
     <div class="footer-links">
-      <a href="/he/about.html">אודות היוזמה</a>
-      <a href="/he/contact.html">צרו קשר</a>
-      <a href="/he/privacy.html">מדיניות פרטיות</a>
-      <a href="/he/terms.html">תנאי שימוש</a>
-      <a href="/he/accessibility.html">נגישות</a>
+      <a href="about.html">אודות היוזמה</a>
+      <a href="contact.html">צרו קשר</a>
+      <a href="privacy.html">מדיניות פרטיות</a>
+      <a href="terms.html">תנאי שימוש</a>
+      <a href="accessibility.html">נגישות</a>
     </div>
     <p>© 2025 יוזמת הזיכרון</p>
     <p>אתר הנצחה זה מתוחזק בתמיכת משפחות, ניצולים וארגונים קהילתיים.</p>

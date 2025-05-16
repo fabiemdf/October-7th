@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Resources and support for those affected by the October 7th, 2023 attacks. Find mental health resources, aid organizations, and ways to help.">
+  <meta name="description" content="משאבים ותמיכה למי שנפגעו מהתקפות ה-7 באוקטובר 2023. מצאו משאבי בריאות נפשית, ארגוני סיוע ודרכים לעזור.">
   
   <!-- Open Graph tags for better social sharing -->
-  <meta property="og:title" content="October 7th Resources - Support & Ways to Help">
-  <meta property="og:description" content="Find support resources and ways to help those affected by the October 7th attacks in Israel.">
-  <meta property="og:url" content="https://october7memorial.org/resources.html">
+  <meta property="og:title" content="משאבי ה-7 באוקטובר - תמיכה ודרכים לעזור">
+  <meta property="og:description" content="מצאו משאבי תמיכה ודרכים לעזור למי שנפגעו מהתקפות ה-7 באוקטובר בישראל.">
+  <meta property="og:url" content="https://october7memorial.org/he/resources.html">
   <meta property="og:image" content="https://october7memorial.org/images/resources-cover.jpg">
   
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <title>October 7th Tragedy – Resources</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <title>אסון 7 באוקטובר – משאבים</title>
   
   <style>
     /* Additional styles specific to the resources page */
@@ -341,7 +341,7 @@
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
       padding: var(--space-lg);
-      text-align: left;
+      text-align: right;
       transition: transform var(--transition-medium);
     }
     
@@ -489,26 +489,38 @@
 </head>
 <body>
   <!-- Accessible skip link -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">דלג לתוכן העיקרי</a>
   
   <header>
-    <h1>Support &amp; Resources</h1>
+    <div class="header-top">
+      <h1>אסון 7 באוקטובר – משאבים</h1>
+      <div class="language-selector">
+        <a href="../resources.html" aria-label="View in English">EN</a>
+        <a href="resources.html" class="active" aria-label="View in Hebrew">עב</a>
+      </div>
+    </div>
     <nav aria-label="Main navigation">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="timeline.html">Timeline</a></li>
-        <li><a href="stories.html">Stories</a></li>
-        <li><a href="memorial.html">Memorial</a></li>
-        <li><a href="resources.html" aria-current="page">Resources</a></li>
+        <li><a href="index.html">דף הבית</a></li>
+        <li><a href="timeline.html">ציר זמן</a></li>
+        <li><a href="stories.html">סיפורים</a></li>
+        <li><a href="memorial.html">הנצחה</a></li>
+        <li><a href="resources.html">משאבים</a></li>
       </ul>
     </nav>
   </header>
   
   <div class="container">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="index.html">דף הבית</a></li>
+        <li><a href="resources.html">משאבים</a></li>
+      </ol>
+    </nav>
     <main id="main-content">
       <div class="resources-intro">
-        <h2>How You Can Help</h2>
-        <p>This page provides resources for those affected by the October 7th attacks, as well as information for those wishing to provide support. Whether you're seeking assistance or looking to help, we've gathered verified organizations and services.</p>
+        <h2>כיצד תוכלו לעזור</h2>
+        <p>דף זה מספק משאבים לנפגעי התקפות ה-7 באוקטובר, וכן מידע למי שמעוניין לתת תמיכה. בין אם אתם מחפשים סיוע או מעוניינים לעזור, ריכזנו כאן ארגונים ושירותים מאומתים.</p>
       </div>
       
       <!-- Emergency Resources Section -->
@@ -521,14 +533,14 @@
           </svg>
         </div>
         <div class="emergency-content">
-          <h3 id="emergency-title">Emergency Contacts</h3>
-          <p>If you or someone you know is in immediate danger or requires urgent assistance, please contact the appropriate emergency services:</p>
+          <h3 id="emergency-title">מספרי חירום</h3>
+          <p>אם אתם או מישהו שאתם מכירים נמצאים בסכנה מיידית או זקוקים לסיוע דחוף, אנא צרו קשר עם שירותי החירום המתאימים:</p>
           <div class="emergency-numbers">
             <div class="emergency-number">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
               </svg>
-              Police: 100
+              משטרה: 100
             </div>
             <div class="emergency-number">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
@@ -538,21 +550,21 @@
                 <path d="M16 8h4"></path>
                 <path d="M16 16h4"></path>
               </svg>
-              Ambulance: 101
+              מגן דוד אדום: 101
             </div>
             <div class="emergency-number">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
-              Fire Department: 102
+              כיבוי אש: 102
             </div>
             <div class="emergency-number">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-2"></path>
                 <path d="M7 12h14l-3-3m0 6l3-3"></path>
               </svg>
-              Home Front Command: 104
+              פיקוד העורף: 104
             </div>
             <div class="emergency-number">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
@@ -562,7 +574,7 @@
                 <line x1="10" y1="1" x2="10" y2="4"></line>
                 <line x1="14" y1="1" x2="14" y2="4"></line>
               </svg>
-              Mental Health Hotline: 1201
+              קו חם לבריאות הנפש: 1201
             </div>
           </div>
         </div>
@@ -570,29 +582,29 @@
       
       <!-- Resource Search Section -->
       <section class="resource-search" aria-labelledby="find-resources">
-        <h2 id="find-resources">Find Resources</h2>
-        <p>Search for specific types of assistance or browse by category.</p>
+        <h2 id="find-resources">מצאו משאבים</h2>
+        <p>חפשו סוגי סיוע ספציפיים או דפדפו לפי קטגוריה.</p>
         <div class="resource-categories">
-          <button class="category-btn active">All Resources</button>
-          <button class="category-btn">Mental Health</button>
-          <button class="category-btn">Financial Aid</button>
-          <button class="category-btn">Hostage Families</button>
-          <button class="category-btn">Volunteer</button>
-          <button class="category-btn">Donate</button>
-          <button class="category-btn">Educational</button>
+          <button class="category-btn active">כל המשאבים</button>
+          <button class="category-btn">בריאות הנפש</button>
+          <button class="category-btn">סיוע כלכלי</button>
+          <button class="category-btn">משפחות חטופים</button>
+          <button class="category-btn">התנדבות</button>
+          <button class="category-btn">תרומות</button>
+          <button class="category-btn">חינוך</button>
         </div>
         <div class="search-container">
-          <input type="text" placeholder="Search for resources..." aria-label="Search for resources">
-          <button type="button">Search</button>
+          <input type="text" placeholder="חיפוש משאבים..." aria-label="חיפוש משאבים">
+          <button type="button">חיפוש</button>
         </div>
       </section>
       
       <!-- Resource Tabs -->
       <div class="resource-tabs">
-        <button class="resource-tab active" data-tab="aid-organizations">Aid Organizations</button>
-        <button class="resource-tab" data-tab="mental-health">Mental Health Support</button>
-        <button class="resource-tab" data-tab="hostage-family">Hostage Family Support</button>
-        <button class="resource-tab" data-tab="educational">Educational Resources</button>
+        <button class="resource-tab active" data-tab="aid-organizations">ארגוני סיוע</button>
+        <button class="resource-tab" data-tab="mental-health">תמיכה בבריאות הנפש</button>
+        <button class="resource-tab" data-tab="hostage-family">תמיכה במשפחות חטופים</button>
+        <button class="resource-tab" data-tab="educational">משאבים חינוכיים</button>
       </div>
       
       <!-- Aid Organizations Tab -->
@@ -601,11 +613,11 @@
         <div class="resource-featured">
           <div class="featured-image" style="background-image: url('/api/placeholder/600/400')"></div>
           <div class="featured-content">
-            <h3 class="featured-title">Israel Trauma Coalition</h3>
-            <p class="featured-description">The Israel Trauma Coalition provides immediate and long-term trauma care and resilience-building programs. Since October 7th, they have deployed emergency response teams to affected communities, evacuation centers, and hospitals. Their services include crisis intervention, trauma therapy, and community resilience programs.</p>
+            <h3 class="featured-title">הקואליציה הישראלית לטראומה</h3>
+            <p class="featured-description">הקואליציה הישראלית לטראומה מספקת טיפול מיידי וארוך טווח בטראומה ותוכניות לבניית חוסן. מאז ה-7 באוקטובר, הם שלחו צוותי חירום לקהילות שנפגעו, למרכזי פינוי ולבתי חולים. השירותים שלהם כוללים התערבות במשבר, טיפול בטראומה ותוכניות לחוסן קהילתי.</p>
             <div class="featured-actions">
-              <a href="https://israeltraumacoalition.org/" class="btn" target="_blank" rel="noopener">Visit Website</a>
-              <a href="https://israeltraumacoalition.org/donate/" class="btn btn-secondary" target="_blank" rel="noopener">Donate</a>
+              <a href="https://israeltraumacoalition.org/" class="btn" target="_blank" rel="noopener">לאתר האינטרנט</a>
+              <a href="https://israeltraumacoalition.org/donate/" class="btn btn-secondary" target="_blank" rel="noopener">לתרומה</a>
             </div>
           </div>
         </div>
@@ -618,35 +630,35 @@
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
               </svg>
             </div>
-            <h2 id="aid-organizations-title" class="section-title">Aid Organizations</h2>
+            <h2 id="aid-organizations-title" class="section-title">ארגוני סיוע</h2>
           </div>
           
           <div class="resource-grid">
             <!-- Organization 1 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="Magen David Adom logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו מגן דוד אדום" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">Magen David Adom</h3>
-                  <div class="resource-type">Emergency Medical Services</div>
+                  <h3 class="resource-name">מגן דוד אדום</h3>
+                  <div class="resource-type">שירותי רפואת חירום</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">Israel's national emergency medical, disaster, ambulance and blood bank service. MDA has been on the frontlines since October 7th, providing immediate medical care and blood supplies.</p>
+                <p class="resource-description">שירות החירום הרפואי, אסון, אמבולנס ובנק הדם הלאומי של ישראל. מד"א נמצא בחזית מאז ה-7 באוקטובר, מספק טיפול רפואי מיידי ואספקת דם.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Medical Services</span>
-                  <span class="resource-tag">Blood Donation</span>
-                  <span class="resource-tag">Emergency Response</span>
+                  <span class="resource-tag">שירותים רפואיים</span>
+                  <span class="resource-tag">תרומות דם</span>
+                  <span class="resource-tag">מענה לחירום</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://www.mdais.org/en/" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:+97235300400" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="https://www.mdais.org/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:+97235300400" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
@@ -654,28 +666,28 @@
             <!-- Organization 2 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="United Hatzalah logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו איחוד הצלה" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">United Hatzalah</h3>
-                  <div class="resource-type">Volunteer Emergency Response</div>
+                  <h3 class="resource-name">איחוד הצלה</h3>
+                  <div class="resource-type">מענה חירום מתנדבים</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">A volunteer-based emergency medical services organization, United Hatzalah provides rapid response to emergencies. Their volunteers were among the first responders on October 7th.</p>
+                <p class="resource-description">ארגון שירותי רפואת חירום מבוסס מתנדבים, איחוד הצלה מספק מענה מהיר למצבי חירום. המתנדבים שלהם היו בין המגיבים הראשונים ב-7 באוקטובר.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Emergency Medical</span>
-                  <span class="resource-tag">Psychological First Aid</span>
-                  <span class="resource-tag">Volunteer-Based</span>
+                  <span class="resource-tag">רפואת חירום</span>
+                  <span class="resource-tag">עזרה ראשונה נפשית</span>
+                  <span class="resource-tag">מבוסס מתנדבים</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://israelrescue.org/" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:+97225002020" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="https://israelrescue.org/he/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:+97225002020" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
@@ -683,28 +695,28 @@
             <!-- Organization 3 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="IsraAID logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו ישראייד" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">IsraAID</h3>
-                  <div class="resource-type">Humanitarian Aid</div>
+                  <h3 class="resource-name">ישראייד</h3>
+                  <div class="resource-type">סיוע הומניטרי</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">Israeli humanitarian aid organization providing emergency relief and long-term support. IsraAID has mobilized emergency response teams to support displaced communities and evacuation centers.</p>
+                <p class="resource-description">ארגון סיוע הומניטרי ישראלי המספק סיוע חירום ותמיכה ארוכת טווח. ישראייד גייסה צוותי חירום לתמיכה בקהילות מפונות ומרכזי פינוי.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Humanitarian Aid</span>
-                  <span class="resource-tag">Psychosocial Support</span>
-                  <span class="resource-tag">Displacement Response</span>
+                  <span class="resource-tag">סיוע הומניטרי</span>
+                  <span class="resource-tag">תמיכה פסיכו-חברתית</span>
+                  <span class="resource-tag">מענה לעקורים</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://www.israaid.org/" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="mailto:info@israaid.org" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="https://www.israaid.org/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="mailto:info@israaid.org" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
@@ -712,28 +724,28 @@
             <!-- Organization 4 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="The Jewish Agency logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו הסוכנות היהודית" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">The Jewish Agency</h3>
-                  <div class="resource-type">Community Support</div>
+                  <h3 class="resource-name">הסוכנות היהודית</h3>
+                  <div class="resource-type">תמיכה קהילתית</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">The Jewish Agency has established an emergency fund to support victims of terror attacks. They provide immediate financial assistance, temporary housing, and long-term recovery support.</p>
+                <p class="resource-description">הסוכנות היהודית הקימה קרן חירום לתמיכה בנפגעי מתקפות הטרור. הם מספקים סיוע כספי מיידי, דיור זמני ותמיכה בהתאוששות ארוכת טווח.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Emergency Fund</span>
-                  <span class="resource-tag">Housing Assistance</span>
-                  <span class="resource-tag">Community Support</span>
+                  <span class="resource-tag">קרן חירום</span>
+                  <span class="resource-tag">סיוע בדיור</span>
+                  <span class="resource-tag">תמיכה קהילתית</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://www.jewishagency.org/" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:+97226202222" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="https://www.jewishagency.org/he/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:+97226202222" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
@@ -741,28 +753,28 @@
             <!-- Organization 5 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="ZAKA logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו זק"א" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">ZAKA</h3>
-                  <div class="resource-type">Search, Rescue & Recovery</div>
+                  <h3 class="resource-name">זק"א</h3>
+                  <div class="resource-type">חיפוש, חילוץ והצלה</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">ZAKA is a volunteer-based emergency response team focusing on search, rescue, and recovery. Their volunteers were among the first to respond to the scenes of the October 7th attacks.</p>
+                <p class="resource-description">זק"א הוא צוות תגובה לחירום מבוסס מתנדבים המתמקד בחיפוש, חילוץ והצלה. המתנדבים שלהם היו בין הראשונים להגיב לזירות ההתקפות ב-7 באוקטובר.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Recovery Operations</span>
-                  <span class="resource-tag">Search & Rescue</span>
-                  <span class="resource-tag">Volunteer Organization</span>
+                  <span class="resource-tag">פעולות חילוץ</span>
+                  <span class="resource-tag">חיפוש והצלה</span>
+                  <span class="resource-tag">ארגון מתנדבים</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://www.zaka.org.il/en/" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:+97225381000" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="https://www.zaka.org.il/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:+97225381000" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
@@ -770,28 +782,28 @@
             <!-- Organization 6 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="OneFamily Fund logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו משפחה אחת" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">OneFamily Fund</h3>
-                  <div class="resource-type">Victim Support</div>
+                  <h3 class="resource-name">משפחה אחת</h3>
+                  <div class="resource-type">תמיכה בנפגעים</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">OneFamily provides personal and financial support to victims of terror attacks and their families. They offer emotional support, financial assistance, and rehabilitation services.</p>
+                <p class="resource-description">משפחה אחת מספקת תמיכה אישית וכלכלית לנפגעי פיגועי טרור ולמשפחותיהם. הם מציעים תמיכה רגשית, סיוע כלכלי ושירותי שיקום.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Financial Support</span>
-                  <span class="resource-tag">Emotional Support</span>
-                  <span class="resource-tag">Rehabilitation</span>
+                  <span class="resource-tag">תמיכה כלכלית</span>
+                  <span class="resource-tag">תמיכה רגשית</span>
+                  <span class="resource-tag">שיקום</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://www.onefamilytogether.org/" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:+97225399000" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="https://www.onefamilytogether.org/he/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:+97225399000" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
@@ -808,35 +820,35 @@
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
               </svg>
             </div>
-            <h2 id="mental-health-title" class="section-title">Mental Health Resources</h2>
+            <h2 id="mental-health-title" class="section-title">משאבי בריאות הנפש</h2>
           </div>
           
           <div class="resource-grid">
             <!-- Mental Health Resource 1 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="NATAL logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו נט"ל" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">NATAL</h3>
-                  <div class="resource-type">Trauma & PTSD Support</div>
+                  <h3 class="resource-name">נט"ל</h3>
+                  <div class="resource-type">תמיכה בטראומה ו-PTSD</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">NATAL specializes in trauma and PTSD support for terror victims. They provide a helpline, therapy services, and community outreach programs for those affected by traumatic events.</p>
+                <p class="resource-description">נט"ל מתמחה בתמיכה בטראומה ו-PTSD לנפגעי טרור. הם מספקים קו חם, שירותי טיפול ותוכניות קהילתיות עבור אלו שנפגעו מאירועים טראומטיים.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Trauma Support</span>
+                  <span class="resource-tag">תמיכה בטראומה</span>
                   <span class="resource-tag">PTSD</span>
-                  <span class="resource-tag">Helpline</span>
+                  <span class="resource-tag">קו חם</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://www.natal.org.il/en/" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:1800363363" class="resource-action-btn btn-contact">Helpline</a>
+                  <a href="https://www.natal.org.il/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:1800363363" class="resource-action-btn btn-contact">קו חם</a>
                 </div>
               </div>
             </div>
@@ -844,28 +856,28 @@
             <!-- Mental Health Resource 2 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="ERAN logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו ער"ן" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">ERAN</h3>
-                  <div class="resource-type">Emotional First Aid</div>
+                  <h3 class="resource-name">ער"ן</h3>
+                  <div class="resource-type">עזרה ראשונה רגשית</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">ERAN provides emotional first aid through their hotline services. They offer immediate support for those experiencing emotional distress, anxiety, or crisis.</p>
+                <p class="resource-description">ער"ן מספק עזרה ראשונה רגשית באמצעות שירותי הקו החם שלהם. הם מציעים תמיכה מיידית לאלו שחווים מצוקה רגשית, חרדה או משבר.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Crisis Intervention</span>
-                  <span class="resource-tag">Emotional Support</span>
-                  <span class="resource-tag">24/7 Hotline</span>
+                  <span class="resource-tag">התערבות במשבר</span>
+                  <span class="resource-tag">תמיכה רגשית</span>
+                  <span class="resource-tag">קו חם 24/7</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://www.eran.org.il/?page_id=6087" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:1201" class="resource-action-btn btn-contact">Hotline</a>
+                  <a href="https://www.eran.org.il/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:1201" class="resource-action-btn btn-contact">קו חם</a>
                 </div>
               </div>
             </div>
@@ -873,28 +885,28 @@
             <!-- Mental Health Resource 3 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="Metiv logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו מטיב" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">Metiv - Israel Psychotrauma Center</h3>
-                  <div class="resource-type">Trauma Treatment</div>
+                  <h3 class="resource-name">מטיב - המרכז הישראלי לפסיכוטראומה</h3>
+                  <div class="resource-type">טיפול בטראומה</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">Metiv offers professional treatment for trauma survivors. Their specialists provide evidence-based trauma therapy and have developed specific protocols for terror-related trauma.</p>
+                <p class="resource-description">מטיב מציע טיפול מקצועי לניצולי טראומה. המומחים שלהם מספקים טיפול בטראומה מבוסס ראיות ופיתחו פרוטוקולים ספציפיים לטראומה הקשורה לטרור.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Trauma Therapy</span>
-                  <span class="resource-tag">Professional Treatment</span>
-                  <span class="resource-tag">Research-Based</span>
+                  <span class="resource-tag">טיפול בטראומה</span>
+                  <span class="resource-tag">טיפול מקצועי</span>
+                  <span class="resource-tag">מבוסס מחקר</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://www.traumaweb.org/en/" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:+97226449666" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="https://www.traumaweb.org/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:+97226449666" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
@@ -902,61 +914,61 @@
             <!-- Mental Health Resource 4 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="Amcha logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו עמך" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">Amcha</h3>
-                  <div class="resource-type">Psychological Support</div>
+                  <h3 class="resource-name">עמך</h3>
+                  <div class="resource-type">תמיכה פסיכולוגית</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">Amcha provides psychological and social support services. They have expanded their services to support those affected by the October 7th attacks, including survivors and their families.</p>
+                <p class="resource-description">עמך מספק שירותי תמיכה פסיכולוגית וחברתית. הם הרחיבו את שירותיהם כדי לתמוך באלו שנפגעו מהתקפות ה-7 באוקטובר, כולל ניצולים ומשפחותיהם.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Psychological Support</span>
-                  <span class="resource-tag">Social Support</span>
-                  <span class="resource-tag">Community Programs</span>
+                  <span class="resource-tag">תמיכה פסיכולוגית</span>
+                  <span class="resource-tag">תמיכה חברתית</span>
+                  <span class="resource-tag">תוכניות קהילתיות</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://www.amcha.org/english" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:+97226250634" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="https://www.amcha.org/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:+97226250634" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
           </div>
           
           <!-- Mental Health Resources for Children -->
-          <h3 class="mt-4">Resources for Children</h3>
+          <h3 class="mt-4">משאבים לילדים</h3>
           <div class="resource-grid">
             <!-- Children's Resource 1 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="Mahut Center logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו מרכז מהות" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">Mahut Center</h3>
-                  <div class="resource-type">Children's Trauma Support</div>
+                  <h3 class="resource-name">מרכז מהות</h3>
+                  <div class="resource-type">תמיכה בטראומה לילדים</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">Mahut specializes in supporting children dealing with trauma. They provide therapy, resources for parents, and operate a specialized center for children affected by terrorism and violence.</p>
+                <p class="resource-description">מהות מתמחה בתמיכה בילדים המתמודדים עם טראומה. הם מספקים טיפול, משאבים להורים, ומפעילים מרכז מיוחד לילדים שנפגעו מטרור ואלימות.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Children's Therapy</span>
-                  <span class="resource-tag">Parental Guidance</span>
-                  <span class="resource-tag">Play Therapy</span>
+                  <span class="resource-tag">טיפול בילדים</span>
+                  <span class="resource-tag">הדרכת הורים</span>
+                  <span class="resource-tag">טיפול במשחק</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://www.mahutcenter.org/" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:+97235605805" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="https://www.mahutcenter.org/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:+97235605805" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
@@ -964,28 +976,28 @@
             <!-- Children's Resource 2 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="Beit Cohen logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו בית כהן" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">Beit Cohen</h3>
-                  <div class="resource-type">Children's Crisis Center</div>
+                  <h3 class="resource-name">בית כהן</h3>
+                  <div class="resource-type">מרכז משבר לילדים</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">Beit Cohen provides a safe haven for children experiencing crisis. They offer emergency housing, therapeutic support, and family counseling for children who have witnessed or experienced traumatic events.</p>
+                <p class="resource-description">בית כהן מספק מקלט בטוח לילדים החווים משבר. הם מציעים דיור חירום, תמיכה טיפולית וייעוץ משפחתי לילדים שהיו עדים או חוו אירועים טראומטיים.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Crisis Intervention</span>
-                  <span class="resource-tag">Emergency Housing</span>
-                  <span class="resource-tag">Family Support</span>
+                  <span class="resource-tag">התערבות במשבר</span>
+                  <span class="resource-tag">דיור חירום</span>
+                  <span class="resource-tag">תמיכה משפחתית</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="#" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:+97286263880" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="#" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:+97286263880" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
@@ -1006,35 +1018,35 @@
                 <line x1="14" y1="1" x2="14" y2="4"></line>
               </svg>
             </div>
-            <h2 id="hostage-family-title" class="section-title">Hostage Family Support</h2>
+            <h2 id="hostage-family-title" class="section-title">תמיכה במשפחות חטופים</h2>
           </div>
           
           <div class="resource-grid">
             <!-- Hostage Support 1 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="Hostages and Missing Families Forum logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו פורום משפחות החטופים והנעדרים" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">Hostages and Missing Families Forum</h3>
-                  <div class="resource-type">Advocacy & Support</div>
+                  <h3 class="resource-name">פורום משפחות החטופים והנעדרים</h3>
+                  <div class="resource-type">סנגור ותמיכה</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">The Hostages and Missing Families Forum represents families of those taken hostage on October 7th. They provide support services, advocacy, and serve as a unified voice for the families.</p>
+                <p class="resource-description">פורום משפחות החטופים והנעדרים מייצג משפחות של אלו שנחטפו ב-7 באוקטובר. הם מספקים שירותי תמיכה, סנגור ומשמשים כקול מאוחד עבור המשפחות.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Advocacy</span>
-                  <span class="resource-tag">Family Support</span>
-                  <span class="resource-tag">Information Center</span>
+                  <span class="resource-tag">סנגור</span>
+                  <span class="resource-tag">תמיכה במשפחות</span>
+                  <span class="resource-tag">מרכז מידע</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://bringthemhomenow.net/" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="mailto:info@bringthemhomenow.net" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="https://bringthemhomenow.net/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="mailto:info@bringthemhomenow.net" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
@@ -1042,28 +1054,28 @@
             <!-- Hostage Support 2 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="SELAH logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו סל"ע" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">SELAH - Israel Crisis Management Center</h3>
-                  <div class="resource-type">Crisis Support</div>
+                  <h3 class="resource-name">סל"ע - המרכז הישראלי לניהול משברים</h3>
+                  <div class="resource-type">תמיכה במשבר</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">SELAH provides comprehensive support to families in crisis, including those with hostage situations. They offer emotional support, financial assistance, and practical help navigating complex situations.</p>
+                <p class="resource-description">סל"ע מספק תמיכה מקיפה למשפחות במשבר, כולל אלו במצבי חטיפה. הם מציעים תמיכה רגשית, סיוע כלכלי ועזרה מעשית בניווט מצבים מורכבים.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Crisis Management</span>
-                  <span class="resource-tag">Emotional Support</span>
-                  <span class="resource-tag">Practical Assistance</span>
+                  <span class="resource-tag">ניהול משברים</span>
+                  <span class="resource-tag">תמיכה רגשית</span>
+                  <span class="resource-tag">סיוע מעשי</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="https://selah.org.il/en/" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:+97235646206" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="https://selah.org.il/" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:+97235646206" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
@@ -1071,28 +1083,28 @@
             <!-- Hostage Support 3 -->
             <div class="resource-card">
               <div class="resource-card-header">
-                <img src="/api/placeholder/100/100" alt="Legal Aid logo" class="resource-logo">
+                <img src="/api/placeholder/100/100" alt="לוגו סיוע משפטי" class="resource-logo">
                 <div>
-                  <h3 class="resource-name">Legal Aid for Hostage Families</h3>
-                  <div class="resource-type">Legal Support</div>
+                  <h3 class="resource-name">סיוע משפטי למשפחות חטופים</h3>
+                  <div class="resource-type">תמיכה משפטית</div>
                 </div>
                 <span class="verification-badge">
                   <svg viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
                   </svg>
-                  Verified
+                  מאומת
                 </span>
               </div>
               <div class="resource-card-content">
-                <p class="resource-description">Pro bono legal services for families of hostages, providing guidance on legal matters, international humanitarian law, and advocacy before governmental and international bodies.</p>
+                <p class="resource-description">שירותים משפטיים פרו-בונו למשפחות חטופים, המספקים הדרכה בנושאים משפטיים, משפט הומניטרי בינלאומי וסנגור בפני גופים ממשלתיים ובינלאומיים.</p>
                 <div class="resource-meta">
-                  <span class="resource-tag">Legal Counsel</span>
-                  <span class="resource-tag">Humanitarian Law</span>
-                  <span class="resource-tag">Advocacy</span>
+                  <span class="resource-tag">ייעוץ משפטי</span>
+                  <span class="resource-tag">משפט הומניטרי</span>
+                  <span class="resource-tag">סנגור</span>
                 </div>
                 <div class="resource-actions">
-                  <a href="#" class="resource-action-btn btn-website" target="_blank" rel="noopener">Website</a>
-                  <a href="tel:+97235803444" class="resource-action-btn btn-contact">Contact</a>
+                  <a href="#" class="resource-action-btn btn-website" target="_blank" rel="noopener">אתר</a>
+                  <a href="tel:+97235803444" class="resource-action-btn btn-contact">יצירת קשר</a>
                 </div>
               </div>
             </div>
@@ -1110,63 +1122,63 @@
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
               </svg>
             </div>
-            <h2 id="educational-resources-title" class="section-title">Educational Resources</h2>
+            <h2 id="educational-resources-title" class="section-title">משאבים חינוכיים</h2>
           </div>
           
           <div class="educational-resources">
             <!-- Educational Resource 1 -->
             <div class="educational-card">
-              <img src="/api/placeholder/300/200" alt="Teacher's guide cover" class="educational-image">
+              <img src="/api/placeholder/300/200" alt="כריכת מדריך למורים" class="educational-image">
               <div class="educational-content">
-                <h3 class="educational-title">Teacher's Guide: Discussing October 7th</h3>
+                <h3 class="educational-title">מדריך למורים: דיון על ה-7 באוקטובר</h3>
                 <div class="educational-meta">
-                  <span>For Educators</span>
-                  <span>PDF, 35 pages</span>
+                  <span>למחנכים</span>
+                  <span>PDF, 35 עמודים</span>
                 </div>
-                <p class="educational-description">A comprehensive guide for teachers on how to discuss the October 7th events with students of different age groups. Includes discussion frameworks, activity suggestions, and support resources.</p>
-                <a href="#" class="btn-secondary">Download PDF</a>
+                <p class="educational-description">מדריך מקיף למורים כיצד לדון באירועי ה-7 באוקטובר עם תלמידים מקבוצות גיל שונות. כולל מסגרות דיון, הצעות לפעילויות ומשאבי תמיכה.</p>
+                <a href="#" class="btn-secondary">הורדת PDF</a>
               </div>
             </div>
             
             <!-- Educational Resource 2 -->
             <div class="educational-card">
-              <img src="/api/placeholder/300/200" alt="Children's book cover" class="educational-image">
+              <img src="/api/placeholder/300/200" alt="כריכת ספר ילדים" class="educational-image">
               <div class="educational-content">
-                <h3 class="educational-title">When Scary Things Happen</h3>
+                <h3 class="educational-title">כשדברים מפחידים קורים</h3>
                 <div class="educational-meta">
-                  <span>For Children</span>
-                  <span>Ages 4-8</span>
+                  <span>לילדים</span>
+                  <span>גילאי 4-8</span>
                 </div>
-                <p class="educational-description">An age-appropriate book to help young children understand and process difficult events. Focuses on building resilience and finding safety in uncertainty.</p>
-                <a href="#" class="btn-secondary">Download PDF</a>
+                <p class="educational-description">ספר מותאם לגיל לעזור לילדים צעירים להבין ולעבד אירועים קשים. מתמקד בבניית חוסן ומציאת ביטחון בחוסר ודאות.</p>
+                <a href="#" class="btn-secondary">הורדת PDF</a>
               </div>
             </div>
             
             <!-- Educational Resource 3 -->
             <div class="educational-card">
-              <img src="/api/placeholder/300/200" alt="Documentary poster" class="educational-image">
+              <img src="/api/placeholder/300/200" alt="פוסטר סרט תיעודי" class="educational-image">
               <div class="educational-content">
-                <h3 class="educational-title">Documentary: Voices of Resilience</h3>
+                <h3 class="educational-title">סרט תיעודי: קולות של חוסן</h3>
                 <div class="educational-meta">
-                  <span>Video</span>
-                  <span>45 minutes</span>
+                  <span>וידאו</span>
+                  <span>45 דקות</span>
                 </div>
-                <p class="educational-description">A documentary presenting first-person accounts of survivors and community members, focusing on recovery and resilience after the October 7th attacks.</p>
-                <a href="#" class="btn-secondary">Watch Video</a>
+                <p class="educational-description">סרט תיעודי המציג עדויות בגוף ראשון של ניצולים וחברי קהילה, המתמקד בהתאוששות וחוסן לאחר התקפות ה-7 באוקטובר.</p>
+                <a href="#" class="btn-secondary">צפייה בווידאו</a>
               </div>
             </div>
             
             <!-- Educational Resource 4 -->
             <div class="educational-card">
-              <img src="/api/placeholder/300/200" alt="Historical context guide cover" class="educational-image">
+              <img src="/api/placeholder/300/200" alt="כריכת מדריך הקשר היסטורי" class="educational-image">
               <div class="educational-content">
-                <h3 class="educational-title">Historical Context Reference Guide</h3>
+                <h3 class="educational-title">מדריך הקשר היסטורי</h3>
                 <div class="educational-meta">
-                  <span>For Adults</span>
-                  <span>PDF, 50 pages</span>
+                  <span>למבוגרים</span>
+                  <span>PDF, 50 עמודים</span>
                 </div>
-                <p class="educational-description">A comprehensive reference guide providing historical context for understanding the October 7th attacks, created by historians and subject matter experts.</p>
-                <a href="#" class="btn-secondary">Download PDF</a>
+                <p class="educational-description">מדריך עיון מקיף המספק הקשר היסטורי להבנת התקפות ה-7 באוקטובר, שנוצר על ידי היסטוריונים ומומחי תוכן.</p>
+                <a href="#" class="btn-secondary">הורדת PDF</a>
               </div>
             </div>
           </div>
@@ -1175,8 +1187,8 @@
       
       <!-- Volunteer Section -->
       <section class="volunteer-section" aria-labelledby="volunteer-title">
-        <h2 id="volunteer-title">How You Can Help</h2>
-        <p>There are many ways to contribute to ongoing recovery and support efforts. Whether through financial donations, volunteering your time, or raising awareness, every action makes a difference.</p>
+        <h2 id="volunteer-title">כיצד תוכלו לעזור</h2>
+        <p>ישנן דרכים רבות לתרום למאמצי ההתאוששות והתמיכה המתמשכים. בין אם באמצעות תרומות כספיות, התנדבות או העלאת מודעות, כל פעולה עושה הבדל.</p>
         
         <div class="volunteer-options">
           <div class="volunteer-card">
@@ -1185,10 +1197,10 @@
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
               </svg>
             </div>
-            <h3 class="volunteer-title">Donate Funds</h3>
-            <p>Financial contributions help provide immediate and long-term support to affected communities, survivors, and families of victims.</p>
-            <p>All verified organizations on this page accept donations, which go directly to supporting their ongoing work.</p>
-            <a href="#" class="btn-secondary mt-3">View Donation Options</a>
+            <h3 class="volunteer-title">תרומת כספים</h3>
+            <p>תרומות כספיות עוזרות לספק תמיכה מיידית וארוכת טווח לקהילות שנפגעו, לניצולים ולמשפחות הקורבנות.</p>
+            <p>כל הארגונים המאומתים בדף זה מקבלים תרומות, שהולכות ישירות לתמיכה בעבודתם המתמשכת.</p>
+            <a href="#" class="btn-secondary mt-3">צפייה באפשרויות תרומה</a>
           </div>
           
           <div class="volunteer-card">
@@ -1201,10 +1213,10 @@
                 <path d="M15 12V6"></path>
               </svg>
             </div>
-            <h3 class="volunteer-title">Volunteer Your Time</h3>
-            <p>Many organizations need volunteers for various roles, from providing professional services to assisting with community programs.</p>
-            <p>Skills particularly needed include mental health professionals, translators, logistics coordinators, and community organizers.</p>
-            <a href="#" class="btn-secondary mt-3">Find Volunteer Opportunities</a>
+            <h3 class="volunteer-title">התנדבות</h3>
+            <p>ארגונים רבים זקוקים למתנדבים לתפקידים שונים, ממתן שירותים מקצועיים ועד סיוע בתוכניות קהילתיות.</p>
+            <p>מיומנויות הנדרשות במיוחד כוללות אנשי מקצוע בבריאות הנפש, מתרגמים, מתאמי לוגיסטיקה ומארגני קהילה.</p>
+            <a href="#" class="btn-secondary mt-3">מציאת הזדמנויות התנדבות</a>
           </div>
           
           <div class="volunteer-card">
@@ -1213,21 +1225,21 @@
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
               </svg>
             </div>
-            <h3 class="volunteer-title">Host Displaced Families</h3>
-            <p>Many families remain displaced from their communities. Opening your home to those in need provides essential stability during this difficult time.</p>
-            <p>Registration is available through verified housing coordination programs that match hosts with families in need.</p>
-            <a href="#" class="btn-secondary mt-3">Learn About Hosting</a>
+            <h3 class="volunteer-title">אירוח משפחות מפונות</h3>
+            <p>משפחות רבות עדיין מפונות מקהילותיהן. פתיחת ביתכם לאלו הזקוקים לכך מספקת יציבות חיונית בתקופה קשה זו.</p>
+            <p>ההרשמה זמינה דרך תוכניות מאומתות לתיאום דיור המתאימות בין מארחים למשפחות נזקקות.</p>
+            <a href="#" class="btn-secondary mt-3">מידע על אירוח</a>
           </div>
         </div>
       </section>
       
       <!-- Contact Section -->
       <section class="resource-section" aria-labelledby="contact-title">
-        <h2 id="contact-title">Contact Us</h2>
-        <p>If you need help finding specific resources or have information about additional support services that should be included on this page, please contact us.</p>
+        <h2 id="contact-title">צרו קשר</h2>
+        <p>אם אתם זקוקים לעזרה במציאת משאבים ספציפיים או יש לכם מידע על שירותי תמיכה נוספים שיש לכלול בדף זה, אנא צרו קשר.</p>
         <div class="contact-options mt-3">
-          <a href="mailto:resources@october7memorial.org" class="btn">Email Resource Team</a>
-          <a href="tel:+97235551234" class="btn btn-secondary">Call Helpline</a>
+          <a href="mailto:resources@october7memorial.org" class="btn">דוא"ל לצוות המשאבים</a>
+          <a href="tel:+97235551234" class="btn btn-secondary">התקשרו לקו החם</a>
         </div>
       </section>
     </main>
@@ -1235,14 +1247,14 @@
   
   <footer>
     <div class="footer-links">
-      <a href="about.html">About the Initiative</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-      <a href="accessibility.html">Accessibility</a>
+      <a href="about.html">אודות היוזמה</a>
+      <a href="contact.html">צרו קשר</a>
+      <a href="privacy.html">מדיניות פרטיות</a>
+      <a href="terms.html">תנאי שימוש</a>
+      <a href="accessibility.html">נגישות</a>
     </div>
-    <p>© 2025 Remembrance Initiative</p>
-    <p>This memorial website is maintained with support from families, survivors, and community organizations.</p>
+    <p>© 2025 יוזמת ההנצחה</p>
+    <p>אתר הנצחה זה מתוחזק בתמיכת משפחות, ניצולים וארגונים קהילתיים.</p>
   </footer>
   
   <script>

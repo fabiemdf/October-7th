@@ -11,121 +11,14 @@
   <meta property="og:url" content="https://october7memorial.org/memorial.html">
   <meta property="og:image" content="https://october7memorial.org/images/memorial-candles.jpg">
   
-  <title>October 7th Tragedy – Memorial</title>
+  <title>Remembering October 7th – Memorial</title>
   
   <!-- External stylesheet reference -->
   <link rel="stylesheet" href="css/style.css">
   
   <!-- Embedded additional styles for the memorial page -->
   <style>
-    :root {
-      --primary-color: #0038b8; /* Israeli blue */
-      --secondary-color: #ffffff; /* White */
-      --accent-color: #ffc845; /* Warm candle color */
-      --text-color: #333333;
-      --light-text: #ffffff;
-      --dark-bg: #1a1a1a;
-      --light-bg: #f8f8f8;
-      --border-color: #dddddd;
-      --memorial-bg: linear-gradient(to bottom, #f0f0f0, #ffffff);
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--text-color);
-      background-color: var(--light-bg);
-      margin: 0;
-      padding: 0;
-    }
-    
-    /* Typography improvements */
-    h1, h2, h3, h4 {
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      margin-top: 0;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    h2 {
-      font-size: 2rem;
-      color: var(--primary-color);
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    /* Container layout */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      background: var(--secondary-color);
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
-    
-    /* Header styling */
-    header {
-      background: var(--primary-color);
-      color: var(--light-text);
-      padding: 1rem 0;
-      text-align: center;
-    }
-    
-    nav ul {
-      display: flex;
-      list-style: none;
-      justify-content: center;
-      padding: 0;
-      margin: 1rem 0;
-    }
-    
-    nav ul li {
-      margin: 0 1rem;
-    }
-    
-    nav ul li a {
-      color: var(--light-text);
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-    }
-    
-    nav ul li a:hover, nav ul li a:focus {
-      background-color: rgba(255,255,255,0.2);
-    }
-    
-    /* Accessible skip link */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--primary-color);
-      color: var(--light-text);
-      padding: 8px;
-      z-index: 100;
-    }
-    
-    .skip-link:focus {
-      top: 0;
-    }
-    
-    /* Main content area */
-    main {
-      min-height: 70vh;
-    }
-    
-    /* Introduction section */
+    /* Memorial-specific styles */
     .memorial-intro {
       text-align: center;
       max-width: 800px;
@@ -138,28 +31,6 @@
     .memorial-intro p {
       font-size: 1.1rem;
       line-height: 1.8;
-    }
-    
-    /* Language selector */
-    .language-selector {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 1rem;
-    }
-    
-    .language-selector button {
-      background: none;
-      border: 1px solid var(--border-color);
-      margin-left: 0.5rem;
-      padding: 0.25rem 0.5rem;
-      cursor: pointer;
-      border-radius: 4px;
-      font-size: 0.9rem;
-    }
-    
-    .language-selector button.active {
-      background-color: var(--primary-color);
-      color: white;
     }
     
     /* Memorial search and filter */
@@ -433,15 +304,6 @@
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       }
       
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      nav ul li {
-        margin: 0.5rem 0;
-      }
-      
       .search-container, .filter-container {
         flex-direction: column;
         width: 100%;
@@ -457,36 +319,6 @@
         margin-bottom: 0.5rem;
       }
     }
-    
-    /* Footer styling */
-    footer {
-      background-color: var(--primary-color);
-      color: var(--light-text);
-      text-align: center;
-      padding: 2rem 0;
-      margin-top: 2rem;
-    }
-    
-    footer p {
-      margin: 0.5rem 0;
-    }
-    
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 1rem 0;
-      flex-wrap: wrap;
-    }
-    
-    .footer-links a {
-      color: var(--light-text);
-      text-decoration: none;
-    }
-    
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 
@@ -495,7 +327,13 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   
   <header>
-    <h1>In Memoriam</h1>
+    <div class="header-top">
+      <h1>October 7th Tragedy – Memorial</h1>
+      <div class="language-selector">
+        <a href="memorial.html" class="active" aria-label="View in English">EN</a>
+        <a href="he/memorial.html" aria-label="View in Hebrew">עב</a>
+      </div>
+    </div>
     <nav aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -508,12 +346,13 @@
   </header>
   
   <div class="container">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="memorial.html" aria-current="page">Memorial</a></li>
+      </ol>
+    </nav>
     <main id="main-content">
-      <div class="language-selector" aria-label="Select language">
-        <button class="active">English</button>
-        <button>עברית</button>
-      </div>
-      
       <div class="memorial-intro">
         <h2>Honoring the Fallen</h2>
         <p>We remember the 1,200 lives lost on October 7th, 2023. Each name represents a unique world—full of dreams, loves, and connections. This memorial honors their memory and ensures their stories continue to be told.</p>

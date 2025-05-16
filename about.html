@@ -200,17 +200,12 @@
     .timeline-marker {
       position: absolute;
       left: -50px;
-      top: 0;
-      width: 40px;
-      height: 40px;
-      background-color: var(--light-text);
-      border: 2px solid var(--primary-color);
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary-color);
-      font-weight: bold;
+      background-color: var(--primary-color);
+      border: 4px solid white;
+      box-shadow: 0 0 0 2px var(--primary-color);
     }
     
     .timeline-date {
@@ -223,179 +218,132 @@
       background-color: var(--light-bg);
       padding: var(--space-md);
       border-radius: var(--border-radius);
-      border-left: 3px solid var(--primary-color);
-    }
-    
-    .partners-section {
-      margin: var(--space-xl) 0;
-    }
-    
-    .partners-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-      align-items: center;
-    }
-    
-    .partner-logo {
-      background-color: white;
-      padding: var(--space-md);
-      border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100px;
-      transition: transform var(--transition-fast);
     }
     
-    .partner-logo img {
-      max-width: 100%;
-      max-height: 70px;
-      object-fit: contain;
-    }
-    
-    .partner-logo:hover {
-      transform: scale(1.05);
-    }
-    
-    .contact-section {
-      background-color: var(--light-bg);
-      padding: var(--space-xl);
-      border-radius: var(--border-radius);
-      margin: var(--space-xl) 0;
-      text-align: center;
-    }
-    
-    .contact-options {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-      flex-wrap: wrap;
-    }
-    
-    .contact-method {
-      background-color: white;
-      border-radius: var(--border-radius);
-      padding: var(--space-lg);
-      box-shadow: var(--box-shadow);
-      width: 280px;
-      text-align: center;
-    }
-    
-    .contact-icon {
-      width: 50px;
-      height: 50px;
-      margin: 0 auto var(--space-md);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--primary-color);
-    }
-    
-    .contact-icon svg {
-      width: 24px;
-      height: 24px;
-      fill: white;
-    }
-    
-    .contact-title {
+    .timeline-content h3 {
       margin-bottom: var(--space-sm);
       color: var(--primary-color);
     }
     
-    .contact-detail {
-      margin-bottom: var(--space-md);
+    .timeline-content p {
+      margin-bottom: 0;
     }
     
-    .quote-section {
-      position: relative;
-      background-color: var(--primary-color);
-      color: var(--light-text);
-      padding: var(--space-xl);
+    .contact-section {
+      background-color: var(--light-bg);
+      padding: var(--space-xl) var(--space-lg);
       border-radius: var(--border-radius);
       margin: var(--space-xl) 0;
-      text-align: center;
     }
     
-    .quote-content {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-      z-index: 1;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
     }
     
-    .quote-text {
-      font-size: 1.5rem;
-      font-style: italic;
+    .contact-info {
+      padding: var(--space-lg);
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+    
+    .contact-info h3 {
       margin-bottom: var(--space-md);
-      position: relative;
+      color: var(--primary-color);
     }
     
-    .quote-text::before, .quote-text::after {
-      content: '"';
-      font-size: 3rem;
-      opacity: 0.5;
-      position: absolute;
+    .contact-details {
+      margin-bottom: var(--space-md);
     }
     
-    .quote-text::before {
-      top: -20px;
-      left: -20px;
+    .contact-details p {
+      margin-bottom: var(--space-xs);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
     }
     
-    .quote-text::after {
-      bottom: -40px;
-      right: -20px;
+    .contact-details svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--primary-color);
     }
     
-    .quote-author {
-      font-weight: bold;
-      font-size: 1.1rem;
+    .contact-form {
+      padding: var(--space-lg);
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
     }
     
-    .quote-role {
-      font-size: 0.9rem;
-      opacity: 0.8;
+    .contact-form h3 {
+      margin-bottom: var(--space-md);
+      color: var(--primary-color);
     }
     
-    .quote-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .form-group {
+      margin-bottom: var(--space-md);
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: var(--space-xs);
+      font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group textarea {
       width: 100%;
-      height: 100%;
-      opacity: 0.1;
-      background-image: url('/api/placeholder/1200/600');
-      background-size: cover;
-      background-position: center;
+      padding: var(--space-sm);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      font-size: 1rem;
     }
     
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .submit-button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--border-radius);
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color var(--transition-medium);
+    }
+    
+    .submit-button:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    /* Responsive adjustments */
     @media (max-width: 768px) {
-      .contact-options {
-        flex-direction: column;
-        align-items: center;
+      .values-grid {
+        grid-template-columns: 1fr;
       }
       
-      .timeline-marker {
-        width: 30px;
-        height: 30px;
-        left: -40px;
+      .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       }
       
       .history-timeline {
-        padding-left: 40px;
+        padding-left: 30px;
       }
       
-      .quote-text {
-        font-size: 1.2rem;
+      .timeline-marker {
+        left: -30px;
       }
       
-      .quote-text::before, .quote-text::after {
-        font-size: 2rem;
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -405,7 +353,13 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   
   <header>
-    <h1>About the Initiative</h1>
+    <div class="header-top">
+      <h1>October 7th Tragedy – About the Initiative</h1>
+      <div class="language-selector">
+        <a href="about.html" class="active" aria-label="View in English">EN</a>
+        <a href="he/about.html" aria-label="View in Hebrew">עב</a>
+      </div>
+    </div>
     <nav aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -413,12 +367,17 @@
         <li><a href="stories.html">Stories</a></li>
         <li><a href="memorial.html">Memorial</a></li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="about.html" aria-current="page">About</a></li>
       </ul>
     </nav>
   </header>
   
   <div class="container">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+      </ol>
+    </nav>
     <main id="main-content">
       <div class="about-intro">
         <h2>The October 7th Remembrance Initiative</h2>
@@ -671,44 +630,33 @@
         <h2 id="contact-title">Contact Us</h2>
         <p>We welcome inquiries, collaboration opportunities, and feedback about our work. Please reach out through any of the following channels:</p>
         
-        <div class="contact-options">
-          <div class="contact-method">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24">
-                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                <path d="M22 7l-10 5-10-5"></path>
-              </svg>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Email</h3>
+            <div class="contact-details">
+              <p><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 7l-10 5-10-5"></path></svg> For general inquiries, information, or to share your story:</p>
+              <a href="mailto:info@october7memorial.org" class="btn-secondary">info@october7memorial.org</a>
             </div>
-            <h3 class="contact-title">Email</h3>
-            <p class="contact-detail">For general inquiries, information, or to share your story:</p>
-            <a href="mailto:info@october7memorial.org" class="btn-secondary">info@october7memorial.org</a>
           </div>
           
-          <div class="contact-method">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
+          <div class="contact-info">
+            <h3>Phone</h3>
+            <div class="contact-details">
+              <p><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Our team is available Monday-Friday, 9am-5pm (Israel Standard Time):</p>
+              <a href="tel:+97235551234" class="btn-secondary">+972 3 555 1234</a>
             </div>
-            <h3 class="contact-title">Phone</h3>
-            <p class="contact-detail">Our team is available Monday-Friday, 9am-5pm (Israel Standard Time):</p>
-            <a href="tel:+97235551234" class="btn-secondary">+972 3 555 1234</a>
           </div>
           
-          <div class="contact-method">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
+          <div class="contact-info">
+            <h3>Office</h3>
+            <div class="contact-details">
+              <p><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Our main office is located at:</p>
+              <address class="not-italic">
+                October 7th Remembrance Initiative<br>
+                123 Memorial Plaza<br>
+                Tel Aviv, Israel 61234
+              </address>
             </div>
-            <h3 class="contact-title">Office</h3>
-            <p class="contact-detail">Our main office is located at:</p>
-            <address class="not-italic">
-              October 7th Remembrance Initiative<br>
-              123 Memorial Plaza<br>
-              Tel Aviv, Israel 61234
-            </address>
           </div>
         </div>
       </section>

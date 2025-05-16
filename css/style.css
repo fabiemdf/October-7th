@@ -238,12 +238,14 @@ section {
    4. Header & Navigation
    ========================================= */
 header {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
+  color: var(--light-text);
   box-shadow: var(--box-shadow);
   padding: var(--space-md) var(--container-padding);
   position: sticky;
   top: 0;
   z-index: 1000;
+  text-align: center;
 }
 
 .header-top {
@@ -251,35 +253,43 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--space-md);
+  position: relative;
 }
 
 header h1 {
   margin: 0;
   font-size: 2rem;
-  color: var(--primary-color);
+  color: var(--light-text);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 
 .language-selector {
   display: flex;
   gap: var(--space-sm);
   align-items: center;
+  margin-left: auto;
+  z-index: 1;
 }
 
 .language-selector a {
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--border-radius);
-  color: var(--text-color);
+  color: var(--light-text);
   text-decoration: none;
   transition: all var(--transition-fast);
+  border: 1px solid var(--light-text);
 }
 
 .language-selector a.active {
-  background-color: var(--primary-color);
-  color: var(--light-text);
+  background-color: var(--light-text);
+  color: var(--primary-color);
 }
 
 .language-selector a:hover:not(.active) {
-  background-color: var(--subtle-bg);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .breadcrumb {
@@ -334,6 +344,10 @@ header h1 {
 nav {
   display: flex;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+  padding: var(--space-xs);
+  margin-top: var(--space-md);
 }
 
 nav ul {
@@ -341,12 +355,13 @@ nav ul {
   list-style: none;
   justify-content: center;
   padding: 0;
-  margin: var(--space-md) 0;
+  margin: 0;
   flex-wrap: wrap;
+  gap: var(--space-sm);
 }
 
 nav ul li {
-  margin: 0 var(--space-md);
+  margin: 0;
 }
 
 nav ul li a {
@@ -362,6 +377,24 @@ nav ul li a {
 nav ul li a:hover, nav ul li a:focus, nav ul li a[aria-current="page"] {
   background-color: rgba(255, 255, 255, 0.2);
   text-decoration: none;
+}
+
+/* Responsive adjustments for header */
+@media (max-width: 768px) {
+  .header-top {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  header h1 {
+    position: static;
+    transform: none;
+    margin-bottom: var(--space-sm);
+  }
+
+  .language-selector {
+    margin: 0;
+  }
 }
 
 /* =========================================

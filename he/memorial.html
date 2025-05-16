@@ -1,131 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Memorial page honoring victims of the October 7th, 2023 attack in Israel - remember their stories and leave tributes.">
+  <meta name="description" content="דף הנצחה לקורבנות מתקפת ה-7 באוקטובר 2023 בישראל - לזכור את סיפוריהם ולהשאיר מחוות כבוד.">
   
   <!-- Open Graph tags for better social sharing -->
-  <meta property="og:title" content="October 7th Memorial - Honoring Lives Lost">
-  <meta property="og:description" content="A digital memorial for those lost in the October 7th, 2023 attacks in Israel.">
-  <meta property="og:url" content="https://october7memorial.org/memorial.html">
+  <meta property="og:title" content="הנצחת ה-7 באוקטובר - לזכר הנספים">
+  <meta property="og:description" content="הנצחה דיגיטלית לזכר הנספים במתקפת ה-7 באוקטובר 2023 בישראל.">
+  <meta property="og:url" content="https://october7memorial.org/he/memorial.html">
   <meta property="og:image" content="https://october7memorial.org/images/memorial-candles.jpg">
   
-  <title>October 7th Tragedy – Memorial</title>
+  <title>זוכרים את ה-7 באוקטובר – הנצחה</title>
   
   <!-- External stylesheet reference -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   
   <!-- Embedded additional styles for the memorial page -->
   <style>
-    :root {
-      --primary-color: #0038b8; /* Israeli blue */
-      --secondary-color: #ffffff; /* White */
-      --accent-color: #ffc845; /* Warm candle color */
-      --text-color: #333333;
-      --light-text: #ffffff;
-      --dark-bg: #1a1a1a;
-      --light-bg: #f8f8f8;
-      --border-color: #dddddd;
-      --memorial-bg: linear-gradient(to bottom, #f0f0f0, #ffffff);
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--text-color);
-      background-color: var(--light-bg);
-      margin: 0;
-      padding: 0;
-    }
-    
-    /* Typography improvements */
-    h1, h2, h3, h4 {
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      margin-top: 0;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    h2 {
-      font-size: 2rem;
-      color: var(--primary-color);
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    /* Container layout */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      background: var(--secondary-color);
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
-    
-    /* Header styling */
-    header {
-      background: var(--primary-color);
-      color: var(--light-text);
-      padding: 1rem 0;
-      text-align: center;
-    }
-    
-    nav ul {
-      display: flex;
-      list-style: none;
-      justify-content: center;
-      padding: 0;
-      margin: 1rem 0;
-    }
-    
-    nav ul li {
-      margin: 0 1rem;
-    }
-    
-    nav ul li a {
-      color: var(--light-text);
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-    }
-    
-    nav ul li a:hover, nav ul li a:focus {
-      background-color: rgba(255,255,255,0.2);
-    }
-    
-    /* Accessible skip link */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--primary-color);
-      color: var(--light-text);
-      padding: 8px;
-      z-index: 100;
-    }
-    
-    .skip-link:focus {
-      top: 0;
-    }
-    
-    /* Main content area */
-    main {
-      min-height: 70vh;
-    }
-    
-    /* Introduction section */
+    /* Memorial-specific styles */
     .memorial-intro {
       text-align: center;
       max-width: 800px;
@@ -138,28 +31,6 @@
     .memorial-intro p {
       font-size: 1.1rem;
       line-height: 1.8;
-    }
-    
-    /* Language selector */
-    .language-selector {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 1rem;
-    }
-    
-    .language-selector button {
-      background: none;
-      border: 1px solid var(--border-color);
-      margin-left: 0.5rem;
-      padding: 0.25rem 0.5rem;
-      cursor: pointer;
-      border-radius: 4px;
-      font-size: 0.9rem;
-    }
-    
-    .language-selector button.active {
-      background-color: var(--primary-color);
-      color: white;
     }
     
     /* Memorial search and filter */
@@ -183,8 +54,8 @@
       flex-grow: 1;
       padding: 0.75rem;
       border: 1px solid var(--border-color);
-      border-right: none;
-      border-radius: 4px 0 0 4px;
+      border-left: none;
+      border-radius: 0 4px 4px 0;
       font-size: 1rem;
     }
     
@@ -194,7 +65,7 @@
       border: none;
       padding: 0 1.5rem;
       cursor: pointer;
-      border-radius: 0 4px 4px 0;
+      border-radius: 4px 0 0 4px;
       font-weight: bold;
     }
     
@@ -433,15 +304,6 @@
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       }
       
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      nav ul li {
-        margin: 0.5rem 0;
-      }
-      
       .search-container, .filter-container {
         flex-direction: column;
         width: 100%;
@@ -457,89 +319,66 @@
         margin-bottom: 0.5rem;
       }
     }
-    
-    /* Footer styling */
-    footer {
-      background-color: var(--primary-color);
-      color: var(--light-text);
-      text-align: center;
-      padding: 2rem 0;
-      margin-top: 2rem;
-    }
-    
-    footer p {
-      margin: 0.5rem 0;
-    }
-    
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 1rem 0;
-      flex-wrap: wrap;
-    }
-    
-    .footer-links a {
-      color: var(--light-text);
-      text-decoration: none;
-    }
-    
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 
 <body>
   <!-- Accessible skip link -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">דלג לתוכן העיקרי</a>
   
   <header>
-    <h1>In Memoriam</h1>
-    <nav aria-label="Main navigation">
+    <div class="header-top">
+      <h1>זוכרים את ה-7 באוקטובר</h1>
+      <div class="language-selector">
+        <a href="../memorial.html" aria-label="צפייה באנגלית">EN</a>
+        <a href="memorial.html" class="active" aria-label="צפייה בעברית">עב</a>
+      </div>
+    </div>
+    <nav aria-label="ניווט ראשי">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="timeline.html">Timeline</a></li>
-        <li><a href="stories.html">Stories</a></li>
-        <li><a href="memorial.html" aria-current="page">Memorial</a></li>
-        <li><a href="resources.html">Resources</a></li>
+        <li><a href="index.html">דף הבית</a></li>
+        <li><a href="timeline.html">ציר זמן</a></li>
+        <li><a href="stories.html">סיפורים</a></li>
+        <li><a href="memorial.html" aria-current="page">אנדרטה</a></li>
+        <li><a href="resources.html">משאבים</a></li>
       </ul>
     </nav>
   </header>
   
   <div class="container">
+    <nav aria-label="מיקום באתר" class="breadcrumb">
+      <ol>
+        <li><a href="index.html">דף הבית</a></li>
+        <li><a href="memorial.html" aria-current="page">אנדרטה</a></li>
+      </ol>
+    </nav>
     <main id="main-content">
-      <div class="language-selector" aria-label="Select language">
-        <button class="active">English</button>
-        <button>עברית</button>
-      </div>
-      
       <div class="memorial-intro">
-        <h2>Honoring the Fallen</h2>
-        <p>We remember the 1,200 lives lost on October 7th, 2023. Each name represents a unique world—full of dreams, loves, and connections. This memorial honors their memory and ensures their stories continue to be told.</p>
-        <p>Scroll to explore the memorial wall, light a virtual candle, or leave a tribute message. You may search by name or filter by location to find specific individuals.</p>
+        <h2>לזכר הנופלים</h2>
+        <p>אנו זוכרים את 1,200 הנפטרים ב-7 באוקטובר 2023. כל שם מייצג עולם ייחודי—מלא חלומות, אהבות וקשרים. אנדרטה זו מוקדשת לזכרם ומבטיחה שסיפוריהם ימשיכו להיות מסופרים.</p>
+        <p>גללו למטה כדי לחקור את קיר הזיכרון, להדליק נר וירטואלי, או להשאיר הודעת הוקרה. ניתן לחפש לפי שם או לסנן לפי מיקום כדי למצוא אנשים ספציפיים.</p>
       </div>
       
       <div class="memorial-controls">
         <div class="search-container">
-          <input type="text" id="victim-search" placeholder="Search by name" aria-label="Search memorial by name">
-          <button type="button">Search</button>
+          <input type="text" id="victim-search" placeholder="חיפוש לפי שם" aria-label="חיפוש באנדרטה לפי שם">
+          <button type="button">חיפוש</button>
         </div>
         <div class="filter-container">
-          <select aria-label="Filter by location">
-            <option value="">All Locations</option>
-            <option value="beeri">Be'eri</option>
-            <option value="nova">Nova Festival</option>
-            <option value="nirim">Nirim</option>
-            <option value="nahal-oz">Nahal Oz</option>
-            <option value="kfar-aza">Kfar Aza</option>
+          <select aria-label="סינון לפי מיקום">
+            <option value="">כל המיקומים</option>
+            <option value="beeri">בארי</option>
+            <option value="nova">פסטיבל נובה</option>
+            <option value="nirim">נירים</option>
+            <option value="nahal-oz">נחל עוז</option>
+            <option value="kfar-aza">כפר עזה</option>
           </select>
-          <select aria-label="Filter by age">
-            <option value="">All Ages</option>
-            <option value="children">Children (0-18)</option>
-            <option value="young-adults">Young Adults (19-35)</option>
-            <option value="adults">Adults (36-65)</option>
-            <option value="seniors">Seniors (65+)</option>
+          <select aria-label="סינון לפי גיל">
+            <option value="">כל הגילאים</option>
+            <option value="children">ילדים (0-18)</option>
+            <option value="young-adults">צעירים (19-35)</option>
+            <option value="adults">מבוגרים (36-65)</option>
+            <option value="seniors">קשישים (65+)</option>
           </select>
         </div>
       </div>
@@ -548,26 +387,26 @@
       <div class="memorial-grid">
         <!-- Example entry: Avigail Idan -->
         <article class="memorial-card">
-          <div class="location-tag">Kfar Aza</div>
-          <img src="/api/placeholder/300/200" alt="Photo of Avigail Idan">
+          <div class="location-tag">כפר עזה</div>
+          <img src="/api/placeholder/300/200" alt="תמונה של אביגיל עידן">
           <div class="memorial-card-content">
             <div class="victim-info">
-              <h3 class="victim-name">Avigail Idan</h3>
+              <h3 class="victim-name">אביגיל עידן</h3>
               <div class="victim-details">
-                <span>Age: 4</span>
-                <span>From: Kfar Aza</span>
+                <span>גיל: 4</span>
+                <span>מ: כפר עזה</span>
               </div>
-              <p class="victim-bio">Avigail was a bright, cheerful child with a love of painting and dancing. Known for her contagious laughter, she dreamed of becoming a ballerina. Her resilience and joy touched everyone who knew her.</p>
+              <p class="victim-bio">אביגיל הייתה ילדה מאירה ושמחה עם אהבה לציור ולריקוד. ידועה בצחוקה המדבק, היא חלמה להיות בלרינה. החוסן והשמחה שלה נגעו בכל מי שהכיר אותה.</p>
             </div>
             <div class="tribute-buttons">
-              <button class="leave-tribute">Leave a Tribute</button>
+              <button class="leave-tribute">השאר הוקרה</button>
               <button class="light-candle">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 2C8 5 9 9 12 12C15 9 16 5 12 2Z" />
                   <path d="M12 12V21" />
                   <path d="M7 16H17" />
                 </svg>
-                Light Candle
+                הדלק נר
               </button>
             </div>
           </div>
@@ -575,26 +414,26 @@
         
         <!-- Example entry: David Cohen -->
         <article class="memorial-card">
-          <div class="location-tag">Be'eri</div>
-          <img src="/api/placeholder/300/200" alt="Photo of David Cohen">
+          <div class="location-tag">בארי</div>
+          <img src="/api/placeholder/300/200" alt="תמונה של דוד כהן">
           <div class="memorial-card-content">
             <div class="victim-info">
-              <h3 class="victim-name">David Cohen</h3>
+              <h3 class="victim-name">דוד כהן</h3>
               <div class="victim-details">
-                <span>Age: 56</span>
-                <span>From: Be'eri</span>
+                <span>גיל: 56</span>
+                <span>מ: בארי</span>
               </div>
-              <p class="victim-bio">David was a dedicated father of three and a respected agricultural engineer who helped develop Be'eri's farming innovations. His gentle nature and commitment to community made him beloved by all who knew him.</p>
+              <p class="victim-bio">דוד היה אב מסור לשלושה ומהנדס חקלאי מוערך שסייע בפיתוח חידושים חקלאיים בבארי. אופיו העדין ומחויבותו לקהילה הפכו אותו לאהוב על כל מכריו.</p>
             </div>
             <div class="tribute-buttons">
-              <button class="leave-tribute">Leave a Tribute</button>
+              <button class="leave-tribute">השאר הוקרה</button>
               <button class="light-candle">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 2C8 5 9 9 12 12C15 9 16 5 12 2Z" />
                   <path d="M12 12V21" />
                   <path d="M7 16H17" />
                 </svg>
-                Light Candle
+                הדלק נר
               </button>
             </div>
           </div>
@@ -602,26 +441,26 @@
         
         <!-- Example entry: Maya Segal -->
         <article class="memorial-card">
-          <div class="location-tag">Nova Festival</div>
-          <img src="/api/placeholder/300/200" alt="Photo of Maya Segal">
+          <div class="location-tag">פסטיבל נובה</div>
+          <img src="/api/placeholder/300/200" alt="תמונה של מאיה סגל">
           <div class="memorial-card-content">
             <div class="victim-info">
-              <h3 class="victim-name">Maya Segal</h3>
+              <h3 class="victim-name">מאיה סגל</h3>
               <div class="victim-details">
-                <span>Age: 23</span>
-                <span>From: Tel Aviv</span>
+                <span>גיל: 23</span>
+                <span>מ: תל אביב</span>
               </div>
-              <p class="victim-bio">Maya was a dance student with dreams of opening her own studio. She attended the Nova Festival with friends to celebrate music and life. Her choreography was known for its joyful expression and creative spirit.</p>
+              <p class="victim-bio">מאיה הייתה סטודנטית למחול עם חלומות לפתוח סטודיו משלה. היא השתתפה בפסטיבל נובה עם חברים כדי לחגוג מוזיקה וחיים. הכוריאוגרפיה שלה הייתה ידועה בביטוי השמח וברוח היצירתית שלה.</p>
             </div>
             <div class="tribute-buttons">
-              <button class="leave-tribute">Leave a Tribute</button>
+              <button class="leave-tribute">השאר הוקרה</button>
               <button class="light-candle">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 2C8 5 9 9 12 12C15 9 16 5 12 2Z" />
                   <path d="M12 12V21" />
                   <path d="M7 16H17" />
                 </svg>
-                Light Candle
+                הדלק נר
               </button>
             </div>
           </div>
@@ -629,26 +468,26 @@
         
         <!-- More entries would be added here -->
         <article class="memorial-card">
-          <div class="location-tag">Nahal Oz</div>
-          <img src="/api/placeholder/300/200" alt="Photo of Eliezer Feldman">
+          <div class="location-tag">נחל עוז</div>
+          <img src="/api/placeholder/300/200" alt="תמונה של אליעזר פלדמן">
           <div class="memorial-card-content">
             <div class="victim-info">
-              <h3 class="victim-name">Eliezer Feldman</h3>
+              <h3 class="victim-name">אליעזר פלדמן</h3>
               <div class="victim-details">
-                <span>Age: 78</span>
-                <span>From: Nahal Oz</span>
+                <span>גיל: 78</span>
+                <span>מ: נחל עוז</span>
               </div>
-              <p class="victim-bio">A founding member of Kibbutz Nahal Oz, Eliezer was known for his storytelling and dedication to preserving the community's history. He was a Holocaust survivor who dedicated his life to building a peaceful future.</p>
+              <p class="victim-bio">חבר מייסד של קיבוץ נחל עוז, אליעזר היה ידוע בסיפוריו ובמסירותו לשימור ההיסטוריה של הקהילה. הוא היה ניצול שואה שהקדיש את חייו לבניית עתיד של שלום.</p>
             </div>
             <div class="tribute-buttons">
-              <button class="leave-tribute">Leave a Tribute</button>
+              <button class="leave-tribute">השאר הוקרה</button>
               <button class="light-candle">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 2C8 5 9 9 12 12C15 9 16 5 12 2Z" />
                   <path d="M12 12V21" />
                   <path d="M7 16H17" />
                 </svg>
-                Light Candle
+                הדלק נר
               </button>
             </div>
           </div>
@@ -657,66 +496,66 @@
       
       <!-- Virtual Candle Memorial Section -->
       <section class="virtual-memorial" aria-labelledby="virtual-memorial-heading">
-        <h2 id="virtual-memorial-heading">Virtual Candle Memorial</h2>
-        <p>Join others in lighting a candle to honor the memory of those lost. Each flame represents a moment of remembrance.</p>
+        <h2 id="virtual-memorial-heading">אנדרטת נרות וירטואלית</h2>
+        <p>הצטרפו לאחרים בהדלקת נר לכבוד זכרם של אלה שאבדו. כל להבה מייצגת רגע של זיכרון.</p>
         
         <div class="candle-field">
           <!-- Sample candles -->
           <div class="candle">
             <div class="candle-light"></div>
-            <span class="candle-name">Sarah</span>
+            <span class="candle-name">שרה</span>
           </div>
           <div class="candle">
             <div class="candle-light"></div>
-            <span class="candle-name">Michael</span>
+            <span class="candle-name">מיכאל</span>
           </div>
           <div class="candle">
             <div class="candle-light"></div>
-            <span class="candle-name">Rachel</span>
+            <span class="candle-name">רחל</span>
           </div>
           <div class="candle">
             <div class="candle-light"></div>
-            <span class="candle-name">David</span>
+            <span class="candle-name">דוד</span>
           </div>
           <div class="candle">
             <div class="candle-light"></div>
-            <span class="candle-name">Hannah</span>
+            <span class="candle-name">חנה</span>
           </div>
           <div class="candle">
             <div class="candle-light"></div>
-            <span class="candle-name">Noam</span>
+            <span class="candle-name">נועם</span>
           </div>
           <div class="candle">
             <div class="candle-light"></div>
-            <span class="candle-name">Leah</span>
+            <span class="candle-name">לאה</span>
           </div>
           <div class="candle">
             <div class="candle-light"></div>
-            <span class="candle-name">Yossi</span>
+            <span class="candle-name">יוסי</span>
           </div>
           <!-- More candles would be added dynamically -->
         </div>
         
-        <button class="light-your-candle">Light a Candle</button>
+        <button class="light-your-candle">הדלק נר</button>
       </section>
       
       <!-- Memorial Prayer Section -->
       <section class="memorial-prayer" aria-labelledby="prayer-heading">
-        <h2 id="prayer-heading">Memorial Prayers</h2>
+        <h2 id="prayer-heading">תפילות זיכרון</h2>
         
         <div class="prayer-container">
           <div class="prayer">
-            <h3>El Malei Rachamim</h3>
+            <h3>אל מלא רחמים</h3>
             <div class="hebrew-text">
               <p>אֵל מָלֵא רַחֲמִים שׁוֹכֵן בַּמְּרוֹמִים, הַמְצֵא מְנוּחָה נְכוֹנָה תַּחַת כַּנְפֵי הַשְּׁכִינָה, בְּמַעֲלוֹת קְדוֹשִׁים וּטְהוֹרִים כְּזֹהַר הָרָקִיעַ מַזְהִירִים אֶת נִשְׁמוֹת קְדוֹשֵׁינוּ, שֶׁנֶּהֶרְגוּ עַל קִדּוּשׁ הַשֵּׁם בְּיוֹם 7 בְּאוֹקְטוֹבֶּר.</p>
             </div>
-            <p>God, filled with mercy, dwelling in the heavens' heights, bring proper rest beneath the wings of your presence, amid the ranks of the holy and the pure, illuminating like the brilliance of the sky the souls of our martyrs who were killed sanctifying Your name on October 7th.</p>
+            <p>אלוהים מלא רחמים, השוכן במרומים, המצא מנוחה נכונה תחת כנפי השכינה, בין קדושים וטהורים המאירים כזוהר הרקיע, לנשמות הקדושים שלנו, שנהרגו על קידוש השם ב-7 באוקטובר.</p>
           </div>
           
           <div class="prayer">
-            <h3>Prayer for Peace</h3>
-            <p>May the memory of those lost on October 7th inspire us to build a world of greater understanding. May their lives remind us of our shared humanity. May the pain of their absence strengthen our resolve for peace.</p>
-            <p>We honor them not only in our grief, but in our commitment to creating a future where such tragedy need never occur again.</p>
+            <h3>תפילה לשלום</h3>
+            <p>מי יתן וזכרם של אלה שאבדו ב-7 באוקטובר יעורר בנו השראה לבנות עולם של הבנה גדולה יותר. מי יתן וחייהם יזכירו לנו את האנושיות המשותפת שלנו. מי יתן וכאב היעדרם יחזק את נחישותנו לשלום.</p>
+            <p>אנו מכבדים אותם לא רק באבלנו, אלא במחויבותנו ליצור עתיד שבו טרגדיה כזו לעולם לא תתרחש שוב.</p>
           </div>
         </div>
       </section>
@@ -725,14 +564,14 @@
   
   <footer>
     <div class="footer-links">
-      <a href="about.html">About the Initiative</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-      <a href="accessibility.html">Accessibility</a>
+      <a href="about.html">אודות היוזמה</a>
+      <a href="contact.html">צרו קשר</a>
+      <a href="privacy.html">מדיניות פרטיות</a>
+      <a href="terms.html">תנאי שימוש</a>
+      <a href="accessibility.html">נגישות</a>
     </div>
-    <p>© 2025 Remembrance Initiative</p>
-    <p>This digital memorial is maintained with support from families, survivors, and community organizations.</p>
+    <p>© 2025 יוזמת הזיכרון</p>
+    <p>אנדרטה דיגיטלית זו מתוחזקת בתמיכת משפחות, ניצולים וארגונים קהילתיים.</p>
   </footer>
   
   <!-- Basic interactivity - would be expanded in full implementation -->
@@ -747,8 +586,8 @@
         searchButton.addEventListener('click', function() {
           const searchTerm = searchInput.value.toLowerCase();
           // In a real implementation, this would filter the memorial entries
-          console.log('Searching for:', searchTerm);
-          alert('Search functionality would filter the memorial entries for: ' + searchTerm);
+          console.log('מחפש:', searchTerm);
+          alert('פונקציית החיפוש תסנן את פריטי ההנצחה עבור: ' + searchTerm);
         });
       }
       
@@ -757,9 +596,9 @@
       if (lightCandleBtn) {
         lightCandleBtn.addEventListener('click', function() {
           // In a real implementation, this would prompt for a name and add a candle
-          const name = prompt('Enter your name or the name of someone you wish to remember:');
+          const name = prompt('הזן את שמך או את שם האדם שברצונך לזכור:');
           if (name) {
-            alert('Thank you. Your candle has been lit in memory of those lost.');
+            alert('תודה. הנר שלך הודלק לזכר אלה שאבדו.');
           }
         });
       }
