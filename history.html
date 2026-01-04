@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A comprehensive memorial documenting historical tragedies and persecution of the Jewish people throughout history.">
+
+  <meta property="og:title" content="Historical Jewish Tragedies - Never Forget">
+  <meta property="og:description" content="Documenting centuries of persecution, resilience, and remembrance.">
+  <meta property="og:url" content="https://october7memorial.org/history.html">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>Historical Tragedies – Jewish History</title>
+
+  <style>
+    .history-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/500');
+      background-size: cover;
+      background-position: center;
+      color: var(--light-text);
+      padding: 5rem 2rem;
+      text-align: center;
+      margin-bottom: var(--space-xl);
+      border-radius: var(--border-radius);
+    }
+
+    .history-hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-md);
+      color: var(--light-text);
+      border-bottom: none;
+    }
+
+    .history-hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto var(--space-lg);
+      line-height: 1.8;
+    }
+
+    .timeline-visual {
+      background-color: var(--subtle-bg);
+      padding: var(--space-xl) var(--space-lg);
+      margin: var(--space-xl) 0;
+      border-radius: var(--border-radius);
+      overflow-x: auto;
+    }
+
+    .timeline-visual h3 {
+      text-align: center;
+      margin-bottom: var(--space-lg);
+      color: var(--primary-color);
+    }
+
+    .timeline-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      min-width: 900px;
+      padding: var(--space-lg) 0;
+      position: relative;
+    }
+
+    .timeline-bar::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: var(--primary-color);
+      z-index: 0;
+    }
+
+    .timeline-point {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-dot {
+      width: 20px;
+      height: 20px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      margin: 0 auto var(--space-sm);
+      border: 4px solid white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-dot:hover {
+      transform: scale(1.3);
+      background-color: var(--accent-color);
+    }
+
+    .timeline-label {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-xl) 0;
+    }
+
+    .event-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+
+    .event-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background-color: var(--subtle-bg);
+    }
+
+    .event-content {
+      padding: var(--space-lg);
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-period {
+      color: var(--accent-color);
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .event-title {
+      color: var(--primary-color);
+      margin-bottom: var(--space-sm);
+      font-size: 1.5rem;
+    }
+
+    .event-description {
+      margin-bottom: var(--space-md);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .event-stats {
+      display: flex;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+      padding: var(--space-sm) 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .event-stat {
+      flex: 1;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .learn-more-btn {
+      display: inline-block;
+      padding: var(--space-sm) var(--space-lg);
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      text-align: center;
+      transition: background-color var(--transition-fast);
+      font-weight: 500;
+    }
+
+    .learn-more-btn:hover {
+      background-color: var(--link-hover);
+      text-decoration: none;
+    }
+
+    .intro-section {
+      max-width: 900px;
+      margin: 0 auto var(--space-xl);
+      padding: var(--space-lg);
+      background-color: var(--subtle-bg);
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .intro-section h3 {
+      color: var(--primary-color);
+      margin-bottom: var(--space-md);
+    }
+
+    .intro-section p {
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+
+    .quote-section {
+      text-align: center;
+      padding: var(--space-xl) var(--space-lg);
+      background-color: var(--primary-color);
+      color: white;
+      margin: var(--space-xl) 0;
+      border-radius: var(--border-radius);
+    }
+
+    .quote-section blockquote {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    .quote-section cite {
+      display: block;
+      margin-top: var(--space-md);
+      font-size: 1rem;
+      font-style: normal;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <div class="header-top">
+      <h1>Historical Jewish Tragedies</h1>
+      <div class="language-selector">
+        <a href="history.html" class="active" aria-label="View in English">EN</a>
+        <a href="he/history.html" aria-label="View in Hebrew">עב</a>
+      </div>
+    </div>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">October 7th</a></li>
+        <li><a href="history.html" aria-current="page">Historical Tragedies</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li><a href="memorial.html">Memorial</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="history.html" aria-current="page">Historical Tragedies</a></li>
+      </ol>
+    </nav>
+
+    <main id="main-content">
+      <div class="history-hero">
+        <h2>Never Forget: A History of Persecution and Resilience</h2>
+        <p>For thousands of years, the Jewish people have endured persecution, expulsion, and genocide. Yet through unimaginable suffering, the community has survived, preserved its identity, and contributed immeasurably to human civilization. This memorial honors those who perished and celebrates the enduring spirit of a people who refused to be erased.</p>
+      </div>
+
+      <div class="intro-section">
+        <h3>Why We Remember</h3>
+        <p>The Jewish people have faced continuous persecution throughout history—from ancient times through the modern era. These tragedies are not merely historical facts; they represent millions of individual lives cut short, families destroyed, and communities obliterated.</p>
+        <p>By documenting and remembering these events, we honor the victims, educate future generations, and reaffirm our commitment to preventing such atrocities from ever happening again. Each tragedy teaches us about the dangers of hatred, the importance of vigilance, and the resilience of the human spirit.</p>
+        <p>The pages that follow document some of the most significant persecutions in Jewish history. While this is not exhaustive, it represents the major tragedies that shaped Jewish existence and left indelible marks on world history.</p>
+      </div>
+
+      <section class="quote-section">
+        <blockquote>
+          "For the dead and the living, we must bear witness."
+          <cite>— Elie Wiesel, Holocaust survivor and Nobel laureate</cite>
+        </blockquote>
+      </section>
+
+      <h2 class="section-heading">Major Historical Tragedies</h2>
+
+      <div class="event-grid">
+        <!-- The Crusades -->
+        <article class="event-card">
+          <img src="/api/placeholder/400/200" alt="Medieval illustration of the Crusades" class="event-image">
+          <div class="event-content">
+            <div class="event-period">1096 - 1291 CE</div>
+            <h3 class="event-title">The Crusades</h3>
+            <p class="event-description">
+              The First Crusade marked the beginning of widespread massacres of Jewish communities in Europe. As crusading armies marched toward Jerusalem, they systematically attacked Jewish communities along the Rhine and throughout Europe, viewing them as enemies of Christianity. Thousands were killed in what became known as the first major wave of medieval anti-Jewish violence.
+            </p>
+            <div class="event-stats">
+              <div class="event-stat">
+                <div class="stat-value">10,000+</div>
+                <div class="stat-label">Estimated Deaths</div>
+              </div>
+              <div class="event-stat">
+                <div class="stat-value">200+</div>
+                <div class="stat-label">Years of Violence</div>
+              </div>
+            </div>
+            <a href="crusades.html" class="learn-more-btn">Learn More</a>
+          </div>
+        </article>
+
+        <!-- The Expulsion from Spain -->
+        <article class="event-card">
+          <img src="/api/placeholder/400/200" alt="Jews being expelled from Spain in 1492" class="event-image">
+          <div class="event-content">
+            <div class="event-period">1492 CE</div>
+            <h3 class="event-title">Expulsion from Spain</h3>
+            <p class="event-description">
+              On March 31, 1492, the Catholic Monarchs Ferdinand and Isabella issued the Alhambra Decree, ordering all Jews to leave Spain within four months. An estimated 200,000-300,000 Jews were forced to abandon their homes, property, and heritage. Many died during the journey, while others converted to Christianity under duress. This marked the end of what had been one of the most prosperous Jewish communities in history.
+            </p>
+            <div class="event-stats">
+              <div class="event-stat">
+                <div class="stat-value">200,000+</div>
+                <div class="stat-label">Expelled</div>
+              </div>
+              <div class="event-stat">
+                <div class="stat-value">1,500</div>
+                <div class="stat-label">Years of Settlement</div>
+              </div>
+            </div>
+            <a href="spain-expulsion.html" class="learn-more-btn">Learn More</a>
+          </div>
+        </article>
+
+        <!-- The Spanish Inquisition -->
+        <article class="event-card">
+          <img src="/api/placeholder/400/200" alt="Spanish Inquisition tribunal" class="event-image">
+          <div class="event-content">
+            <div class="event-period">1478 - 1834 CE</div>
+            <h3 class="event-title">The Spanish Inquisition</h3>
+            <p class="event-description">
+              Established by Catholic Monarchs Ferdinand and Isabella, the Spanish Inquisition sought to maintain Catholic orthodoxy by persecuting conversos (Jews who had converted to Christianity) suspected of secretly practicing Judaism. Thousands were tortured, tried, and executed in elaborate public ceremonies called autos-da-fé. The Inquisition created an atmosphere of terror that lasted over 350 years.
+            </p>
+            <div class="event-stats">
+              <div class="event-stat">
+                <div class="stat-value">32,000+</div>
+                <div class="stat-label">Executed</div>
+              </div>
+              <div class="event-stat">
+                <div class="stat-value">356</div>
+                <div class="stat-label">Years Active</div>
+              </div>
+            </div>
+            <a href="inquisition.html" class="learn-more-btn">Learn More</a>
+          </div>
+        </article>
+
+        <!-- The Pogroms -->
+        <article class="event-card">
+          <img src="/api/placeholder/400/200" alt="Aftermath of a pogrom in Eastern Europe" class="event-image">
+          <div class="event-content">
+            <div class="event-period">1821 - 1921 CE</div>
+            <h3 class="event-title">The Pogroms</h3>
+            <p class="event-description">
+              Throughout the 19th and early 20th centuries, violent mob attacks against Jewish communities swept through Eastern Europe, particularly in the Russian Empire. These organized massacres, known as pogroms, resulted in thousands of deaths, mass destruction of property, and waves of Jewish emigration. The violence was often encouraged or ignored by government authorities, leaving Jewish communities defenseless.
+            </p>
+            <div class="event-stats">
+              <div class="event-stat">
+                <div class="stat-value">100,000+</div>
+                <div class="stat-label">Deaths</div>
+              </div>
+              <div class="event-stat">
+                <div class="stat-value">2 Million+</div>
+                <div class="stat-label">Fled</div>
+              </div>
+            </div>
+            <a href="pogroms.html" class="learn-more-btn">Learn More</a>
+          </div>
+        </article>
+
+        <!-- The Holocaust -->
+        <article class="event-card">
+          <img src="/api/placeholder/400/200" alt="Holocaust memorial" class="event-image">
+          <div class="event-content">
+            <div class="event-period">1933 - 1945 CE</div>
+            <h3 class="event-title">The Holocaust</h3>
+            <p class="event-description">
+              The systematic, state-sponsored persecution and murder of six million Jews by Nazi Germany and its collaborators represents the darkest chapter in human history. Through concentration camps, death camps, mass shootings, and starvation, the Nazis attempted to annihilate European Jewry. The Holocaust destroyed centuries-old communities and left an indelible scar on humanity, forever changing how we understand genocide and human rights.
+            </p>
+            <div class="event-stats">
+              <div class="event-stat">
+                <div class="stat-value">6 Million</div>
+                <div class="stat-label">Jews Murdered</div>
+              </div>
+              <div class="event-stat">
+                <div class="stat-value">2/3</div>
+                <div class="stat-label">of European Jews</div>
+              </div>
+            </div>
+            <a href="holocaust.html" class="learn-more-btn">Learn More</a>
+          </div>
+        </article>
+
+        <!-- October 7th -->
+        <article class="event-card">
+          <img src="/api/placeholder/400/200" alt="October 7th memorial" class="event-image">
+          <div class="event-content">
+            <div class="event-period">October 7, 2023</div>
+            <h3 class="event-title">October 7th Attacks</h3>
+            <p class="event-description">
+              On October 7, 2023, Hamas militants launched a devastating surprise attack on southern Israel, killing 1,200 people and abducting 251 hostages. The attacks targeted civilians in their homes, at a music festival, and in kibbutzim near the Gaza border. This marked the deadliest day for Jews since the Holocaust and sparked a conflict that lasted over two years.
+            </p>
+            <div class="event-stats">
+              <div class="event-stat">
+                <div class="stat-value">1,200</div>
+                <div class="stat-label">Killed</div>
+              </div>
+              <div class="event-stat">
+                <div class="stat-value">251</div>
+                <div class="stat-label">Taken Hostage</div>
+              </div>
+            </div>
+            <a href="index.html" class="learn-more-btn">Learn More</a>
+          </div>
+        </article>
+      </div>
+
+      <section class="content-section fade-in">
+        <h2 class="section-heading">Themes Across History</h2>
+        <div class="two-column">
+          <div>
+            <h3>Patterns of Persecution</h3>
+            <p>Throughout history, Jewish persecution has followed recurring patterns: scapegoating during times of crisis, religious intolerance, economic jealousy, and political manipulation. Understanding these patterns helps us recognize and combat antisemitism in its modern forms.</p>
+
+            <h3>Resilience and Survival</h3>
+            <p>Despite centuries of persecution, the Jewish people have maintained their identity, traditions, and contributions to civilization. This resilience in the face of repeated attempts at annihilation stands as a testament to the strength of community, faith, and the human will to survive.</p>
+          </div>
+          <div>
+            <h3>The Importance of Memory</h3>
+            <p>The Jewish tradition places great emphasis on remembrance—"Zachor" (Remember). By preserving the memory of these tragedies, we honor the victims, educate new generations, and commit ourselves to preventing future atrocities.</p>
+
+            <h3>Never Again</h3>
+            <p>The phrase "Never Again," born from the Holocaust, represents a universal commitment to prevent genocide and mass atrocities. It reminds us that remembrance must translate into action, vigilance, and a willingness to stand against hatred in all its forms.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote-section">
+        <blockquote>
+          "Those who cannot remember the past are condemned to repeat it."
+          <cite>— George Santayana</cite>
+        </blockquote>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="about.html">About the Initiative</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="accessibility.html">Accessibility</a>
+    </div>
+    <p>© 2025 Remembrance Initiative</p>
+    <p>This memorial website is maintained with support from families, survivors, and community organizations.</p>
+  </footer>
+</body>
+</html>
